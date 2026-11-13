@@ -2,7 +2,7 @@
 import argparse, importlib, json, os, signal, subprocess, sys, unittest
 from pathlib import Path
 from . import common
-MODULES={'gemm':'regression_v7.modules_gemm','predicates':'regression_v7.modules_predicates','gdn':'regression_v7.modules_gdn'}
+MODULES={'gemm':'regression_v7.modules_gemm','predicates':'regression_v7.modules_predicates','gdn':'regression_v7.modules_gdn','norm_conv':'regression_v7.modules_norm_conv','attention_kv':'regression_v7.modules_attention_kv','gdn_prefill':'regression_v7.modules_gdn_prefill','sampling_runtime':'regression_v7.modules_sampling_runtime'}
 
 HISTORICAL_SOURCE_ONLY_TEST='whole_lean_extensions_runtime_v7.test_cpu.ExplicitRootTests.test_launcher_explicit_root_and_source_only'
 HISTORICAL_SKIP_REASON='Pre-execution packaging-only cache-absence assertion is obsolete after preserved historical v7 runs; explicit-root AST checks are ported to regression_v7.test_runner. No cache is deleted or mocked.'

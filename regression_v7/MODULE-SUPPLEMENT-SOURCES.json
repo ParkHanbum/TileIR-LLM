@@ -1,0 +1,70 @@
+{
+  "previous_tested_head": "6e67c8e59b290f6d72a61f60ef78421076bd6614",
+  "numeric_implementation_changed": false,
+  "records": [
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/norm-conv/modules_norm_conv.py",
+      "source_sha256": "8ccee12beaf1ff8104401bc37a98ee7bdce2e0f7f068d887d1a3f395936274e0",
+      "destination": "regression_v7/modules_norm_conv.py",
+      "integrated_sha256": "8ccee12beaf1ff8104401bc37a98ee7bdce2e0f7f068d887d1a3f395936274e0",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/norm-conv/test_norm_conv.py",
+      "source_sha256": "1822e5d5cc9e27cec0e3c9819b1dbfbdef1febe08c79234b5d1b4c59a1b37700",
+      "destination": "regression_v7/test_norm_conv.py",
+      "integrated_sha256": "1822e5d5cc9e27cec0e3c9819b1dbfbdef1febe08c79234b5d1b4c59a1b37700",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/attention-kv/modules_attention_kv.py",
+      "source_sha256": "7f5e9cfc164c62380978c8593aae2d2cc2c134f87efbe1233a167598014582a6",
+      "destination": "regression_v7/modules_attention_kv.py",
+      "integrated_sha256": "14089ff213ed23a98a1d3bf36775e0347ddf8f632f048b73743534349188319c",
+      "integration_only_edits": [
+        "qualify CPU test module"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/attention-kv/test_attention_kv.py",
+      "source_sha256": "f4dc305307d90e1332430a937bfb95dbf9110142b05a5015b0c09daa547dbb86",
+      "destination": "regression_v7/test_attention_kv.py",
+      "integrated_sha256": "7d38db4a39bb9e29889ed8859375463dd0700912e32531052597a285448bb09f",
+      "integration_only_edits": [
+        "package-relative test import"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/gdn-prefill-v2/modules_gdn_prefill.py",
+      "source_sha256": "469c6ba5f8a007f88275f028e5bed9f89c6a9a4035798f49d240ebb77043f35f",
+      "destination": "regression_v7/modules_gdn_prefill.py",
+      "integrated_sha256": "469c6ba5f8a007f88275f028e5bed9f89c6a9a4035798f49d240ebb77043f35f",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/gdn-prefill-v2/test_gdn_prefill.py",
+      "source_sha256": "39d26279cbfdc963f7ef7ba2d6078fd25dc501406c85f5ba241eaef1b499dccd",
+      "destination": "regression_v7/test_gdn_prefill.py",
+      "integrated_sha256": "39d26279cbfdc963f7ef7ba2d6078fd25dc501406c85f5ba241eaef1b499dccd",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/sampling-runtime/modules_sampling_runtime.py",
+      "source_sha256": "ab9ae7eccb854f6450a8a7b20fb67dde53d549942cb2214d96f7cc1064712edb",
+      "destination": "regression_v7/modules_sampling_runtime.py",
+      "integrated_sha256": "e3faf4e06ba8c2e02c5d684665306b2aa54e9579ca92830207d21aa5765b4a14",
+      "integration_only_edits": [
+        "include own CPU test suite"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/sampling-runtime/test_sampling_runtime.py",
+      "source_sha256": "0dcb395303a750bac1e417c44d94e4035d09fc66762cd063e5f9b645dfc3b243",
+      "destination": "regression_v7/test_sampling_runtime.py",
+      "integrated_sha256": "a4b0e1c814ce84bacf38bf0fc007edfdcdf8f61baaebee9e21b203372fc2dfad",
+      "integration_only_edits": [
+        "package-relative test import"
+      ]
+    }
+  ]
+}
