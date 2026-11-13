@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "commit": "0b9611661ef216c35fb9f4c5da92662e5930dcbb",
+    "tag": "v7-own-kernel-fixed-workload-20261113",
+    "implementation": "original whole_lean_extensions_runtime_v7 only",
+    "excluded_variants": [
+      "G",
+      "H",
+      "O",
+      "S",
+      "M",
+      "BN64",
+      "parallel split-K",
+      "reduce32"
+    ]
+  },
+  "execution_policy": {
+    "catalog_only": true,
+    "auto_gpu": false,
+    "fresh_all_module_pass": false,
+    "cpu_command_template": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "{module}"
+    ],
+    "cpu_environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "gpu_requires": "explicit coordinator-run bounded process, common lock, artifact root outside Git, exact source/data admission and independent exit/recovery receipt"
+  },
+  "historical_mapping": {
+    "requests": 3,
+    "compute_kernel_launches_each": 13300,
+    "unique_full_symbols": 168,
+    "unique_kernel_source_files": 58,
+    "identical_symbol_and_source_sets": true,
+    "evidence": [
+      {
+        "path": "whole_v7_public_blas_logger_v4_process0/final_analysis_01/KERNEL-ATTRIBUTION.json",
+        "sha256": "82b4437e9a2a88089730999c0362690952ef014adefb3389ad2f05a481991a87",
+        "storage": "external historical artifact; not necessarily Git tracked"
+      },
+      {
+        "path": "whole_v7_public_blas_logger_v4_process1/final_analysis_01/KERNEL-ATTRIBUTION.json",
+        "sha256": "048e2c044366733b5e5df9597d91acf317b4f160d09c2d9086ca90e8be77dacc",
+        "storage": "external historical artifact; not necessarily Git tracked"
+      },
+      {
+        "path": "whole_v7_public_blas_logger_v4_process2/final_analysis_01/KERNEL-ATTRIBUTION.json",
+        "sha256": "4c5bddb57dd171a74c63cbda5898cb99c918693a6fa335eedb121564b4bb1178",
+        "storage": "external historical artifact; not necessarily Git tracked"
+      }
+    ],
+    "limits": [
+      "ELF/full-symbol/source association, not loaded-module SHA identity",
+      "Compute-kernel denominator excludes transfers, memset, CPU work and synchronization",
+      "Historical own-kernel 100% is not general API coverage or performance equivalence"
+    ]
+  },
+  "families": [
+    {
+      "id": "gemm",
+      "label": "Packed and unpacked projection GEMM",
+      "actual_kernel_sources": [
+        "packed_k128_partial_v1/kernels.py",
+        "tileirblas_blocked/kernels.py",
+        "tileirblas_decode/kernels.py",
+        "tileirblas_prefill/kernels.py"
+      ],
+      "unique_full_symbols": 11,
+      "launches_per_historical_request": 2448,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "packed_k128_partial_v1.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": "regression_v7.modules_gemm.run_gpu"
+    },
+    {
+      "id": "gdn",
+      "label": "Gated delta network prefill/decode and state",
+      "actual_kernel_sources": [
+        "tileir_gdn_chunk_cumsum_v1/kernels.py",
+        "tileir_gdn_chunk_kkt_v5/kernels.py",
+        "tileir_gdn_chunk_output_v2/kernels.py",
+        "tileir_gdn_chunk_state_v1/kernels.py",
+        "tileir_gdn_decode_core_v4/kernels.py",
+        "tileir_gdn_owned_copies_v1/kernels.py",
+        "tileir_gdn_parent_state_v2/kernels.py",
+        "tileir_gdn_solve_tril_v6/kernels.py",
+        "tileir_gdn_wy_v1/kernels.py",
+        "tileir_prepare_prefill_inputs_v1/kernel.py"
+      ],
+      "unique_full_symbols": 13,
+      "launches_per_historical_request": 1753,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "gdn_decode_core_qualification_v4.test_cpu",
+        "gdn_prefill_output_copy_lean_v2.test_lifetime"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": "regression_v7.modules_gdn.run_gpu"
+    },
+    {
+      "id": "convolution_and_state_update",
+      "label": "Causal convolution and post-update state",
+      "actual_kernel_sources": [
+        "tileir_indexed_decode_conv_v1/kernels.py",
+        "tileir_indexed_prefill_conv_v1/kernels.py",
+        "tileir_vllm_post_conv_v2/kernels.py",
+        "tileir_vllm_post_update_v3/kernels.py"
+      ],
+      "unique_full_symbols": 5,
+      "launches_per_historical_request": 448,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "tileir_indexed_prefill_conv_v1.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": null
+    },
+    {
+      "id": "attention_kv",
+      "label": "Attention and KV cache",
+      "actual_kernel_sources": [
+        "tileir_kv_strided_finite_v1/kernels.py",
+        "tileir_paged_attention_v10/kernels.py",
+        "tileir_paged_attention_v9/kernels.py",
+        "tileir_vllm_attention_gate_v1/kernels.py",
+        "tileir_vllm_kv_scatter_v1/kernels.py"
+      ],
+      "unique_full_symbols": 6,
+      "launches_per_historical_request": 512,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": null
+    },
+    {
+      "id": "norm_position_activation_embedding",
+      "label": "Normalization, RoPE, activation, embeddings",
+      "actual_kernel_sources": [
+        "residual_rope_combine_bias_port_v4/kernels.py",
+        "tileir_embedding_rope_v1/kernels.py",
+        "tileir_vllm_embedding_int64_v1/kernel.py",
+        "tileir_vllm_gated_norm_ordered_v1/kernels.py",
+        "tileir_vllm_gemma_norm_v3/kernels.py",
+        "tileir_vllm_qk_rope_v1/kernels.py",
+        "tileir_vllm_silu_mul_v2/kernels.py"
+      ],
+      "unique_full_symbols": 14,
+      "launches_per_historical_request": 4240,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "tileir_vllm_gemma_norm_v3.test_cpu",
+        "tileir_vllm_qk_rope_v1.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": null
+    },
+    {
+      "id": "sampling",
+      "label": "Sampling and public logprob outputs",
+      "actual_kernel_sources": [
+        "public_sampling_guard_v1/kernel.py",
+        "public_temperature_zero_v1/kernel.py",
+        "tileir_vllm_greedy_sample_v1/kernels.py",
+        "tileir_vllm_sample_counts_v1/kernels.py",
+        "tileir_vllm_sampler_cat_v1/kernel.py",
+        "tileir_vllm_sampler_fp32_copy_v1/kernels.py",
+        "tileir_vllm_sampler_integer_v1/kernels.py",
+        "tileir_vllm_selected_logprobs_v2/kernels.py",
+        "tileir_vllm_selected_ranks_v1/kernels.py",
+        "tileir_vllm_top5_v2/kernels.py"
+      ],
+      "unique_full_symbols": 25,
+      "launches_per_historical_request": 400,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "tileir_vllm_top5_v2.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": null
+    },
+    {
+      "id": "predicates_and_ownership",
+      "label": "Finite/range/equality and ownership guards",
+      "actual_kernel_sources": [
+        "ownership_table_pair_equal_v1/kernel.py",
+        "public_eq_all_guard_v2/kernel.py",
+        "public_i64_range_guard_v1/kernel.py",
+        "public_post_update_guard_v1/kernel.py",
+        "tileir_validation_primitives_v2/kernels.py",
+        "tileir_validation_primitives_v3/kernels.py"
+      ],
+      "unique_full_symbols": 43,
+      "launches_per_historical_request": 2964,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "ownership_table_pair_equal_v1.test_cpu",
+        "gdn_integer_finite_typed_v1.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": "regression_v7.modules_predicates.run_gpu"
+    },
+    {
+      "id": "runner_metadata_transport",
+      "label": "Runner metadata, typed copies and initialization",
+      "actual_kernel_sources": [
+        "batch_ptr_int_cast_v1/kernel.py",
+        "runner_scalar32_qualification_v3/kernel.py",
+        "runtime_metadata_five_v1/kernel.py",
+        "tileir_staged_typed_v2/kernels.py",
+        "tileir_vllm_block_gather_v1/kernels.py",
+        "tileir_vllm_bool_not_v1/kernel.py",
+        "tileir_vllm_mamba_accepted_scatter_v1/kernel.py",
+        "tileir_vllm_pos_seq_v1/kernels.py",
+        "tileir_vllm_runner_bool_fill_v1/kernel.py",
+        "tileir_vllm_runner_constructors_v1/kernel.py",
+        "tileir_vllm_slot_mapping_v1/kernels.py",
+        "zero_kv_phase2_typed_plan_v1/kernel.py"
+      ],
+      "unique_full_symbols": 51,
+      "launches_per_historical_request": 535,
+      "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
+      "existing_cpu_modules": [
+        "runtime_metadata_five_v1.test_cpu"
+      ],
+      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
+      "fresh_regression": "pending",
+      "fresh_gpu_entry": null
+    }
+  ],
+  "fresh_modules": [
+    {
+      "id": "gemm",
+      "module": "regression_v7.modules_gemm",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "tileirblas_once_occ2.tests.test_contract",
+        "tileirblas_once_occ2.tests.test_hint",
+        "tileirblas_blocked.tests.test_contract",
+        "tileirblas_blocked.tests.test_block_mapping",
+        "packed_k128_partial_v1.test_cpu",
+        "packed_k128_qualification_v1.test_cpu",
+        "regression_v7.test_gemm"
+      ],
+      "scope": "3 saved matrices: layer1 ba decode, qkvz decode, gate/up prefill; not all 13 contracts or all 2448 calls",
+      "fresh_status": "pending execution receipt",
+      "auto_gpu": false
+    },
+    {
+      "id": "gdn",
+      "module": "regression_v7.modules_gdn",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "gdn_decode_core_qualification_v4.test_cpu",
+        "gdn_prefill_output_copy_lean_v2.test_cpu",
+        "gdn_prefill_output_copy_lean_v2.test_lifetime",
+        "regression_v7.test_gdn"
+      ],
+      "scope": "2 saved actual banks, native and original decode-v4; compact 33-slot remap, not full original backing or GDN prefill",
+      "fresh_status": "pending execution receipt",
+      "auto_gpu": false
+    },
+    {
+      "id": "predicates",
+      "module": "regression_v7.modules_predicates",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "public_eq_all_guard_v2.test_cpu",
+        "public_eq_all_guard_v2.test_bits",
+        "tileir_validation_primitives_v2.test_cpu",
+        "regression_v7.test_predicates"
+      ],
+      "scope": "20 private finite/equality cases; not all predicate APIs or all workload inputs",
+      "fresh_status": "pending execution receipt",
+      "auto_gpu": false
+    },
+    {
+      "id": "whole",
+      "module": null,
+      "scope": "planned original-v7 fixed-workload endpoint, dispatch, cleanup and fresh trace audit; no optimized variants",
+      "fresh_status": "pending runner and execution receipt",
+      "auto_gpu": false
+    }
+  ],
+  "historical_proofs": [
+    {
+      "path": "whole_lean_extensions_runtime_v7/final_proof_01/FINAL.json",
+      "sha256": "eb9fe567de2e3c26721a93036c507509ae400477a3b1a66cb4abbb71aed53201",
+      "storage": "external historical artifact; not necessarily Git tracked"
+    },
+    {
+      "path": "whole_v7_public_blas_logger_v4/final_logger_audit_01/FINAL.json",
+      "sha256": "a56c80f36e567a7d20018e7be1cd662f76d5d8d5d4cf3a5551e2a4f2a2ad70b1",
+      "storage": "external historical artifact; not necessarily Git tracked"
+    },
+    {
+      "path": "three_process_own_call_audit_link_v1/LINK.json",
+      "sha256": "00a791040f72ab420d3b657dad5873467e0fd0c3f12d06f20f4f2e6a84ce7ba9",
+      "storage": "external historical artifact; not necessarily Git tracked"
+    },
+    {
+      "path": "all_gemm_runtime_integration_v1/FINAL-COVERAGE.json",
+      "sha256": "ba94993628796ca02f2a7adf0c7ed5dd4d3adec3070fc780b9aac75a95d35263",
+      "storage": "external historical artifact; not necessarily Git tracked"
+    }
+  ],
+  "non_kernel_contracts": [
+    "integer finite typed constant-True path retains current-stream synchronization; no compute kernel",
+    "same-dtype host/device transports and owner retirement remain runtime operations",
+    "CPU scope checks, exception latch, reverse binding restoration and temporary lifetime are separate obligations"
+  ],
+  "scope_limits": {
+    "abi": "functional Python adapters, not drop-in cuBLAS ABI or general vLLM backend",
+    "workload": "Qwen3.5-4B BF16 B32/P53/G16 fixed repeated prompt; eager baseline, not CUDA-graph/optimized vLLM parity",
+    "raw": "historical per-call raw proofs and whole-model public endpoint checks have distinct scopes; fresh modules test only listed fixtures",
+    "external_data": "checkpoint/model revision, saved tensors, native libraries, original runtime, caches and historical receipts remain external hash-bound prerequisites",
+    "performance": "no fresh performance result; historical own-kernel coverage does not imply speed parity"
+  }
+}
