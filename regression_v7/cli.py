@@ -107,7 +107,7 @@ def main(argv=None):
                 suite=cpu_suite(a.cpu_module)
                 assert unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
             else:
-                tests=['regression_v7.test_recovery','regression_v7.test_runner','whole_lean_extensions_runtime_v7.test_cpu','whole_lean_extensions_runtime_v7.test_failure_cpu','whole_v7_public_blas_logger_v4.test_cpu','whole_lean_profile_prepare_v4.test_runner']
+                tests=['regression_v7.test_recovery','regression_v7.test_runner','regression_v7.test_lazy_imports','whole_lean_extensions_runtime_v7.test_cpu','whole_lean_extensions_runtime_v7.test_failure_cpu','whole_v7_public_blas_logger_v4.test_cpu','whole_lean_profile_prepare_v4.test_runner']
                 for module in MODULES.values():tests.extend(importlib.import_module(module).cpu_tests())
                 for name in dict.fromkeys(tests):
                     subprocess.run([common.PYTHON,'-B','-m','regression_v7.cli','--head',a.head,'--cpu','--cpu-module',name],cwd=common.REPO,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES=''),check=True,timeout=180)

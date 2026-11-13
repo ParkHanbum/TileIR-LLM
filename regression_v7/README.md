@@ -114,3 +114,21 @@ The CPU regression executes the actual v7 `Extension.install_post_guard` through
 import and exec guards active and framework imports prohibited. Seven negative
 provenance cases are rejected. This is construction/lifetime proof, not a GPU
 or endpoint PASS; a new exact-HEAD whole replay remains required.
+
+## Preserved lazy GEMM facade dependencies
+
+A subsequent whole replay reached lean execution, then failed before completing
+the first request because the tracked-only policy found the original
+`tileirblas_decode.api -> tileirblas_tuned` dependency outside the initial source
+allowlist. Both original tuned facade files are added unchanged in a supplemental
+test-support commit. Their SHA256 values match the historical decode baseline:
+
+- `tileirblas_tuned/__init__.py`: `e64a72719397c5d28d686e0ac1d3ca8237c525b48535742e516a6a8718832914`
+- `tileirblas_tuned/api.py`: `e333e39e9d1f1650dfc82911d31e13fc91fe808895b29b9128f780822a8087ab`
+
+No numeric source or dispatch behavior is edited, and the immutable baseline
+tag is not moved. The failed run and its independent recovery remain preserved.
+`test_lazy_imports` statically checks all four literal kernel-module targets,
+parent package initializers and their 15-file local import closure against HEAD,
+including an intentional missing-initializer negative. This is not a proof of
+arbitrary computed dynamic imports; the actual execution guard remains active.
