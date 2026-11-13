@@ -75,3 +75,18 @@ Final analysis also compares the 172 own CUBIN SHA set to the pinned three-proce
 internal-call audit. Exact equality reuses its 65 local-call-site proof. Any new
 or missing artifact is saved as pending and fails baseline final PASS; no new
 SASS dumping or vendor binary analysis occurs.
+
+## One historical test-phase exception
+
+The preserved original test
+`whole_lean_extensions_runtime_v7.test_cpu.ExplicitRootTests.test_launcher_explicit_root_and_source_only`
+is reported as **SKIP**, exactly one ID, by the regression loader. Its final two
+assertions required no historical cache or preseed receipt before the original
+experiment. Those artifacts now legitimately exist and are preserved. Its useful
+`audit(result, root=R)` AST assertions execute in
+`regression_v7.test_runner.Gates.test_original_launcher_explicit_root_port`.
+No `Path.exists` is mocked, no old cache is deleted, and no other test is skipped.
+The legacy v2 circular-result negative fixture is separately tracked as test
+input; it is not a production adapter. The first failed exact-HEAD CPU run is
+preserved. No GPU qualification is allowed before the corrected full CPU catalog
+passes at its new committed HEAD.

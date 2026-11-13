@@ -73,6 +73,22 @@ class Gates(unittest.TestCase):
             with self.assertRaises(ValueError):cli.module_worker(Path(d),Path(d)/'out','gemm')
             result=json.loads((Path(d)/'out/RESULT.json').read_text())
             self.assertFalse(result['complete']);self.assertTrue(result['final_sync_succeeded']);self.assertEqual(calls,['sync'])
+    def test_original_launcher_explicit_root_port(self):
+        source=common.REPO/'whole_lean_extensions_runtime_v7/launch.py'
+        tree=ast.parse(source.read_text())
+        calls=[n for n in ast.walk(tree) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='audit']
+        self.assertEqual(len(calls),1)
+        self.assertEqual(calls[0].keywords[0].arg,'root')
+        self.assertEqual(ast.dump(calls[0].keywords[0].value),"Name(id='R', ctx=Load())")
+    def test_only_exact_historical_test_skipped(self):
+        from . import cli
+        suite=cli.cpu_suite(cli.HISTORICAL_SOURCE_ONLY_TEST)
+        result=unittest.TestResult();suite.run(result)
+        self.assertEqual(result.testsRun,1);self.assertEqual(len(result.skipped),1)
+        self.assertEqual(result.skipped[0][0].id(),cli.HISTORICAL_SOURCE_ONLY_TEST)
+        self.assertIn('preserved historical',result.skipped[0][1])
+        with patch.object(cli.unittest.defaultTestLoader,'loadTestsFromName',return_value=unittest.TestSuite()):
+            with self.assertRaises(AssertionError):cli.cpu_suite('whole_lean_extensions_runtime_v7.test_cpu')
     def test_nonwhole_result_rejected(self):
         from .cli import module_audit
         self.assertFalse(module_audit({'complete':True})['passed'])
