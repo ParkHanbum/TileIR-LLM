@@ -1,10 +1,16 @@
-# Design: a fixed-workload TileIR library
+# Design: TileIR runtime research and its GEMM library
 
 ## Purpose and boundary
 
-This project investigates how much of a real inference workload can be expressed
-with our own TileIR kernels while preserving its observable behavior. The target
-is Qwen3.5-4B in vLLM, with batch size 32, prompt length 53, and 16 generated tokens
+The parent project aims to build a TileIR runtime with end-to-end performance
+comparable to vLLM while preserving observable model behavior. TileIRBLAS is its
+GEMM subproject, targeting the functionality and performance of the public cuBLAS
+operations actually used by the model. The runtime goal also includes non-GEMM
+operators, state ownership, scheduling integration, and host orchestration; it
+cannot be established by GEMM throughput alone.
+
+The current implementation investigates that goal through a fixed workload:
+Qwen3.5-4B in vLLM, with batch size 32, prompt length 53, and 16 generated tokens
 per request. The qualified configuration uses BF16, eager execution, compilation
 mode 0, CUDA graphs disabled, and five public logprob entries. The pinned precision
 policy enables both BF16 reduced-precision reduction flags (T/T).
@@ -20,6 +26,25 @@ The result is a research library with workload-specific Python adapters. It is
 not a drop-in cuBLAS shared library, a general vLLM backend, or proof of support
 for arbitrary shapes, models, devices, training, or CUDA graphs. Performance
 parity with the native implementation has not been established.
+
+## Current engineering method
+
+Work starts at observed execution regions and module-level public APIs. We
+compare their contracts and behavior with our own implementation logic, including
+numerical operations, layout and alias rules, state updates, and host-side
+lifetime obligations. This is implementation and runtime integration work, not
+an investigation of proprietary vendor internals.
+
+Changes are evaluated individually. First establish affected-operation and model
+correctness, then re-establish the same-request compute census and scoped
+no-cuBLAS evidence. Only after those gates pass is a separate warm regression
+meaningful. This order prevents a faster but semantically different computation,
+or diagnostic overhead, from being mistaken for runtime progress.
+
+TileIR/LLVM IR compiler-pass research is not part of the current scope. It remains
+a possible later research direction with its own design and validation needs.
+The present project does not claim compiler-pass changes or compiler-level
+performance improvements.
 
 ## Source identities
 

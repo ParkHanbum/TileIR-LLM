@@ -1,9 +1,20 @@
-# TileIRBLAS: fixed-workload vLLM compatibility research
+# TileIR runtime research and TileIRBLAS
 
-TileIRBLAS explores a library of GPU operations written with NVIDIA cuTile / TileIR,
-connected to the operations that vLLM actually uses for Qwen3.5-4B. The goal is to
-preserve operation semantics and eventually approach native performance, not just
-to replace a model with a different computation graph.
+The parent project aims to build a TileIR-based inference runtime with end-to-end
+performance comparable to vLLM while preserving the behavior of the real model
+execution. Qwen3.5-4B is the current fixed-workload target, not a claim of general
+model support or an already-achieved performance result.
+
+TileIRBLAS is the GEMM subproject: it targets the functionality and performance of
+the public cuBLAS operations actually used by that workload. The broader runtime
+also needs recurrence, attention, normalization, sampling, state management, and
+host orchestration. Matching GEMM alone does not establish end-to-end parity.
+
+The current method compares execution regions and module-level public APIs with
+our own implementation logic, then evaluates one change at a time: correctness,
+compute census and no-cuBLAS evidence, followed by separate warm regression.
+TileIR/LLVM IR compiler-pass research is outside the current scope; it may be a
+later direction, not the method or result claimed by this checkpoint.
 
 The current checkpoint is a **fixed-workload research implementation and regression
 archive**, not a pip-installable package or drop-in cuBLAS ABI replacement. Its
