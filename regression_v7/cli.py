@@ -11,8 +11,28 @@ class HistoricalPhaseSkip(unittest.TestCase):
     def id(self):return HISTORICAL_SOURCE_ONLY_TEST
     def runTest(self):self.skipTest(HISTORICAL_SKIP_REASON)
 
+STANDALONE_CPU_IMPORTS={
+    'tileir_indexed_decode_conv_v1.test_cpu':('api','tileir_indexed_decode_conv_v1.api'),
+    'selected_logprobs_ordered_qualification_v1.test_cpu':('run','selected_logprobs_ordered_qualification_v1.run'),
+}
+
+def load_cpu_suite(name):
+    # Two preserved script-style tests use a top-level import. Bind only the
+    # exact tracked canonical module while loading, then restore the namespace.
+    if name not in STANDALONE_CPU_IMPORTS:return unittest.defaultTestLoader.loadTestsFromName(name)
+    alias,canonical=STANDALONE_CPU_IMPORTS[name]
+    assert alias not in sys.modules,'Foreign standalone-test module alias'
+    module=importlib.import_module(canonical)
+    assert Path(module.__file__).resolve()==common.REPO.joinpath(*canonical.split('.')).with_suffix('.py')
+    common.check_file(module.__file__,common.tracked_map())
+    sys.modules[alias]=module
+    try:return unittest.defaultTestLoader.loadTestsFromName(name)
+    finally:
+        assert sys.modules.get(alias)is module,'Standalone-test alias changed'
+        del sys.modules[alias]
+
 def cpu_suite(name):
-    suite=unittest.defaultTestLoader.loadTestsFromName(name);count=0
+    suite=load_cpu_suite(name);count=0
     def replace(node):
         nonlocal count
         if isinstance(node,unittest.TestSuite):return unittest.TestSuite(replace(t) for t in node)

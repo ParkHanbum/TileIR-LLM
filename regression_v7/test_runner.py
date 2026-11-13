@@ -148,6 +148,18 @@ assert not any(n.split('.')[0] in ('torch','vllm','cuda') for n in sys.modules)
 print('actual install_post_guard -> Checks -> Binding -> make_method -> guarded exec -> reverse close PASS; seven negatives rejected')
 """
         subprocess.run([common.PYTHON,'-B','-c',textwrap.dedent(code)],cwd=common.REPO,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES=''),check=True,timeout=30)
+    def test_exact_standalone_test_aliases(self):
+        import sys,types
+        from . import cli
+        for name,(alias,canonical) in cli.STANDALONE_CPU_IMPORTS.items():
+            self.assertNotIn(alias,sys.modules)
+            suite=cli.cpu_suite(name);result=unittest.TestResult();suite.run(result)
+            self.assertTrue(result.wasSuccessful(),(name,result.errors,result.failures))
+            self.assertGreater(result.testsRun,0)
+            self.assertNotIn(alias,sys.modules)
+            with patch.dict(sys.modules,{alias:types.ModuleType('foreign')}):
+                with self.assertRaises(AssertionError):cli.cpu_suite(name)
+            self.assertNotIn(alias,sys.modules)
     def test_nonwhole_result_rejected(self):
         from .cli import module_audit
         self.assertFalse(module_audit({'complete':True})['passed'])

@@ -32,3 +32,10 @@ need separate standalone cases beyond whole-workload evidence. Runtime failure
 supervision and final device sync belong to the common runner; not every new
 module writes per-stage partial output on failure. Do not claim exhaustive
 58-kernel or all-shape independent coverage.
+
+Two preserved historical CPU scripts use unqualified `api`/`run` imports. The
+loader binds only their exact HEAD-checked canonical module temporarily while
+loading that named suite, then removes the alias. A pre-existing foreign alias
+is rejected; the original test sources remain unchanged. Actual tests and alias
+cleanup/foreign-alias rejection are covered by a new CPU regression. The first
+failed supplement CPU run is retained; no GPU run preceded this fix.
