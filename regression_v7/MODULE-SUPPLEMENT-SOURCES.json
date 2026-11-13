@@ -61,9 +61,10 @@
       "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/sampling-runtime/test_sampling_runtime.py",
       "source_sha256": "0dcb395303a750bac1e417c44d94e4035d09fc66762cd063e5f9b645dfc3b243",
       "destination": "regression_v7/test_sampling_runtime.py",
-      "integrated_sha256": "a4b0e1c814ce84bacf38bf0fc007edfdcdf8f61baaebee9e21b203372fc2dfad",
+      "integrated_sha256": "881bcdaaee4819d18cc2b483d08b2816dfdcb3c7ccb1e4f326d8c4b228933bd7",
       "integration_only_edits": [
-        "package-relative test import"
+        "package-relative test import",
+        "derive helper AST source path from imported module"
       ]
     }
   ]

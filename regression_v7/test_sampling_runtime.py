@@ -1,6 +1,7 @@
 """Draft stdlib contract/result-gate tests; no framework/GPU imports."""
 import ast,copy,json,hashlib,importlib.util,pathlib,sys,types,unittest
 from . import modules_sampling_runtime as m
+path=pathlib.Path(m.__file__).resolve()
 class Tests(unittest.TestCase):
  def good(self):return dict(complete=True,records=[dict(family=f,case=c,origin=o,output_descriptor=m.expected_descriptor(f,c),expected_descriptor=m.expected_descriptor(f,c),**{k:True for k in m.FIELDS})for f,c,o in m.expected_rows()])
  def test_exact_count_order(self):
