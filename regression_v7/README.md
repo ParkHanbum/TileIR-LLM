@@ -92,3 +92,25 @@ preserved. No GPU qualification is allowed before the corrected full CPU catalog
 passes at its new committed HEAD.
 
 Supplemental test import closure: the previously empty packed_grouped_qualification_v1 package initializer and original tileir_cat_v1 pins/kernel definitions are tracked by a test-support commit. They do not change the active v7 implementation or move its baseline tag. Exact-HEAD admission first caught the missing package initializer; the failed CPU receipt is preserved.
+
+## Exact post-update owned-code provenance
+
+The first whole regression failure is preserved: the import/exec policy rejected
+`residual_four_gdn_owned_lean_v2/four.py.post_update_guard_copy` during lean
+installation, before candidate execution. This is a known **local**, not external,
+virtual filename produced by the baseline public post-update binding.
+
+One exact exception now requires the tracked `public_post_update_guard_v1.binding`
+`make_method` frame/code, the tracked original `four.Replacement.call` code and
+module globals, the exact virtual filename, and full AST/compiled-code equality
+with the single approved `validate_values(torch,args)` to
+`_post_update_value_guard(torch,args)` substitution. Unknown virtual paths,
+foreign generators, altered source/code/templates remain rejected. No generic
+suffix/prefix or ignored-file allowance exists. Reconstruction only compiles CPU
+Python ASTs without executing them; it cannot recurse through the exec audit.
+
+The CPU regression executes the actual v7 `Extension.install_post_guard` through
+`Checks`, production `Binding.install`, `make_method`, and reverse close with
+import and exec guards active and framework imports prohibited. Seven negative
+provenance cases are rejected. This is construction/lifetime proof, not a GPU
+or endpoint PASS; a new exact-HEAD whole replay remains required.

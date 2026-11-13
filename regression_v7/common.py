@@ -56,6 +56,52 @@ class TrackedImports(importlib.abc.MetaPathFinder):
             if p.is_relative_to(REPO):check_file(p,self.tracked)
         return None
 
+POST_GUARD_SOURCE=REPO/'residual_four_gdn_owned_lean_v2/four.py'
+POST_GUARD_GENERATOR=REPO/'public_post_update_guard_v1/binding.py'
+POST_GUARD_VIRTUAL=str(POST_GUARD_SOURCE)+'.post_update_guard_copy'
+
+def reviewed_post_guard_exec(code,caller,tracked):
+    """One exact baseline factory, source and AST transform; not a suffix rule."""
+    import ast,textwrap,types
+    assert code.co_filename==POST_GUARD_VIRTUAL,'Unknown virtual filename'
+    check_file(POST_GUARD_SOURCE,tracked);check_file(POST_GUARD_GENERATOR,tracked)
+    binding=sys.modules.get('public_post_update_guard_v1.binding')
+    four=sys.modules.get('residual_four_gdn_owned_lean_v2.four')
+    assert binding is not None and four is not None,'Missing original factory modules'
+    assert caller.f_globals is vars(binding) and caller.f_code is binding.make_method.__code__,'Foreign virtual-code generator'
+    assert caller.f_code.co_filename==str(POST_GUARD_GENERATOR) and caller.f_code.co_name=='make_method'
+    generator=compile(POST_GUARD_GENERATOR.read_text(),str(POST_GUARD_GENERATOR),'exec',dont_inherit=True)
+    expected_generator=next(x for x in generator.co_consts if isinstance(x,types.CodeType) and x.co_name=='make_method')
+    assert caller.f_code==expected_generator,'Generator code differs from tracked source'
+    assert binding.SOURCE==POST_GUARD_SOURCE,'Generator source changed'
+    original=caller.f_locals['original'];fn=getattr(original,'__func__',original)
+    assert fn is four.Replacement.call and fn.__code__.co_filename==str(POST_GUARD_SOURCE),'Foreign original method'
+    assert fn.__globals__ is vars(four),'Foreign original namespace'
+    text=POST_GUARD_SOURCE.read_text();tree=ast.parse(text)
+    original_module=compile(text,str(POST_GUARD_SOURCE),'exec',dont_inherit=True)
+    original_class=next(x for x in original_module.co_consts if isinstance(x,types.CodeType) and x.co_name=='Replacement')
+    original_call=next(x for x in original_class.co_consts if isinstance(x,types.CodeType) and x.co_name=='call')
+    assert fn.__code__==original_call,'Original method code differs from tracked source'
+    cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='Replacement')
+    method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='call')
+    # Preserve the same dedented inspect-source line positions used by make_method.
+    node=ast.parse(textwrap.dedent(''.join(text.splitlines(keepends=True)[method.lineno-1:method.end_lineno]))).body[0]
+    matches=[n for n in ast.walk(node) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='validate_values']
+    assert len(matches)==1 and not matches[0].keywords
+    assert [ast.dump(x,include_attributes=False) for x in matches[0].args]==[ast.dump(ast.Name(id=n,ctx=ast.Load()),include_attributes=False) for n in ('torch','args')]
+    matches[0].func.id='_post_update_value_guard'
+    module=ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[]))
+    assert ast.dump(caller.f_locals['module'],include_attributes=True)==ast.dump(module,include_attributes=True),'Unapproved AST transformation'
+    expected=compile(module,POST_GUARD_VIRTUAL,'exec',dont_inherit=True)
+    assert code==expected and code.co_linetable==expected.co_linetable and code.co_exceptiontable==expected.co_exceptiontable,'Transformed bytecode mismatch'
+
+def check_execution(code,caller,tracked):
+    filename=code.co_filename
+    if filename==POST_GUARD_VIRTUAL:
+        reviewed_post_guard_exec(code,caller,tracked)
+    elif Path(filename).is_absolute() and Path(filename).resolve().is_relative_to(REPO):
+        check_file(filename,tracked)
+
 def guard_imports(tracked):
     for module in tuple(sys.modules.values()):
         filename=getattr(module,'__file__',None)
@@ -63,8 +109,7 @@ def guard_imports(tracked):
     finder=TrackedImports(tracked);sys.meta_path.insert(0,finder)
     def audit(event,args):
         if event=='exec':
-            filename=args[0].co_filename
-            if Path(filename).is_absolute() and Path(filename).resolve().is_relative_to(REPO):check_file(filename,tracked)
+            check_execution(args[0],sys._getframe(1),tracked)
     sys.addaudithook(audit)
     return finder
 

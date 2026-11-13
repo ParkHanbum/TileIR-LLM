@@ -89,6 +89,65 @@ class Gates(unittest.TestCase):
         self.assertIn('preserved historical',result.skipped[0][1])
         with patch.object(cli.unittest.defaultTestLoader,'loadTestsFromName',return_value=unittest.TestSuite()):
             with self.assertRaises(AssertionError):cli.cpu_suite('whole_lean_extensions_runtime_v7.test_cpu')
+    def test_actual_v7_post_guard_factory_under_guards(self):
+        import subprocess,os,textwrap
+        # Isolated audit hooks cannot be removed. Production modules are imported
+        # only AFTER both guards; no mocked binding, source text or Path.exists.
+        code=r"""
+import sys,ast,copy,importlib.abc
+from regression_v7 import common
+tracked=common.tracked_map()
+class NoFramework(importlib.abc.MetaPathFinder):
+ def find_spec(self,name,path=None,target=None):
+  if name.split('.')[0] in ('torch','vllm','cuda'):raise AssertionError('Framework import in CPU construction')
+sys.meta_path.insert(0,NoFramework())
+sys.meta_path.insert(0,common.TrackedImports(tracked))
+seen=[]
+def hook(event,args):
+ if event=='exec':
+  frame=sys._getframe(1)
+  common.check_execution(args[0],frame,tracked)
+  if args[0].co_filename==common.POST_GUARD_VIRTUAL:seen.append((args[0],frame))
+sys.addaudithook(hook)
+from residual_four_gdn_owned_lean_v2.four import Replacement
+from whole_lean_extensions_runtime_v7.extension import Extension
+from public_post_update_guard_v1 import binding
+owner=object.__new__(Replacement);original=owner.call
+ext=Extension();ext.install_post_guard(owner)
+assert ext.post_guard.binding.installed and 'call' in vars(owner)
+assert ext.post_guard.binding.original.__func__ is original.__func__
+assert owner.call.__func__.__globals__['_post_update_value_guard'] is ext.post_guard.binding.callback
+assert len(seen)==1
+compiled,frame=seen[0]
+# Preserved globals plus the one explicit callback only.
+namespace=owner.call.__func__.__globals__
+for k,v in original.__func__.__globals__.items():
+ if k not in ('call','_post_update_value_guard'):assert namespace[k] is v
+ext.close_post();assert 'call' not in vars(owner) and owner.call.__func__ is original.__func__
+def rejected(fn):
+ try:fn()
+ except (AssertionError,KeyError):return
+ raise AssertionError('Bad virtual execution accepted')
+rejected(lambda:exec(compile('pass',common.POST_GUARD_VIRTUAL,'exec'),{}))
+rejected(lambda:exec(compile('pass',str(common.POST_GUARD_SOURCE)+'.unknown_copy','exec'),{}))
+wrong=dict(tracked);wrong[str(common.POST_GUARD_SOURCE.relative_to(common.REPO))]='0'*40
+rejected(lambda:common.reviewed_post_guard_exec(compiled,frame,wrong))
+wrong=dict(tracked);wrong[str(common.POST_GUARD_GENERATOR.relative_to(common.REPO))]='0'*40
+rejected(lambda:common.reviewed_post_guard_exec(compiled,frame,wrong))
+saved=binding.make_method
+binding.make_method=lambda *a:None
+try:rejected(lambda:common.reviewed_post_guard_exec(compiled,frame,tracked))
+finally:binding.make_method=saved
+rejected(lambda:common.reviewed_post_guard_exec(compiled.replace(co_consts=(None,)),frame,tracked))
+module=frame.f_locals['module'];saved_module=copy.deepcopy(module)
+module.body[0].name='foreign_call'
+try:rejected(lambda:common.reviewed_post_guard_exec(compiled,frame,tracked))
+finally:module.body[:]=saved_module.body
+common.reviewed_post_guard_exec(compiled,frame,tracked)
+assert not any(n.split('.')[0] in ('torch','vllm','cuda') for n in sys.modules)
+print('actual install_post_guard -> Checks -> Binding -> make_method -> guarded exec -> reverse close PASS; seven negatives rejected')
+"""
+        subprocess.run([common.PYTHON,'-B','-c',textwrap.dedent(code)],cwd=common.REPO,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES=''),check=True,timeout=30)
     def test_nonwhole_result_rejected(self):
         from .cli import module_audit
         self.assertFalse(module_audit({'complete':True})['passed'])
