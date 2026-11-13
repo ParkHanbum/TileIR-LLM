@@ -1,0 +1,32 @@
+def apply(self,v):
+ import torch
+ from gdn_prefill_chain_qualification_v1.chain import execute,LABELS
+ from tileir_gdn_chunk_cumsum_v1 import chunk_local_cumsum
+ from tileir_gdn_chunk_kkt_v5 import chunk_scaled_dot_kkt
+ from tileir_gdn_solve_tril_v6 import solve_tril
+ from tileir_gdn_wy_v1 import recompute_w_u_fwd
+ from tileir_gdn_chunk_state_v1 import chunk_state
+ from tileir_gdn_chunk_output_v2 import chunk_output
+ from tileir_gdn_chunk_cumsum_v1.contract import validate_metadata
+ assert {k:v[k] for k in v if k not in NAMES}==dict(output_final_state=True,use_qk_l2norm_in_kernel=False,core_attn_out=None,aiter_prefill_metadata=None)
+ inputs={k:v[k].detach() for k in NAMES}
+ specs={'q':((1,1696,16,128),torch.bfloat16),'k':((1,1696,16,128),torch.bfloat16),'v':((1,1696,32,128),torch.bfloat16),'g':((1,1696,32),torch.float32),'beta':((1,1696,32),torch.float32),'initial_state':((32,32,128,128),torch.float32),'cu_seqlens':((33,),torch.int32),'chunk_indices':((32,2),torch.int32),'chunk_offsets':((33,),torch.int64)}
+ for k,t in inputs.items():
+  shape,dtype=specs[k]
+  assert t.is_cuda and t.device==inputs['q'].device and tuple(t.shape)==shape and t.dtype==dtype and t.is_contiguous() and t.storage_offset()==0 and t.untyped_storage().nbytes()==t.numel()*t.element_size()<=128*1024*1024
+ validate_metadata(inputs['cu_seqlens'].cpu().tolist(),inputs['chunk_indices'].cpu().tolist())
+ assert inputs['chunk_offsets'].cpu().tolist()==list(range(33))
+ assert all(bool(torch.isfinite(t).all()) for t in inputs.values())
+ assert _eq_all(inputs['initial_state'],0),'Nonzero initial state outside qualified scope'
+ ops=dict(cumsum=chunk_local_cumsum,kkt=chunk_scaled_dot_kkt,solve=solve_tril,wy=recompute_w_u_fwd,state=chunk_state,output=chunk_output)
+ retained={}
+ def observe(outputs):
+  for label,t in outputs.items():
+   assert label not in retained and bool(torch.isfinite(t).all()) and t.is_contiguous() and t.storage_offset()==0 and t.untyped_storage().nbytes()==t.numel()*t.element_size()<=128*1024*1024
+   assert all(not overlap(t,z) for z in [*inputs.values(),*retained.values()]);retained[label]=t
+ with torch.inference_mode():ret=execute(inputs,ops,observe)
+ assert list(retained)==list(LABELS)
+ assert isinstance(ret,tuple) and len(ret)==2
+ assert ret[0].dtype==torch.bfloat16 and tuple(ret[0].shape)==(1,1696,32,128)
+ assert ret[1].dtype==torch.float32 and tuple(ret[1].shape)==(32,32,128,128)
+ return ret

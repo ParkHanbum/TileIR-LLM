@@ -1,0 +1,4 @@
+# Actual prefill isolated qualification
+Directly checked saved RESULT, launcher, recovery and all85 pinned files. Actual launcher returncode0, raw gate PASS, child absent and lock available in independent recovery. Four records: native2 then TileIR2. Each output13,893,632 BF16 and selected state786,432 BF16 elements raw/strict/finite exact; repeated outputs exact. Input full backing, metadata expected state, minimum state span holes/unselected sentinel, fresh output alias/layout all pass. No new GPU run or compile by this report author.
+
+Scope remains one saved layer0 prefill,32 copies of one53-token prompt, initial-state flags False. Not full24-layer coverage, arbitrary shape/input support, performance or original entire shared-owner-byte validation. Fixed API and previously failed candidates remain unchanged. Next step is separately reviewed full24-call runtime shadow followed only on success by conditional replacement.

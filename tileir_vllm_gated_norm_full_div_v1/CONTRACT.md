@@ -1,0 +1,1 @@
+Public Triton3.7.1 FP32exp2 path plus FDiv(full) semantics candidate. Only division mode changes vs failedexp2candidate. InstalledpubliccuTile ops_utils.py _RD_TRUEDIV includesFULL,defaultRN. No change to RMS/tree/shape/validation; source-level matching not binaryidentity. New full2caseactualrawqualificationrequired.

@@ -1,0 +1,4 @@
+# Proof-bound CPU finalization
+Previously pending indexed_prefill_conv_runtime_v3 full24 result/launcher/recovery now bound as third independent proof. All three standalone/composition input proofs are rehashed and audited by qualification. New12-adapter combined GPU has NOT run. CPU-STRUCTURE-PINS and test_cpu_preproof.py.txt / READINESS-CPU-PENDING-ORIGINAL.json preserve pre-proof preparation state; final PINS is authoritative for any later run.
+
+Current test_cpu.py positive fixture combines independently completed results only to exercise result-gate logic, sets active update-wrapper identityfalse and restoredtrue explicitly. It is synthetic and NOT actual12-adapter evidence. Negative fixtures reject nonfinite prefill, wrong active/restored binding, native fallback calls and nonexact public values. Ready for independent review only; parent must coordinate any GPU execution.

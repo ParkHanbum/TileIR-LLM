@@ -1,0 +1,5 @@
+# Stage4 WY source adaptation, not verified support
+Public installed vLLM 0.32.0 FLA ops/wy_fast.py (Apache2 attribution and original FLA MIT notice retained). No proprietary analysis.
+Scope: actual layer0 B1/T1696, 32 sequences of53, H32/Hg16, K/V128, BT64, BK/BV64. Fresh disjoint contiguous BF16 W,U; readonly contiguous BF16 K,V,A and FP32 beta/g. No generic strides, offsets, other sequence lengths or output alias support.
+Native uses FP32 beta multiplication of promoted BF16 V/K, K*beta then exp(g), BF16 RN before dot. Native U dot allow_tf32=False; W default dot, both inputs BF16 so not FP32-TF32 conversion. FP32 accumulation then BF16 output. Candidate uses public exp2(g*log2e), BF16 ct.mma with FP32 accumulator; internal accumulation/rounding/fusion equivalence UNVERIFIED until actual replay. Explicit RN does not guarantee no compiler contraction. No IEEE claim from dtype.
+Stage3 candidate is never invoked: saved native A_inverse and saved native cumsum are used. Existing KKT mismatch remains unresolved; no full-prefill/model/performance claim.

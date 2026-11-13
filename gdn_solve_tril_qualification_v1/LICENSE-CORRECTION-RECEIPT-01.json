@@ -1,0 +1,16 @@
+{
+  "scope": "append-only license/provenance correction; no code change or GPU/compile",
+  "original_pins_sha256": "126ac0311ad80fad2cf91f3860c32ceb4fa013fd4319fcf2192195a0f5925e67",
+  "original_pin_count": 1096,
+  "all_original_pins_unchanged": true,
+  "source_license": {
+    "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/third_party/flash_linear_attention/LICENSE",
+    "sha256": "1350bfbef13ce4d3d3bdaa2f1fc4b1d1117d846732a2a62f891a67f3d5356d0d"
+  },
+  "added_files": {
+    "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_gdn_solve_tril_v1/LICENSE-FLA-MIT-01.txt": "1350bfbef13ce4d3d3bdaa2f1fc4b1d1117d846732a2a62f891a67f3d5356d0d",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_gdn_solve_tril_v1/PROVENANCE-ADDENDUM-01.md": "63727b7d536ed11a53c067d99010d1abae1d4ddee7fc71b377e3d6055315919e"
+  },
+  "numerical_source_sha256": "d093e861cb2934018cef63dc32998a22d5854642792cd09b966548bd8d803887",
+  "license_byte_identical": true
+}

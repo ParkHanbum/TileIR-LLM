@@ -1,0 +1,6 @@
+# Sampler3 expressions actual48 CPU draft
+Native shadow request: each original index/new_ones expression once plus candidate, returning native output,48 comparisons. Only after48/512/public2560 pass install prior lean26+finite472 and execute48 candidate expressions, native selected3 expressions0. Global Torch/Tensor unchanged. No cast16/four-newhelper/GDNcopy component is added implicitly.
+
+Install owned public Sampler.__call__ first; Counts→Greedy→SamplerFour wrappers retain this in their nested original chain. Copy alters only3 expressions. Three helper names use live module delegation, resolving current replacement functions under their active pending contexts. Current self.sample and samplingparams remain dynamic. Reverse-close outer lean wrappers before integer owner, both attempted on failure and errors aggregate. Integer failure latches existing leancontroller and checks othercomponent failure atentry.
+
+Fixed metadata range validated before native index. Full backing preservation capped1MiB perinput; host snapshots/indices.cpu.tolist remain correctness work, no speed/native-free claim. Input/index alias allowed, negative wrapping/duplicates supported. Invalid flags/descriptors/OOB failclosed. Postcounts/sampledu32 ordering unchanged. Runtime flags/T/T/512/public gates inherited. Source-only no cache/receipt copies; full freeze pending GPU window.

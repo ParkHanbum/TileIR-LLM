@@ -1,0 +1,6 @@
+# Five-adapter eager functional composition v2
+Reuses qualified norm v4 integration/APIv3(1040calls), attentiongatev1(128), blockgatherv1(16), slotmappingv1(16), posseqv1(16):1216logical calls/request, not GPUlaunchcount. No qualified API/source edits. Installorder norm→attention→gather→slots→positions; restore exactreverse. Partialinstall unwinds previously installed adapters; each qualified adapter cleans its own failed install. Gather andslots nest prepare_attn wrappers, verified by CPU mocked call and reverse restoration. Positions owns prepare_inputs separately. Allsubcounts/rawshadow mustpass before anyconditionalcombinedreplacement.
+
+Composition retains norm's existing F precision policy(false,true) in bothrequests. Metadata standalone successes used original default(T,T); they do NOT by themselves prove thiscombinedcondition. New1216shadow and512IDs/returnedpublic2560logprob gate are required. Source policies restored atcleanup. No full-vocab logits, optimizedfusion, performance or100%conversionclaim. All unrelated librariesremainnative. RegularCUDAposcomputed and actualseqpadding0 limitation preserved.
+
+CPU tests cover five composition counts, partialfailure eachboundary, nestedprepare_attn call/restore, sourcequalification and entryimports. Reuse bounded900/930s lifecycle; noGPUuntilparentreviewandscheduling. No cachecopy by author.

@@ -1,0 +1,8 @@
+# Six finite sites, CPU-only draft
+Reuse the qualified top5 guard and primitive cap N<=2^23. Add six predicates only, 96 calls plus top5 16 =112. Greedy row-any and its separate NaN/+Inf checks remain unchanged. These counts are source-bound API checks, not physical GPU event totals; GDN internals and other native operations remain.
+
+Actual fresh owned copies capture HiddenGather.gather and SamplerFP32.copy_logits overrides before original install; the copy API is replaced on that adapter instance. SamplerFour installs the already-qualified top5 binding, then changes only its freshly copied helper globals for scores/ranks. No original global module function is patched. Caller assertion/ValueError messages and short-circuit ordering are retained through finite_boolean. Postchecks occur after producer writes; they are NOT prewrite guards. Failures latch at wrapper/controller boundary.
+
+Runtime-only synthetic edge probe before model init: FP32 N7946240, BF16 N81920 and N32; finite signed zero/subnormal and first NaN/last +/-Inf, two primitive repeats, native finite reference, byte input and current-stream preservation. Large FP32 and new small specializations are not GPU-qualified yet. This is not saved actual input proof. Actual fixed model native-reference then lean25 supplies descriptors and endpoint512/public2560 plus all six 16-call gates. Existing selected range/gather and NaN/+Inf guards stay intact. Host status .item() remains. No timing claim.
+
+New directory is source-only explicit whitelist. No cache or prior preseed receipt copied. Parent prepares fresh cache, reviews source, owns any GPU run. Existing lifecycle 900s child/930s parent, reverse restore and frozen precision/endpoint gates unchanged.

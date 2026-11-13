@@ -1,0 +1,3 @@
+def tp1_forward(owner,input_,cast):
+ assert owner.tp_size==1, 'Only TP1 observed embedding branch supported'
+ return owner.quant_method.embedding(owner,cast(input_))

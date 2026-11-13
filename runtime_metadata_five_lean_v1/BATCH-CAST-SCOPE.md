@@ -1,0 +1,4 @@
+# Next separate batch_ptr cast
+Installed public compute_causal_conv1d_metadata source line1106: batch_ptr[:mlist_len].copy_(mlist,non_blocking=True). Actual metadata is destination CUDA int32[224],stride1,offset0 and source CPU int64[224],stride1,offset0. One HtoD transfer and one cast kernel share that site; offsetlist int32→int32 has only HtoD. Do not count both as GPU kernels or claim five helpers cover this cast.
+
+Public source constructs mlist from np.repeat(np.arange(len(nums)),nums), hence finite bounded integer request indices under fixed workload. Actual values were not captured by metadata. A future port can preserve pinned CPU→GPU int64 transfer then use TileIR int64→int32 into original destination slice, checking destination full backing and source preservation, current stream and async lifetime. Moving conversion to CPU would be a different implementation and not a TileIR cast. No cast code/GPU execution added here.

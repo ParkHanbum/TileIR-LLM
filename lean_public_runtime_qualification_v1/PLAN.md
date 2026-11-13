@@ -1,0 +1,18 @@
+# Native → lean correctness harness v1
+
+Prepared CPU-only; no GPU execution, GPU query, device compilation, cache preseed or model load has occurred during authoring. The frozen `lean_public_composition_v1` source remains unchanged. This new folder contains only explicitly authored/reused source, this plan, test records and proof references, not copied old cache/run receipts.
+
+## Fixed experiment
+One fresh model process, hard900 seconds child /930 seconds launcher, current eager vLLM0.32.0/Torch2.13.0+cu130, exact previous engine_options: mode0, graphsNONE, async scheduling retained, BF16 defaultT/T, B32/P53/G16, logprobs5. No automatic retry or KV/runtime adjustment on OOM. Historic optimized/graph-enabled vLLM is not the baseline.
+
+1. Verify frozen inputs, source pins, prior combined intermediate-raw proof and lean CPU receipt. Parent-owned fresh cache preflight uses the unchanged destination-bound `cache_gate.preflight`: exact new destination, hashes, file set, separate inodes. Missing/wrong/pre-existing receipts HOLD before admission/model.
+2. Initialize the native engine without lean wrappers. Submit one original public request batch. Capture final512 token IDs and public2,560 logprobs/ranks/keys, require exact finite equality to the frozen combined proof. Native selected-call census is not instrumented; the native request is unmodified. No timing is collected.
+3. After request completion/device synchronization, install frozen18 lean controllers and run one identical request. Require exact same-run and frozen512 IDs/public2,560 values; no tolerance fallback. Require all5,648 selected boundaries/5,680 logical operations; 153GEMM owners×16 with13 guarded shape contracts,360 K128+2,088 original TileIRBLAS backend;24 prefill TileIR delegation;0 selected native/fallback. These counts exclude remaining native attention/GDN prefill/cat/runner work.
+4. Always perform read-only precision recheck, synchronize before close, exact18 reverse close, synchronize after close while UVA owners are alive, then release controllers and shutdown. If either synchronization or close fails, do not release owners early; still attempt shutdown and preserve the failure. Any cleanup error invalidates completion. The original body exception is not replaced by a cleanup error.
+5. Launcher verifies actual child exit0, result SHA and independent CPU result audit, child process-group absence, post-admission and lock reacquisition. Parent adds the separate independent recovery record. Failed source/cache/exit/cleanup/output/count gates are HOLD with no retries. Existing GUI processes are preserved.
+
+## Distinct proof scopes
+Old combined18 proof retains per-call raw intermediates, X/Y hashes and four GEMM W byte-boundary proofs. New lean wrappers deliberately omit those external diagnostics. This harness establishes end-to-end output equivalence, fixed guarded dispatch and restoration only; it is not another all-intermediate raw proof. Public API-internal validation and small support-domain value checks remain, so this is not fully validation-off. No performance or100% workload claim. Passing this test is a prerequisite to a separate reviewed balanced wall/profile run.
+
+## Review entry points
+`run.py` native-before-install ordering; `cleanup.py` UVA release ordering/all-error cleanup; `gates.py` exact outputs and no tolerance; `launch.py` reused bounded process/lock/admission machinery; unchanged `all_gemm_sixteen_sampler_composition_v2/cache_gate.py`; frozen lean adapter package. CPU tests exercise actual finally AST, real CPU default imports, exact/mismatch gates and wrapper tests from the frozen package. Mocks do not prove GPU correctness or asynchronous execution.

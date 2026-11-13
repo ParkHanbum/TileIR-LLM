@@ -1,0 +1,7 @@
+# Strided KV predicate isolated probe draft
+
+Two historical actual value logical banks, each reconstructed in an owned BF16 outer allocation using original stride10240/offset9216. Original full-owner holes were not captured; replay sentinels are synthetic. Nine cases per bank: actual logical payload, padding-only NaNs, selected first/last signed NaN, +Inf/-Inf, -0, subnormal, maxfinite. Native2 then Tile2 yields72 predicate records. Compare booleans to both public native and expected identity, full owner raw unchanged, descriptors/flags/current-stream unchanged. Padding/row gaps must be ignored. No input copy inside predicate, no arbitrary pointer reconstruction; ct.gather reads original tensor descriptor.
+
+Only one owner≤34,734,080B plus host before/after copies per case; integer counts1696 max, reduction padded2048, count≤1,736,704. Exact final logical address equals owner last element. Shape32 uses32 counts without reduction padding. No numerical target/model invocation; postcheck semantics tested separately. No support claim for empty/other stride/flagged views. Existing dense v3 cap/API unchanged.
+
+Bounded common admission/lock/585s child/600s parent/actualexit/recovery lifecycle now reuses gdn_large_finite_qualification_v1. gpu_executed is saved before probe entry and cleanup synchronization failure forces failure. Independent review is required before any run. No framework imported or GPU executed during preparation.

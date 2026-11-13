@@ -1,0 +1,25 @@
+# Minimal four-helper original-address proof (CPU preparation)
+
+Prerequisite: residual_rope_combine_bias_port_v4/residualFourShadow02 completed48+16 clone shadows. Durable worker child exit0, exact endpoints, restored helpers and independent recovery are required by gates.py. Outer-shell exit was not separately retained and is not asserted. Clone proof does not establish this new live-address path.
+
+One existing bounded process,900s child/930s launcher. First original native reference request. Then existing lean25 composition plus four scoped imported-helper replacements for one identical B32/P53/G16 request. Each helper requires16 calls, native helper calls0 and fallback0 during replacement. Original engine precision T/T, eager/graphsNONE, sampling/KV/model/input stay unchanged. Fresh independent cache preseed is still a parent prerequisite; author does no cache work.
+
+## Original ownership
+Before engine construction, a scoped public UvaBuffer.__init__ observer invokes its exact original once, retains the existing resulting object and leaves all allocations/pool policy unchanged. Calls, tensors, owner.cpu and owner._uva keep their original addresses. During each helper, tensor full storage extent is compared internally with registered owner._uva extents; owner.cpu must remain pinned CPU storage of matching logical byte extent. Only owner ordinals, match counts and booleans are recorded, never raw addresses. Required known UVA inputs (rope prefill/delta, combine prefill_len, bias count/min-lens tables) must match a retained owner. Unmatched CUDA tensor backing is NOT declared ordinary device allocation; it is labeled unclassified and its original tensor is retained. Source-defined host-mapped allocation is bound only when observed.
+
+Constructor observation stays installed through both requests so public pool growth is retained as well. No replacement allocator, artificial buffer or forced reuse is introduced. All owners remain strongly held until helper restoration and existing engine synchronization/shutdown have succeeded. If cleanup fails, no early owner release occurs; the process lifecycle handles final cleanup.
+
+## Numerical path
+No live native helper is used as a replacement oracle. Existing qualified three-helper APIs receive original tensors. Post-update reuses the same cast-corrected TileIR kernel with original flattened views, not clones. Existing live value/scope guards run before launch; unsupported branch/index/duplicate cases HOLD, no fallback. Every tensor object/data pointer/storage base/offset/shape/stride must remain unchanged (comparison only, no address dump).
+
+Preimage CPU byte snapshots feed independent public-source CPU indexing oracles. Full output buffers including inactive/tail bytes are checked, as are all readonly buffers. Fresh combine output int64[32] must match the CPU indices and not alias inputs. Rope/bias/post return None as the public functions do. Bias preserves pre-existing NaN/Inf raw bytes except the exact selected -Inf writes. General additive/allowed/restoration bias branches and speculative draft remain unsupported.
+
+CPU oracle cost includes synchronizing tensor reads and large FP32 logits/histogram byte comparisons. This is a correctness diagnostic, NOT timing, optimized graph or general ABI qualification.
+
+## Preparation status
+Fourteen small standard-library tests cover source index semantics, untouched bytes, post integer store semantics, ownership extent/retention/no-address logs and failure cleanup. All source AST passes. An initial new-draft `__init__ is` whitespace syntax typo was corrected before any runtime execution. Final fresh-import/pin checks and independent re-review remain required; all GPU execution is still pending. No source outside this new folder was changed.
+
+Producer stage limit: constructor observation proves retained allocation ownership only. It does not intercept or replace later CPU np/copy_to_uva producer writes, public pool slot selection, staging policy, or scheduling. Existing producer operations remain native and ordered by the original runtime; the diagnostic snapshots/readonly checks validate actual consumption at the helper boundary. No claim of arbitrary concurrent producer safety follows. First owner-constructor failure is latched; subsequent construction/retention cannot silently proceed.
+Counts are separate: existing lean25 selected boundaries5888/logical operations6056; new four-helper replacements64/native0/fallback0. These are logical dispatch counts, not a new physical GPU percentage.
+
+Review corrections: actual constructed CPU/view objects and storage wrappers are strongly retained, full signatures checked on each use and original CPU/UVA base equality required (otherwise HOLD, not assumed portability). Shared lean25/controller first-failure state blocks either direction; per-helper16 cap runs before any value read or candidate. Exact owned prepare_inputs copied globals and public bias globals must reference these wrappers. Cleanup errors prevent owner release.

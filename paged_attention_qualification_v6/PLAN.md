@@ -1,0 +1,3 @@
+Same captured banks/layout/physical block IDs/scalars and strict raw gate as v1. Native2 reproduction precedes candidate2 per phase; firstfailure stops and retains HOLD, no further decode on prefill failure. Only candidate numerical change is probability BF16 roundtrip before PV. Whole rebuilt sentinel cache/inputs unchanged required; actual live shared owner not copied/proven. Parent existing285/300second lifecycle; no GPU run by author. Prior v1 failure preserved; no cache or execution receipts copied.
+
+V3 numerical delta is QK BF16 MMA only; all v2 validation gates unchanged. No speed/model claims.

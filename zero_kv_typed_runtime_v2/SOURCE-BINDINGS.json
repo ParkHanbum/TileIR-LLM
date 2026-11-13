@@ -1,0 +1,67 @@
+[
+  {
+    "module": "vllm.v1.worker.utils",
+    "owner": "KVBlockZeroer",
+    "attribute": "__init__",
+    "parameters": [
+      "self",
+      "device",
+      "attn_groups_iter",
+      "kernel_block_sizes",
+      "static_forward_context",
+      "num_blocks",
+      "runner_only_attn_layers"
+    ],
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+    "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+    "binding_ast_sha256": "fcbdd6b3f34e6ccf9fa386cea54f4e7ca95e077288f9a886581f258261733688"
+  },
+  {
+    "module": "vllm.v1.worker.utils",
+    "owner": "KVBlockZeroer",
+    "attribute": "zero_block_ids",
+    "parameters": [
+      "self",
+      "block_ids"
+    ],
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+    "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+    "binding_ast_sha256": "31b2e8a99015a71c342558e81ae72f6b0cd8c5d8e12779f1e5326ff53eb10341"
+  },
+  {
+    "module": "vllm.v1.worker.utils",
+    "owner": "KVBlockZeroer",
+    "attribute": "warmup",
+    "parameters": [
+      "self",
+      "num_kv_blocks"
+    ],
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+    "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+    "binding_ast_sha256": "ed2d3c03a8d561130f2b16a89ab4e3d4c557b417be6ffcd8227800c82c82c27c"
+  },
+  {
+    "module": "vllm.v1.worker.utils",
+    "owner": "AttentionGroup",
+    "attribute": "map_kv_cache_to_manager_blocks",
+    "parameters": [
+      "self",
+      "kv_cache",
+      "num_blocks"
+    ],
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+    "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+    "binding_ast_sha256": "9ddbeb85ad36c4ad2106e4b04853b8fe08d745dd3056211db350aef6b3e8f2e9"
+  },
+  {
+    "module": "vllm.v1.worker.gpu.model_runner",
+    "owner": "GPUModelRunner",
+    "attribute": "_init_kv_zero_meta",
+    "parameters": [
+      "self"
+    ],
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/model_runner.py",
+    "source_sha256": "5240fe8d62d403e466a4aa07a28fb7af5c0f1e9b9c3bb08c4003185bde461f87",
+    "binding_ast_sha256": "1ab66d50cf767821167edb076783ecffe4beff293f765bddc37ebe153e06e5c0"
+  }
+]

@@ -1,0 +1,5 @@
+# KKT operand localization: scaled FP32 inputs match
+
+Both instrumented final outputs raw-reproduce their respective previous original outputs. All6,946,816 actual FP32 beta*k values before TF32 handling match raw, with0 strict failures and finite outputs. Actual exit0, independent recovery and146 unchanged pins verified. Combined with the earlier identical exp factors and differing pre-exp dots, this excludes observed beta multiplication and observed exp factors as the difference source for this input. Remaining possibilities are TF32 operand conversion/lowering and MMA accumulation/association; a specific accumulation order is not yet established as the cause.
+
+This is diagnostic-only success. KKT candidate remains raw HOLD. The saved input is32 copies of one prompt, not a diverse corpus, and no full24-layer/core/model or performance claim follows. Next separately prepared K8 MMA candidate changes only multiplication granularity/order expression and must retain original raw/strict/finite gates.

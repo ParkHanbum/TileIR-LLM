@@ -1,0 +1,17 @@
+def install(self,model):
+ import vllm.model_executor.layers.mamba.gdn.qwen_gdn_linear_attn as q
+ from vllm.forward_context import get_forward_context
+ from tileir_vllm_post_conv_v2.api import fused_post_conv_prep
+ from gdn_post_conv_runtime_capture_v1.observer import phase_meta
+ live=gdn_owners(model);self.owners=set(live);orig=q.fused_post_conv_prep;sig=inspect.signature(orig)
+ @functools.wraps(orig)
+ def wrapper(*args,**kwargs):
+  bound=sig.bind(*args,**kwargs);bound.apply_defaults();v=bound.arguments;found=[(n,m)for n,m in live.items()if v['A_log']is m.A_log and v['dt_bias']is m.dt_bias];assert len(found)==1;name,m=found[0]
+  ctx=get_forward_context();assert isinstance(ctx.attn_metadata,dict);phase=phase_meta(ctx.attn_metadata.get(m.prefix));assert phase['phase']=='prefill'and not phase['speculative']and self.counts.get((name,'prefill'),0)==0
+  d=dict(v)
+  import torch
+  for k in('conv_output','a','b','A_log','dt_bias'):
+   assert bool(torch.isfinite(v[k]).all()) # original finite-input scope
+   d[k]=v[k].detach()
+  return self.call(name,'prefill',fused_post_conv_prep,**d)
+ self.bind(q,'fused_post_conv_prep',wrapper);return dict(owners=sorted(self.owners))

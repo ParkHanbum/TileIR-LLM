@@ -1,0 +1,612 @@
+{
+  "schema": "packed-k128-single-contract-five-actual-v1",
+  "candidate": "packed_k128_partial_v1",
+  "cases": [
+    {
+      "label": "ba_decode",
+      "X": {
+        "logical_sha256": "b905c9a23dc35ec8d19c68f7c26879552ba0af708abde2e8b02aa1c69816da65",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_decode_X.pt",
+        "sha256": "4480296d7c3c5304548076901c2e5c92c15d6de1395cb7179fc37727fa7227d8",
+        "metadata": {
+          "shape": [
+            32,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 163840,
+          "data_ptr": 138040478040064,
+          "stream": 0
+        },
+        "saved_shape": [
+          32,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ]
+      },
+      "W": {
+        "logical_sha256": "1303ede1dcdb0a52155ccb42e18224822243d8e5c25152d37a6e1e0092d3b692",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_W.pt",
+        "sha256": "4a7257ce0cea12201f5de52039a877dea3c4fd00ef4a01c9a3b72b1d1e28b7ee",
+        "metadata": {
+          "shape": [
+            64,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 327680,
+          "data_ptr": 138051164665344,
+          "stream": 0
+        },
+        "saved_shape": [
+          64,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ],
+        "final_logical_sha256": "1303ede1dcdb0a52155ccb42e18224822243d8e5c25152d37a6e1e0092d3b692"
+      },
+      "capturedY": {
+        "logical_sha256": "299c93b476c3677f1e9ba398bbb95a72e3537e4d5eec3ae0ac18ec83a2355ca4",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_decode_Y.pt",
+        "sha256": "50af36550e23272ab36ae63624c6b251b73beee54bce8926151562fde27ea3b6",
+        "metadata": {
+          "shape": [
+            32,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 4096,
+          "data_ptr": 138040735382528,
+          "stream": 0
+        },
+        "saved_shape": [
+          32,
+          64
+        ],
+        "saved_stride": [
+          64,
+          1
+        ]
+      },
+      "metadata": {
+        "X": {
+          "shape": [
+            32,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 163840,
+          "data_ptr": 138040478040064,
+          "stream": 0
+        },
+        "W": {
+          "shape": [
+            64,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 327680,
+          "data_ptr": 138051164665344,
+          "stream": 0
+        }
+      },
+      "capture_semantics": "older native eager bank; math-mode relationship not assumed",
+      "saved_original": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_accumulation_assessment_v1/grouping01/ba_decode/original_0.pt",
+        "sha256": "23cfefc84313c33085b733e3ce9705e71ec4527f6d42457ec50a45bfd20a44ae"
+      },
+      "require_default_matches_captured": true,
+      "role": "selection_set_one_unique_vector",
+      "expected_candidate_path": "bf16_k128"
+    },
+    {
+      "label": "ba_decode_layer1_mismatch",
+      "X": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_native_shadow_v2/nativeShadow01/shadow/X.pt",
+        "sha256": "40bb95a7a4cdf2b32cc4cddc5a4716f404ea70c71bd9b6b9e8198d7fce4aeb52"
+      },
+      "W": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_native_shadow_v2/nativeShadow01/shadow/W.pt",
+        "sha256": "2539f8fa0f3809274150da44002a3cbdc8604a54993c0aae71222e0cd8c1f1aa"
+      },
+      "capturedY": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_native_shadow_v2/nativeShadow01/shadow/nativeY.pt",
+        "sha256": "5fcda2552d6299836895dd90b597325a54d93caa290577f747e51b2961a4c850"
+      },
+      "metadata": {
+        "X": {
+          "shape": [
+            32,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "data_ptr": 123231699402752,
+          "version": "unavailable_inference_tensor"
+        },
+        "W": {
+          "shape": [
+            64,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "data_ptr": 123242419823616,
+          "version": 0
+        }
+      },
+      "capture_semantics": "native-F trajectory first mismatch; bound native repeat evidence retained",
+      "saved_original": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_accumulation_assessment_v1/grouping01/ba_decode_layer1_mismatch/original_0.pt",
+        "sha256": "dd36d8e7ae84e7abc5c384fb7bb578704b33a7c170840ddb19c35397afac6801"
+      },
+      "require_default_matches_captured": false,
+      "role": "independent_new_arithmetic_holdout",
+      "expected_candidate_path": "bf16_k128"
+    },
+    {
+      "label": "ba_prefill",
+      "X": {
+        "logical_sha256": "35fa61437b2faeb76cd3193aa51c88927c5e1c6892683ac966c91bd93eb193da",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_prefill_X.pt",
+        "sha256": "b0e36e6e6acf81b33e2f178b7791336713597adfd7084dd74098867c1ee3ab64",
+        "metadata": {
+          "shape": [
+            1696,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 8683520,
+          "data_ptr": 138040626380800,
+          "stream": 0
+        },
+        "saved_shape": [
+          1696,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ]
+      },
+      "W": {
+        "logical_sha256": "1303ede1dcdb0a52155ccb42e18224822243d8e5c25152d37a6e1e0092d3b692",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_W.pt",
+        "sha256": "4a7257ce0cea12201f5de52039a877dea3c4fd00ef4a01c9a3b72b1d1e28b7ee",
+        "metadata": {
+          "shape": [
+            64,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 327680,
+          "data_ptr": 138051164665344,
+          "stream": 0
+        },
+        "saved_shape": [
+          64,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ],
+        "final_logical_sha256": "1303ede1dcdb0a52155ccb42e18224822243d8e5c25152d37a6e1e0092d3b692"
+      },
+      "capturedY": {
+        "logical_sha256": "8b7b82f0dd44475c1ce999527da16bfe1076d21715a5562f204de1f6e52f25f6",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/ba_prefill_Y.pt",
+        "sha256": "aa906c3a12eb05ae2819c0b19a032b56fc4d8619ef28226d67e6a3e2c03e0408",
+        "metadata": {
+          "shape": [
+            1696,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 217088,
+          "data_ptr": 138040477548544,
+          "stream": 0
+        },
+        "saved_shape": [
+          1696,
+          64
+        ],
+        "saved_stride": [
+          64,
+          1
+        ]
+      },
+      "metadata": {
+        "X": {
+          "shape": [
+            1696,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 8683520,
+          "data_ptr": 138040626380800,
+          "stream": 0
+        },
+        "W": {
+          "shape": [
+            64,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 327680,
+          "data_ptr": 138051164665344,
+          "stream": 0
+        }
+      },
+      "capture_semantics": "older native eager bank; math-mode relationship not assumed",
+      "saved_original": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_accumulation_assessment_v1/grouping01/ba_prefill/original_0.pt",
+        "sha256": "d27ae02943fa24419533995d551293a644cffe7c29e564c834c03647d176602b"
+      },
+      "require_default_matches_captured": true,
+      "role": "unchanged_route_regression",
+      "expected_candidate_path": "unchanged_base"
+    },
+    {
+      "label": "qkvz_decode",
+      "X": {
+        "logical_sha256": "b905c9a23dc35ec8d19c68f7c26879552ba0af708abde2e8b02aa1c69816da65",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/qkvz_decode_X.pt",
+        "sha256": "be178bcdd324beee3f2aa5ff98605b8beb2be82946090c1a9eb74053aec19886",
+        "metadata": {
+          "shape": [
+            32,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 163840,
+          "data_ptr": 138040478040064,
+          "stream": 0
+        },
+        "saved_shape": [
+          32,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ]
+      },
+      "W": {
+        "logical_sha256": "ff2394f3d1ffab57e006842e45b967750fbde3f19f027a340cdb0b893c63ae72",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/qkvz_W.pt",
+        "sha256": "909129b2bd74057aacae8f582a2daa5accaa030d579a15df0b14846b1762aff5",
+        "metadata": {
+          "shape": [
+            12288,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 62914560,
+          "data_ptr": 138050919202816,
+          "stream": 0
+        },
+        "saved_shape": [
+          12288,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ],
+        "final_logical_sha256": "ff2394f3d1ffab57e006842e45b967750fbde3f19f027a340cdb0b893c63ae72"
+      },
+      "capturedY": {
+        "logical_sha256": "3e44ae7e27785991ea8877f2e495851c6f4401ec924e606174c9017659872459",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/qkvz_decode_Y.pt",
+        "sha256": "4c1777953b99009e66ca703233d9da63816d2f5580df0133c173a6f5febe0d39",
+        "metadata": {
+          "shape": [
+            32,
+            12288
+          ],
+          "stride": [
+            12288,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 786432,
+          "data_ptr": 138040478203904,
+          "stream": 0
+        },
+        "saved_shape": [
+          32,
+          12288
+        ],
+        "saved_stride": [
+          12288,
+          1
+        ]
+      },
+      "metadata": {
+        "X": {
+          "shape": [
+            32,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 163840,
+          "data_ptr": 138040478040064,
+          "stream": 0
+        },
+        "W": {
+          "shape": [
+            12288,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 62914560,
+          "data_ptr": 138050919202816,
+          "stream": 0
+        }
+      },
+      "capture_semantics": "older native eager bank; math-mode relationship not assumed",
+      "saved_original": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_accumulation_assessment_v1/grouping01/qkvz_decode/original_0.pt",
+        "sha256": "286c0d8bd55b9722e1be32a0dfa8912af2cd8cc4a3b91ab5bcb8d9c38f6ffede"
+      },
+      "require_default_matches_captured": true,
+      "role": "unchanged_route_regression",
+      "expected_candidate_path": "unchanged_base"
+    },
+    {
+      "label": "gate_up_prefill",
+      "X": {
+        "logical_sha256": "0913058f0e14613f1577f670907b6d60ab709953d76eb144cee0f4c199fcaf9f",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/gate_up_prefill_X.pt",
+        "sha256": "37c743e2147a0f9cc83c4537f4708a767685f04f89bfd63f7f758ef384ec9900",
+        "metadata": {
+          "shape": [
+            1696,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 8683520,
+          "data_ptr": 138040735432704,
+          "stream": 0
+        },
+        "saved_shape": [
+          1696,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ]
+      },
+      "W": {
+        "logical_sha256": "8fdd5d5cd9e2d256ae91b2b4ed402fea7ff240f0dad558956a7a8fcdbd5f10af",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/gate_up_W.pt",
+        "sha256": "6f671c153fdafa4c5fbf79ca6c2a8c219ffa37220acf7ed99097fe50e19cacd3",
+        "metadata": {
+          "shape": [
+            18432,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 94371840,
+          "data_ptr": 138051003088896,
+          "stream": 0
+        },
+        "saved_shape": [
+          18432,
+          2560
+        ],
+        "saved_stride": [
+          2560,
+          1
+        ],
+        "final_logical_sha256": "8fdd5d5cd9e2d256ae91b2b4ed402fea7ff240f0dad558956a7a8fcdbd5f10af"
+      },
+      "capturedY": {
+        "logical_sha256": "98a0daebaa2b54c4b2019af79ef1fcd8fb15494e32085301cec86ac0e54077fc",
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_runtime_contract_capture_v1/packedCapture01/bank/gate_up_prefill_Y.pt",
+        "sha256": "deea2f347d3e7801ab22be3f65b2babdd123f60903e745451866977c9531f1ba",
+        "metadata": {
+          "shape": [
+            1696,
+            18432
+          ],
+          "stride": [
+            18432,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 62521344,
+          "data_ptr": 138040349556736,
+          "stream": 0
+        },
+        "saved_shape": [
+          1696,
+          18432
+        ],
+        "saved_stride": [
+          18432,
+          1
+        ]
+      },
+      "metadata": {
+        "X": {
+          "shape": [
+            1696,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 8683520,
+          "data_ptr": 138040735432704,
+          "stream": 0
+        },
+        "W": {
+          "shape": [
+            18432,
+            2560
+          ],
+          "stride": [
+            2560,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "device": "cuda:0",
+          "storage_nbytes": 94371840,
+          "data_ptr": 138051003088896,
+          "stream": 0
+        }
+      },
+      "capture_semantics": "older native eager bank; math-mode relationship not assumed",
+      "saved_original": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_accumulation_assessment_v1/grouping01/gate_up_prefill/original_0.pt",
+        "sha256": "acf3479d16b337a795a6e2cdc7228df96554bee8828a1355d372dc91d04f3fe1"
+      },
+      "require_default_matches_captured": true,
+      "role": "unchanged_route_regression",
+      "expected_candidate_path": "unchanged_base"
+    }
+  ],
+  "reference": {
+    "math_mode": 0,
+    "algo": 99,
+    "compute_type": 68,
+    "pointer_mode": 0,
+    "alpha": 1,
+    "beta": 0
+  },
+  "torch_flags_required": [
+    true,
+    true
+  ],
+  "arms": [
+    "bf16_k128"
+  ],
+  "stop": "First raw/strict/finite failure per candidate stops that candidate; the other predeclared candidate may continue. Stop entire run when both fail. Reference/baseline/invariance failure stops entire run.",
+  "model_replacement": false,
+  "timing": false,
+  "selection_limit": "One of24 CPU recipes on one unique vector; not hardware MMA proof."
+}

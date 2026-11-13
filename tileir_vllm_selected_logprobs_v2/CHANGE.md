@@ -1,0 +1,1 @@
+Only ct.sum of1024 exponential values replaced with explicit128x8 sequential localRN additions, then4x32 butterfly reduction and4-group reduction. Exp/log/max/outer chunk accumulation/outputs and API descriptors unchanged. No compiled/GPU success claimed. Public native TTGIR/PTX evidence and CPU captured-value tree reproduction documented in selected_logprobs_exp_diagnostic_v1.

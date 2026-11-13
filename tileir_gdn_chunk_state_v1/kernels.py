@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: Apache-2.0
+# Public vLLM/FLA chunk_delta_h.py adaptation; original MIT in LICENSE-FLA-MIT.txt.
+import cuda.tile as ct
+from cuda.tile import RoundingMode as RM
+@ct.kernel
+def state(K,W,U,G,H0,H,VN,F):
+ seq=ct.bid(0);head=ct.bid(1);part=ct.bid(2)
+ t=ct.arange(64,dtype=ct.int32);kk=ct.arange(64,dtype=ct.int32);vv=part*32+ct.arange(32,dtype=ct.int32)
+ h1=ct.gather(H0,(seq,head,vv[:,None],kk[None,:]),check_bounds=False)
+ h2=ct.gather(H0,(seq,head,vv[:,None],64+kk[None,:]),check_bounds=False)
+ h1=ct.add(0.0,h1,rounding_mode=RM.RN);h2=ct.add(0.0,h2,rounding_mode=RM.RN)
+ ct.scatter(H,(0,seq,head,vv[:,None],kk[None,:]),h1.astype(ct.bfloat16),check_bounds=False)
+ ct.scatter(H,(0,seq,head,vv[:,None],64+kk[None,:]),h2.astype(ct.bfloat16),check_bounds=False)
+ w1=ct.gather(W,(0,seq*53+t[:,None],head,kk[None,:]),mask=t[:,None]<53,padding_value=0,check_bounds=False)
+ w2=ct.gather(W,(0,seq*53+t[:,None],head,64+kk[None,:]),mask=t[:,None]<53,padding_value=0,check_bounds=False)
+ zero=ct.full((64,32),0,dtype=ct.float32)
+ p1=ct.mma(w1,ct.transpose(h1).astype(ct.bfloat16),zero)
+ p2=ct.mma(w2,ct.transpose(h2).astype(ct.bfloat16),zero)
+ pred=ct.add(p1,p2,rounding_mode=RM.RN)
+ u=ct.gather(U,(0,seq*53+t[:,None],head,vv[None,:]),mask=t[:,None]<53,padding_value=0,check_bounds=False)
+ new=ct.sub(u.astype(ct.float32),pred,rounding_mode=RM.RN)
+ ct.scatter(VN,(0,seq*53+t[:,None],head,vv[None,:]),new.astype(ct.bfloat16),mask=t[:,None]<53,check_bounds=False)
+ g=ct.gather(G,(0,seq*53+t,head),mask=t<53,padding_value=0,check_bounds=False)
+ last=ct.gather(G,(0,seq*53+52,head),check_bounds=False)
+ fac=ct.exp2(ct.mul(ct.sub(last,g,rounding_mode=RM.RN),1.4426950408889634,rounding_mode=RM.RN))
+ fac=ct.where(t<53,fac,0.0)
+ scaled=ct.mul(new,fac[:,None],rounding_mode=RM.RN).astype(ct.bfloat16)
+ decay=ct.exp2(ct.mul(last,1.4426950408889634,rounding_mode=RM.RN))
+ d1=ct.mul(h1,decay,rounding_mode=RM.RN);d2=ct.mul(h2,decay,rounding_mode=RM.RN)
+ k1=ct.gather(K,(0,seq*53+t[None,:],head//2,kk[:,None]),mask=t[None,:]<53,padding_value=0,check_bounds=False)
+ k2=ct.gather(K,(0,seq*53+t[None,:],head//2,64+kk[:,None]),mask=t[None,:]<53,padding_value=0,check_bounds=False)
+ update1=ct.transpose(ct.mma(k1,scaled,zero));update2=ct.transpose(ct.mma(k2,scaled,zero))
+ final1=ct.add(d1,update1,rounding_mode=RM.RN);final2=ct.add(d2,update2,rounding_mode=RM.RN)
+ ct.scatter(F,(seq,head,vv[:,None],kk[None,:]),final1,check_bounds=False)
+ ct.scatter(F,(seq,head,vv[:,None],64+kk[None,:]),final2,check_bounds=False)

@@ -1,0 +1,12 @@
+def gather(self,x,idx):
+ import torch
+ from tileir_vllm_hidden_gather_v1 import gather_hidden_rows
+ from tileir_vllm_hidden_gather_v1.api import validate_metadata
+ assert self.pending is not None and self.current is None;n=1696 if self.pending=='prefill'else 32
+ assert x.shape==(n,2560)and x.dtype==torch.bfloat16 and x.stride()==(2560,1)and x.storage_offset()==0 and x.untyped_storage().nbytes()==n*5120
+ assert idx.shape==(32,)and idx.dtype==torch.int64 and idx.stride()==(1,)and idx.storage_offset()==0 and idx.untyped_storage().nbytes()==256
+ meta=lambda t:dict(shape=tuple(t.shape),stride=tuple(t.stride()),offset=t.storage_offset(),dtype=str(t.dtype))
+ validate_metadata(meta(idx),meta(x),idx.detach().cpu().tolist());disjoint(x,idx)
+ y=self.call('runner',self.pending,gather_hidden_rows,x,idx)
+ assert y.shape==(32,2560)and y.dtype==x.dtype and y.device==x.device and y.stride()==(2560,1)and y.storage_offset()==0 and y.untyped_storage().nbytes()==163840
+ disjoint(y,x,idx);assert bool(torch.isfinite(y).all());self.current=y;return y

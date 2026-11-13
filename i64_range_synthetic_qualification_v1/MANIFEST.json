@@ -1,0 +1,14 @@
+{
+  "scope": "16 private int64 range cases on two streams;32 comparisons; model48 pending",
+  "cases": 16,
+  "streams": 2,
+  "comparisons": 32,
+  "timeout_seconds": 585,
+  "model_calls": 0,
+  "timing": false,
+  "unsupported_metadata": "CPU API mocks prove prelaunch rejection; no invalid GPU retry",
+  "api": "/home/n/work/TileIR/public-tileir-blas-20261111/public_i64_range_guard_v1/api.py",
+  "api_sha256": "238426c326bdaa61905b169393db1f459bc0a122c1b50283aea64c0dbf4167fd",
+  "kernel": "/home/n/work/TileIR/public-tileir-blas-20261111/public_i64_range_guard_v1/kernel.py",
+  "kernel_sha256": "db8a6749c4f596a54a0f3c9bfaf1dfc51b93b08b53b9add8dacce178a0a2d715"
+}

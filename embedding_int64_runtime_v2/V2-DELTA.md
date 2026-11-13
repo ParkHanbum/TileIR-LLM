@@ -1,0 +1,2 @@
+# Cleanup-only change
+Frozen v1 preserved. lean.close and cast.close are independently attempted, errors aggregated. Any failed close blocks release, retaining owner state references and per-close receipts for diagnosis. Successful numerical path, source copy, counts, gates and precision unchanged. CPU regressions inject lean failure, cast failure and both; no GPU execution. Full source freeze waits until coordinator releases current GPU window and review findings are complete.

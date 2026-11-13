@@ -1,0 +1,11 @@
+{
+  "scope": "190 private same-input EQ-all synthetic cases; actual model408 pending",
+  "api": "/home/n/work/TileIR/public-tileir-blas-20261111/public_eq_all_guard_v2/api.py",
+  "api_sha256": "53226863e9dddd0b9df80bd7f2a74e6d38d92472146b0f631e1f2e698818297d",
+  "kernel": "/home/n/work/TileIR/public-tileir-blas-20261111/public_eq_all_guard_v2/kernel.py",
+  "kernel_sha256": "b23d2467a1969f1e645603b1ded4468b3cd570665d9c23c790018d38b1491402",
+  "cases": 190,
+  "timeout_seconds": 585,
+  "model_calls": 0,
+  "timing": false
+}

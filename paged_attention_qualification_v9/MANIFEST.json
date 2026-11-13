@@ -1,0 +1,17 @@
+{
+  "schema": "attention-v9-four-bank-index",
+  "banks": [
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_failure_native_capture_v5/attentionFailureNative05/bank/MANIFEST.json",
+      "sha256": "aaa9c39f3fc66564efe27749fa9a6818bfaaf3f380812714526f5b2638e1f256"
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_failure_native_capture_v3/attentionFailureNative03/bank/MANIFEST.json",
+      "sha256": "b40e8435c328eb2bf009d5e44ec336f5a6919afb643716e18e8ae9f5afbcae28"
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_core_runtime_capture_v1/attentionCoreCapture01/bank/MANIFEST.json",
+      "sha256": "d0d55145e22b2e8c0883b83e9f074bdd60de08cf30f025ab2cf4002f07099a95"
+    }
+  ]
+}

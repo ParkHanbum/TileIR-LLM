@@ -1,0 +1,42 @@
+{
+  "revision": "7127592069c2fe01b041e174ba4345ef9b279671",
+  "origin": "https://github.com/NVIDIA/cutlass",
+  "license": "BSD-3-Clause",
+  "excluded": [
+    "python/CuTeDSL",
+    "vendor disassembly",
+    "private compiler hooks"
+  ],
+  "sources": [
+    {
+      "path": "include/cutlass/layout/matrix.h",
+      "sha256": "f7ff90051e0b2c7ea6f1295e62a2550e89aec5f8385a26c38ad38890a670341d",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/include/cutlass/layout/matrix.h"
+    },
+    {
+      "path": "include/cutlass/gemm/threadblock/default_mma_core_sm80.h",
+      "sha256": "ab3b955a3e60e6b9a2fb1221bdc5759c2cc68adb5a7f32da29280474421db268",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/include/cutlass/gemm/threadblock/default_mma_core_sm80.h"
+    },
+    {
+      "path": "include/cutlass/transform/threadblock/predicated_tile_access_iterator.h",
+      "sha256": "bea46e994f412ddabe7ff091d5f632a9fb7dd5edbd74902c4d9dd022f128f318",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/include/cutlass/transform/threadblock/predicated_tile_access_iterator.h"
+    },
+    {
+      "path": "include/cutlass/epilogue/thread/linear_combination.h",
+      "sha256": "e70c257c3722979a0ffa0dd73482ca8e7238c273ef3ca6c4269577eab7cfab08",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/include/cutlass/epilogue/thread/linear_combination.h"
+    },
+    {
+      "path": "include/cutlass/gemm/threadblock/mma_multistage.h",
+      "sha256": "3f89e410ca96b06e4a56ba19f90399e8fdd2744a28c45d458a60940708b4171b",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/include/cutlass/gemm/threadblock/mma_multistage.h"
+    },
+    {
+      "path": "LICENSE.txt",
+      "sha256": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+      "url": "https://github.com/NVIDIA/cutlass/blob/7127592069c2fe01b041e174ba4345ef9b279671/LICENSE.txt"
+    }
+  ]
+}

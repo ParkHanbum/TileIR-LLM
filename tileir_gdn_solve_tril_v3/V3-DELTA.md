@@ -1,0 +1,1 @@
+Only 16 FP32 ct.mma block dots replaced with 16-step FP32 mul+add chains. Actual compiler fusion/order unverified. Public native inter-dot accumulation merging remains a known separate difference. Complete FLA MIT in LICENSE-FLA-MIT-01.txt, Apache2 in LICENSE. Prior v1/v2 unchanged.

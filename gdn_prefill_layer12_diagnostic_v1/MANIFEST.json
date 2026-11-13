@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "observers_removed": true,
+  "samples": [
+    {
+      "pre": {
+        "q": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_q.pt",
+          "sha256": "a527fb48c4d84e52b9258557f41e657652715915dd8ec7fd317aa140a6fd16b0",
+          "logical_sha256": "6a68d7751096272948457f0473cc20f3ae0a0dd35e03bf7200991f343a0e12ea",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              16,
+              128
+            ],
+            "stride": [
+              3473408,
+              2048,
+              128,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 6946816
+          }
+        },
+        "k": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_k.pt",
+          "sha256": "9ee5f478c566f9ae3dcc7830371a6656af881e08e9810f79b323bfc447275583",
+          "logical_sha256": "0306b1c4a8a794d8e4e6844d6d78b040127efb3fe09a1e8b044f5ba92d84c242",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              16,
+              128
+            ],
+            "stride": [
+              3473408,
+              2048,
+              128,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 6946816
+          }
+        },
+        "v": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_v.pt",
+          "sha256": "d946b0d02d4d5fa6b5c3132e8461ff1757c3a85dad7c76d7ba1f2c584b2b5f15",
+          "logical_sha256": "9fc1758e5e142475a47fa411d9de00f337b525e45956050eedf5321560513c38",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              32,
+              128
+            ],
+            "stride": [
+              6946816,
+              4096,
+              128,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 13893632
+          }
+        },
+        "g": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_g.pt",
+          "sha256": "688177391cb3f48d297b616bbd97ff87ea25d6654313057bda0edf70ded897c5",
+          "logical_sha256": "d4f1de27dbf00677c44e40fd8540eb45640e91256dbae008bf7ad8c497a63c8b",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              32
+            ],
+            "stride": [
+              54272,
+              32,
+              1
+            ],
+            "dtype": "torch.float32",
+            "storage_nbytes": 217088
+          }
+        },
+        "beta": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_beta.pt",
+          "sha256": "44fb93ad790707a31ff847584fdd598e5b3028af5c2a2d88538f55e17e7bf2aa",
+          "logical_sha256": "ac6abdd73be8a13166aaf62da22298a17bb9f5562cf09fc67b6a4646dc34252e",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              32
+            ],
+            "stride": [
+              54272,
+              32,
+              1
+            ],
+            "dtype": "torch.float32",
+            "storage_nbytes": 217088
+          }
+        },
+        "initial_state": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_initial_state.pt",
+          "sha256": "11b16b34d5fb0cb16caf5580bcf76e2882196ed06355b3561fa973e6b13ab614",
+          "logical_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351",
+          "metadata": {
+            "shape": [
+              32,
+              32,
+              128,
+              128
+            ],
+            "stride": [
+              524288,
+              16384,
+              128,
+              1
+            ],
+            "dtype": "torch.float32",
+            "storage_nbytes": 67108864
+          }
+        },
+        "cu_seqlens": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_cu_seqlens.pt",
+          "sha256": "1dfe07d35b3f6851c86185241b14ac70c30eeaa66d42bb6a0d0af20fc45809ac",
+          "logical_sha256": "6125e8557ac8498364a905f45716d57c053d6a22780b91e0c2ac3c9927b60b87",
+          "metadata": {
+            "shape": [
+              33
+            ],
+            "stride": [
+              1
+            ],
+            "dtype": "torch.int32",
+            "storage_nbytes": 132
+          }
+        },
+        "chunk_indices": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_chunk_indices.pt",
+          "sha256": "63d1e3ef02af4da5cc1fa73314dc06441987979d1747de128499aa5f04e9317a",
+          "logical_sha256": "bcc9bcfc670935c6018dc26a74956a373b655f8930dd55ab074d816d7d233780",
+          "metadata": {
+            "shape": [
+              32,
+              2
+            ],
+            "stride": [
+              2,
+              1
+            ],
+            "dtype": "torch.int32",
+            "storage_nbytes": 256
+          }
+        },
+        "chunk_offsets": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/input_chunk_offsets.pt",
+          "sha256": "cca19e2c7cb80c05c85c550dfd8b6475b31899dc32839ce671fbdc8b88bd8439",
+          "logical_sha256": "4e8adfac993e338c03c60ea14fe73d9663ea5d66eac4c2a46125f5c8276bb96b",
+          "metadata": {
+            "shape": [
+              33
+            ],
+            "stride": [
+              1
+            ],
+            "dtype": "torch.int64",
+            "storage_nbytes": 264
+          }
+        }
+      },
+      "outputs": {
+        "o": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/native_o.pt",
+          "sha256": "0e126832f935dce1e247e20ab69a40b64d6c413082b4c6d3b69d1d51151e44dc",
+          "logical_sha256": "c953f293fe05c369494efc7c7b07c47b22a433e8bec727e0dd36b2c65a46d622",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              32,
+              128
+            ],
+            "stride": [
+              6946816,
+              4096,
+              128,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 13893632
+          }
+        },
+        "final_state": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/native_final_state.pt",
+          "sha256": "c76305ee0dd9779ca947458d2c579c03a3d71e43d81dc5d7e6be351697834a31",
+          "logical_sha256": "95f5bb22fcf26dab3bbbf43acc346ca2b629ca34c06ede3ba3dd0ce69223fcfd",
+          "metadata": {
+            "shape": [
+              32,
+              32,
+              128,
+              128
+            ],
+            "stride": [
+              524288,
+              16384,
+              128,
+              1
+            ],
+            "dtype": "torch.float32",
+            "storage_nbytes": 67108864
+          }
+        }
+      },
+      "candidate_outputs": {
+        "o": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/candidate_o.pt",
+          "sha256": "85ad72c084cb29ee2161d06fc6f2611517fd179821607a98d2a8482b15a771cc",
+          "logical_sha256": "10a8bdbd0a511a55f7e451bbbe3481853cad701d98a3c5fd6cbecb7efdba8b5c",
+          "metadata": {
+            "shape": [
+              1,
+              1696,
+              32,
+              128
+            ],
+            "stride": [
+              6946816,
+              4096,
+              128,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 13893632
+          }
+        },
+        "final_state": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v2/gdnPrefillCoreIntegration02/shadow/first_mismatch/candidate_final_state.pt",
+          "sha256": "5607780ad2806580cc3a586121bad637da85f8e5cad6f9e99a8cc62d34fb63bb",
+          "logical_sha256": "cdec8e5cbae865038b37807a708f612d69efb72a18d5fe5dac0c7528c25166a4",
+          "metadata": {
+            "shape": [
+              32,
+              32,
+              128,
+              128
+            ],
+            "stride": [
+              524288,
+              16384,
+              128,
+              1
+            ],
+            "dtype": "torch.float32",
+            "storage_nbytes": 67108864
+          }
+        }
+      },
+      "arguments": {
+        "output_final_state": true,
+        "use_qk_l2norm_in_kernel": false,
+        "core_attn_out": null,
+        "aiter_prefill_metadata": null
+      },
+      "input_logical_preserved": {
+        "q": true,
+        "k": true,
+        "v": true,
+        "g": true,
+        "beta": true,
+        "initial_state": true,
+        "cu_seqlens": true,
+        "chunk_indices": true,
+        "chunk_offsets": true
+      }
+    }
+  ],
+  "provenance": "Saved pre-dispatch layer12 inputs from failed GDN24 shadow, not fresh runtime capture; input_logical_preserved is validated against recorded shadow hashes below",
+  "failure_sha": "28438070a3a7811415868d90c10808151221519217a79f0dbdb6949e3b44dac7"
+}

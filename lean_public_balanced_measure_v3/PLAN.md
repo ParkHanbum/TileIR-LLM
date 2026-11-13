@@ -1,0 +1,11 @@
+# Lean25 balanced measurement, CPU preparation pending actual lean proof
+
+Reuse the completed18-lean balanced v2 measurement contract without changing timers, input/numerical APIs, supported scope, memory lifetime or runtime configuration. New imports only select qualified-when-ready25 lean adapter and endpoint gates. No adoption of interrupted old19. Full25 correctness PASS is separate from lean25 endpoint PASS and from performance.
+
+Baseline: current eager native vLLM mode0/graphsNONE, Qwen3.5-4B B32/P53/G16/logprobs5 and defaultT/T; not historical optimized vLLM. All25 lean controllers represent5888 boundaries/6056 logical operations. API internal validation/value guards and potential native helper work remain, so not completely validation-off and not100% physical GPU support. Numeric kernels, shape scope, KV and async settings are unchanged.
+
+Two fresh processes, four explicit balanced native/lean pairs each, complementary schedules and reversed profile order. Each process begins with untimed native→lean512 IDs/public2560/dispatch/restore exact checks. Each subsequent request repeats those endpoint checks outside the timer. Installation, proof formatting/census, restore and release are excluded from wall. The timer remains before32 add_request calls through final token IDs/device synchronization.
+
+Each process then performs two separate CPU/CUDA activity traces; no profiler on wall samples. Only GPU kernels whose CPU runtime/driver launch correlations lie inside request_execution form the model denominator. Install/proof/restore excluded; unresolved/cross-thread kernel attribution blocks readiness. API scopes are attribution context, not proof of physical TileIR membership. Sum-of-durations is not wall/busy time. Trace limit128MiB, bounded930s parent/900s child, OOM/timeout fail closed with no lowered KV or retry.
+
+Actual lean25 proof gate must pass before GPU admission, lock, cache preparation or model import. The current receipt is explicitly incomplete. CPU PREPARED-PENDING is not launch authorization or final pin freeze. Source-only copies; parent owns fresh independent process0/process1 caches, review and serialized GPU windows after proof. If prerequisite source changes, refresh/review final pins. Preserve pending receipt and drafts during release.

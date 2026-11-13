@@ -1,0 +1,1 @@
+Only six post-dot unary minus expressions replaced with explicit RN non-FTZ positive-zero subtraction, matching native public PTX boundary. Complete FLA MIT notice in LICENSE-FLA-MIT-01.txt; Apache2 LICENSE and additive attribution correction retained. No data-dependent output canonicalization.

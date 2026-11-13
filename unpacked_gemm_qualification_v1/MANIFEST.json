@@ -1,0 +1,2154 @@
+{
+  "schema": "unpacked-five-contract-eight-bank-qualification-v1",
+  "capture_manifest": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/MANIFEST.json",
+    "sha256": "8cea9b1d84ce64b87a752a53a649066c2492260bc68bce01c26051de7b8a7346"
+  },
+  "torch_flags_required": [
+    true,
+    true
+  ],
+  "reference": {
+    "math_mode": 0,
+    "algo": 99,
+    "compute_type": 68,
+    "pointer_mode": 0,
+    "alpha": 1,
+    "beta": 0
+  },
+  "timing": false,
+  "model_replacement": false,
+  "backend": "tileirblas_once_occ2.linear",
+  "groups": [
+    {
+      "contract": "out_prefill",
+      "logical_MNK": [
+        1696,
+        2560,
+        4096
+      ],
+      "banks": [
+        {
+          "label": "gdn_out_prefill",
+          "sample": {
+            "kind": "gdn_out",
+            "phase": "prefill",
+            "module": "language_model.model.layers.0.linear_attn.out_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/gdn_out_prefill_X.pt",
+              "sha256": "d2d5028d09bac9c635ba95e24b3b0c5f651dde3d77b25757ad577ae075eb6cdf",
+              "logical_sha256": "ec9e0c269d62e6d4972e5a7e8a83acc3916496d2abbbda6fd5c9508c0c1f9a09",
+              "metadata": {
+                "shape": [
+                  1696,
+                  4096
+                ],
+                "stride": [
+                  4096,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 13893632,
+                "data_ptr": 130797572980736,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                4096
+              ],
+              "saved_stride": [
+                4096,
+                1
+              ]
+            },
+            "weight_key": "gdn_out",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/gdn_out_prefill_Y.pt",
+              "sha256": "c35af4db0f2228bebd281113ab8cc9f7d5af926bea46528f95216992095908f0",
+              "logical_sha256": "ab6bac6c0d9b62dbb484ffbd17bec1d1ae809e47399f32250dc1bcd79a2699c2",
+              "metadata": {
+                "shape": [
+                  1696,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 8683520,
+                "data_ptr": 130797510066176,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4859,
+                "sha256": "526987afb63dbc4908fab81cb1d092104312834bfb45849551742f8b5dbf3cc5"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "1696",
+                  "value": 1696
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df818)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f801c00000)",
+                  "value": "POINTER (IN HEX:0x0x76f801c00000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f5aee00000)",
+                  "value": "POINTER (IN HEX:0x0x76f5aee00000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df81c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f5ab200000)",
+                  "value": "POINTER (IN HEX:0x0x76f5ab200000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "cd629e73ac84ab0b4674cc14f2a1940a944b4e04f66353f6c1f367a4d47afe79",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "526987afb63dbc4908fab81cb1d092104312834bfb45849551742f8b5dbf3cc5"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.0.linear_attn.out_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                4096
+              ],
+              "stride": [
+                4096,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 20971520,
+              "data_ptr": 130807553327104,
+              "version": 0
+            },
+            "runtime_identity": 130809548173200,
+            "logical_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb",
+            "checkpoint_named_tensor_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 2,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb"
+          }
+        },
+        {
+          "label": "attn_out_prefill",
+          "sample": {
+            "kind": "attn_out",
+            "phase": "prefill",
+            "module": "language_model.model.layers.3.self_attn.o_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/attn_out_prefill_X.pt",
+              "sha256": "315deb030f2c9cea1c569afd139710c63ea997ff3cb91d5d3d8e3b859bf18c6d",
+              "logical_sha256": "342432a66f1b90b57fdc51f5a87258bd7883683bf6eab8f9d4e20348df0c170f",
+              "metadata": {
+                "shape": [
+                  1696,
+                  4096
+                ],
+                "stride": [
+                  4096,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 13893632,
+                "data_ptr": 130797073858560,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                4096
+              ],
+              "saved_stride": [
+                4096,
+                1
+              ]
+            },
+            "weight_key": "attn_out",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/attn_out_prefill_Y.pt",
+              "sha256": "ec0e68fd2d733c8aa8c981b4a2c2ba3bfab5ce8832128f3b765368c2df0b62a1",
+              "logical_sha256": "d5b8137600eb0b9d5c0b475f3e0ba54074f4f9dfe21462861275f1d7532a2188",
+              "metadata": {
+                "shape": [
+                  1696,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 8683520,
+                "data_ptr": 130795828150272,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4859,
+                "sha256": "5c0cfc2f826da41f5ef57130a5399af3cbc68375c064183c72afa312a5b8bbd4"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "1696",
+                  "value": 1696
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df818)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f774000000)",
+                  "value": "POINTER (IN HEX:0x0x76f774000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f591200000)",
+                  "value": "POINTER (IN HEX:0x0x76f591200000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df81c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546e00000)",
+                  "value": "POINTER (IN HEX:0x0x76f546e00000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "701fbfdaa3b03fa129990913189ebb404fe31abded980f9feca7cf31478eebef",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "5c0cfc2f826da41f5ef57130a5399af3cbc68375c064183c72afa312a5b8bbd4"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.3.self_attn.o_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                4096
+              ],
+              "stride": [
+                4096,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 20971520,
+              "data_ptr": 130805175156736,
+              "version": 0
+            },
+            "runtime_identity": 130809548175504,
+            "logical_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b",
+            "checkpoint_named_tensor_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 2,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b"
+          }
+        }
+      ]
+    },
+    {
+      "contract": "out_decode",
+      "logical_MNK": [
+        32,
+        2560,
+        4096
+      ],
+      "banks": [
+        {
+          "label": "gdn_out_decode",
+          "sample": {
+            "kind": "gdn_out",
+            "phase": "decode",
+            "module": "language_model.model.layers.0.linear_attn.out_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/gdn_out_decode_X.pt",
+              "sha256": "b977d3228e8dc3c675b20b2d52a26eb83737adb9c3681473fe5dd26a234fd3e0",
+              "logical_sha256": "69748fe1b11450932d3cbdf954b66e89492a5a3b1c249c296e59e0236b8c968e",
+              "metadata": {
+                "shape": [
+                  32,
+                  4096
+                ],
+                "stride": [
+                  4096,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 262144,
+                "data_ptr": 130795827777536,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                4096
+              ],
+              "saved_stride": [
+                4096,
+                1
+              ]
+            },
+            "weight_key": "gdn_out",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/gdn_out_decode_Y.pt",
+              "sha256": "0d658027856351d091e5e402fa68b2954892e49997dadb1bbc496e6b979764cd",
+              "logical_sha256": "f66b64f1ed34d853f78199ff9559f3b703b99fabe9acd51ddb77d2fe0303b91f",
+              "metadata": {
+                "shape": [
+                  32,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 163840,
+                "data_ptr": 130795827515392,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4857,
+                "sha256": "10e772e6afa9ce16faee7199cc8856e4cd8440dc70c0ce1a6730e924d648370b"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "32",
+                  "value": 32
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df818)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f801c00000)",
+                  "value": "POINTER (IN HEX:0x0x76f801c00000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546da5000)",
+                  "value": "POINTER (IN HEX:0x0x76f546da5000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df81c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546d65000)",
+                  "value": "POINTER (IN HEX:0x0x76f546d65000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "f86e7845690e281e9b610f51821e9e314c324783d3f037d3bafc5fe1d6e9b818",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "10e772e6afa9ce16faee7199cc8856e4cd8440dc70c0ce1a6730e924d648370b"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.0.linear_attn.out_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                4096
+              ],
+              "stride": [
+                4096,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 20971520,
+              "data_ptr": 130807553327104,
+              "version": 0
+            },
+            "runtime_identity": 130809548173200,
+            "logical_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb",
+            "checkpoint_named_tensor_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 2,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "3ab346e604ca4e59e8f0ec9801c785ba48761de4d4df741890e0b740be8df0eb"
+          }
+        },
+        {
+          "label": "attn_out_decode",
+          "sample": {
+            "kind": "attn_out",
+            "phase": "decode",
+            "module": "language_model.model.layers.3.self_attn.o_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/attn_out_decode_X.pt",
+              "sha256": "712c5b5ab05f81ba65bae36de2fe8011c2d60af429dcd7b6eb47407cab107311",
+              "logical_sha256": "9bbb8918bb3c2b0644a33cb24904471a51e096b137f6c4c27cb7d7705f215a63",
+              "metadata": {
+                "shape": [
+                  32,
+                  4096
+                ],
+                "stride": [
+                  4096,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 262144,
+                "data_ptr": 130797018152960,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                4096
+              ],
+              "saved_stride": [
+                4096,
+                1
+              ]
+            },
+            "weight_key": "attn_out",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/attn_out_decode_Y.pt",
+              "sha256": "1003c78c34be6ee7e4d4158f0473a0f3369e375a8c04ca7b906c68b65c5782f5",
+              "logical_sha256": "cd0b98b5afe0f9f86cefb95dbd263e0373b2a25173a6c85b905f2aaf957efd03",
+              "metadata": {
+                "shape": [
+                  32,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 163840,
+                "data_ptr": 130795827462144,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4857,
+                "sha256": "954edb38b7e4c17fa104aeb7c264b13a929839eca23b6ab7ebb62994c2aa6cb9"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "32",
+                  "value": 32
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df818)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f774000000)",
+                  "value": "POINTER (IN HEX:0x0x76f774000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f58dce0000)",
+                  "value": "POINTER (IN HEX:0x0x76f58dce0000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "4096",
+                  "value": 4096
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df81c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546d58000)",
+                  "value": "POINTER (IN HEX:0x0x76f546d58000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "4f3b93433409ed44dd8c226c4a8ba92bc8dfc856869de1fd12ea9378de3a6d79",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "954edb38b7e4c17fa104aeb7c264b13a929839eca23b6ab7ebb62994c2aa6cb9"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.3.self_attn.o_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                4096
+              ],
+              "stride": [
+                4096,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 20971520,
+              "data_ptr": 130805175156736,
+              "version": 0
+            },
+            "runtime_identity": 130809548175504,
+            "logical_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b",
+            "checkpoint_named_tensor_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 2,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "f587a093830e5e517d82a0704cb89a7423b264579ad5195fa308dbabdbd6753b"
+          }
+        }
+      ]
+    },
+    {
+      "contract": "down_prefill",
+      "logical_MNK": [
+        1696,
+        2560,
+        9216
+      ],
+      "banks": [
+        {
+          "label": "down_prefill",
+          "sample": {
+            "kind": "down",
+            "phase": "prefill",
+            "module": "language_model.model.layers.0.mlp.down_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/down_prefill_X.pt",
+              "sha256": "fec6986f8e8ada040fc79d8ce495149b31c7fa969bbc301c76f43e3d20ba8b53",
+              "logical_sha256": "8cc24540268ec89f36ff915ee8f883f4c22cad6dca3b07421fc780c966b6bd9e",
+              "metadata": {
+                "shape": [
+                  1696,
+                  9216
+                ],
+                "stride": [
+                  9216,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 31260672,
+                "data_ptr": 130796887212032,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                9216
+              ],
+              "saved_stride": [
+                9216,
+                1
+              ]
+            },
+            "weight_key": "down",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/down_prefill_Y.pt",
+              "sha256": "21aa19deb4d1c1a3b8b5fcaeffee6f556dbc5c9ccb6cb558f6f4c1d4f5feb10b",
+              "logical_sha256": "46c03a1ed503c1841f5056a9bf5136313e9cee1feb4e5e8eacd0fdfd0ed58fd1",
+              "metadata": {
+                "shape": [
+                  1696,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 8683520,
+                "data_ptr": 130797510066176,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                1696,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4859,
+                "sha256": "012a100c70cec69eb27007eba35e7c5865ede5f1624fa77b7e7c5cc127c25854"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "1696",
+                  "value": 1696
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df998)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f79a000000)",
+                  "value": "POINTER (IN HEX:0x0x76f79a000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f586000000)",
+                  "value": "POINTER (IN HEX:0x0x76f586000000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df99c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f5ab200000)",
+                  "value": "POINTER (IN HEX:0x0x76f5ab200000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "f57d27490ae8eea2e730da9e27619af358e8465621a1041907d3c10e98b73249",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "012a100c70cec69eb27007eba35e7c5865ede5f1624fa77b7e7c5cc127c25854"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.0.mlp.down_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                9216
+              ],
+              "stride": [
+                9216,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 47185920,
+              "data_ptr": 130805812690944,
+              "version": 0
+            },
+            "runtime_identity": 130809548173488,
+            "logical_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7",
+            "checkpoint_named_tensor_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 3,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7"
+          }
+        }
+      ]
+    },
+    {
+      "contract": "down_decode",
+      "logical_MNK": [
+        32,
+        2560,
+        9216
+      ],
+      "banks": [
+        {
+          "label": "down_decode",
+          "sample": {
+            "kind": "down",
+            "phase": "decode",
+            "module": "language_model.model.layers.0.mlp.down_proj",
+            "source": {
+              "module": "vllm.model_executor.layers.linear",
+              "qualname": "UnquantizedLinearMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/linear.py",
+              "source_sha256": "7a9b90937865fa35d955ffc2017f23d3997bc4fba954e2667870b1b4854a38e0",
+              "first_line": 229
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/down_decode_X.pt",
+              "sha256": "7fe51141ed2dca687da64ef57d04b5d3187ef8b18b62c6fbb7eb2fbfa637ed0e",
+              "logical_sha256": "4d0fb7ea984872f77702cea5f6e1df6505997afd73c6cf2fa15c1bbb267a7b2f",
+              "metadata": {
+                "shape": [
+                  32,
+                  9216
+                ],
+                "stride": [
+                  9216,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 589824,
+                "data_ptr": 130795826544640,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                9216
+              ],
+              "saved_stride": [
+                9216,
+                1
+              ]
+            },
+            "weight_key": "down",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/down_decode_Y.pt",
+              "sha256": "1e7cf2d91a06b5639d4bcb2c4f8b2388840d0bcf099d344c99a0d09ada7daa76",
+              "logical_sha256": "f8bc6d717ea5d818323406d0501fb8676b3765bf096b186ee156a020e12bd0e3",
+              "metadata": {
+                "shape": [
+                  32,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 163840,
+                "data_ptr": 130795827134464,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4857,
+                "sha256": "46461f77a3e3555eefea01f53f5206cae20ccf60ea9400f5e0f80f99d6fe67a2"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "32",
+                  "value": 32
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df998)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f79a000000)",
+                  "value": "POINTER (IN HEX:0x0x76f79a000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546c78000)",
+                  "value": "POINTER (IN HEX:0x0x76f546c78000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "9216",
+                  "value": 9216
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7df99c)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546d08000)",
+                  "value": "POINTER (IN HEX:0x0x76f546d08000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "9e81e98366ac340ef58b4b82966ed5d8ba393c55e1407231754f99362eac28d5",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "46461f77a3e3555eefea01f53f5206cae20ccf60ea9400f5e0f80f99d6fe67a2"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.layers.0.mlp.down_proj.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00002-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+              "size": 3990429408,
+              "mtime_ns": 1786542640880578928,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                2560,
+                9216
+              ],
+              "stride": [
+                9216,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 47185920,
+              "data_ptr": 130805812690944,
+              "version": 0
+            },
+            "runtime_identity": 130809548173488,
+            "logical_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7",
+            "checkpoint_named_tensor_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 3,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "7da9d1bccc5700c05e89305f53bd0dceb3f990a8632d39f86676911725344fe7"
+          }
+        }
+      ]
+    },
+    {
+      "contract": "head",
+      "logical_MNK": [
+        32,
+        248320,
+        2560
+      ],
+      "banks": [
+        {
+          "label": "head_prefill",
+          "sample": {
+            "kind": "head",
+            "phase": "prefill",
+            "module": "language_model.lm_head",
+            "source": {
+              "module": "vllm.model_executor.layers.vocab_parallel_embedding",
+              "qualname": "UnquantizedEmbeddingMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/vocab_parallel_embedding.py",
+              "source_sha256": "10e17024bd5a5915e0d486e7a78a96d62e77bce803e1afd27feae7ad2042edc0",
+              "first_line": 73
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/head_prefill_X.pt",
+              "sha256": "c35ae37861783add2816d45cd46d0e39d8f3dfaa26210eb053bc642a34c75dfb",
+              "logical_sha256": "d729e8045afa32fd8756dd71d08f25898939ce2ceae80f8b44f86c0b542ecce6",
+              "metadata": {
+                "shape": [
+                  32,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 163840,
+                "data_ptr": 130795826061312,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "weight_key": "head",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/head_prefill_Y.pt",
+              "sha256": "4df7f7b7a5d5a91a95e0364ce051fd21e273d164d211156742be58b73db389dd",
+              "logical_sha256": "317d0f9ae70e57294a6b2310f908768fc82490020c43ad1304b3f2687f324e56",
+              "metadata": {
+                "shape": [
+                  32,
+                  248320
+                ],
+                "stride": [
+                  248320,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 15892480,
+                "data_ptr": 130795828150272,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                248320
+              ],
+              "saved_stride": [
+                248320,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4861,
+                "sha256": "3b6e84ac64b6dcc1706a01cc850bb6bc9c9038f8e0011f6e95ae76fb41d14b6d"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "248320",
+                  "value": 248320
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "32",
+                  "value": 32
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7e3ea8)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f79e000000)",
+                  "value": "POINTER (IN HEX:0x0x76f79e000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546c02000)",
+                  "value": "POINTER (IN HEX:0x0x76f546c02000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7e3eac)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546e00000)",
+                  "value": "POINTER (IN HEX:0x0x76f546e00000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "248320",
+                  "value": 248320
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "cad745c292a70a7d067acdd811c3697255a923b563502b948ae8221fbd0bd2b3",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "3b6e84ac64b6dcc1706a01cc850bb6bc9c9038f8e0011f6e95ae76fb41d14b6d"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.embed_tokens.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00001-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61",
+              "size": 5329398688,
+              "mtime_ns": 1786542905294252318,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                248320,
+                2560
+              ],
+              "stride": [
+                2560,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 1271398400,
+              "data_ptr": 130805879799808,
+              "version": 0
+            },
+            "runtime_identity": 130808635011968,
+            "logical_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7",
+            "checkpoint_named_tensor_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 76,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7"
+          }
+        },
+        {
+          "label": "head_decode",
+          "sample": {
+            "kind": "head",
+            "phase": "decode",
+            "module": "language_model.lm_head",
+            "source": {
+              "module": "vllm.model_executor.layers.vocab_parallel_embedding",
+              "qualname": "UnquantizedEmbeddingMethod.apply",
+              "source_file": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/model_executor/layers/vocab_parallel_embedding.py",
+              "source_sha256": "10e17024bd5a5915e0d486e7a78a96d62e77bce803e1afd27feae7ad2042edc0",
+              "first_line": 73
+            },
+            "X": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/head_decode_X.pt",
+              "sha256": "2a7d89fb76dd770a79c91c172e655326dc694535e95c890a6d0bf10cb6f1305c",
+              "logical_sha256": "55db8a743e14722514be3d806d56db59299b9769392080966b74063ef72c2a9f",
+              "metadata": {
+                "shape": [
+                  32,
+                  2560
+                ],
+                "stride": [
+                  2560,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 163840,
+                "data_ptr": 130795826053120,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                2560
+              ],
+              "saved_stride": [
+                2560,
+                1
+              ]
+            },
+            "weight_key": "head",
+            "flags_before": [
+              true,
+              true
+            ],
+            "X_preserved": true,
+            "Y": {
+              "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_native_capture_v2/fiveGemmCapture02/bank/head_decode_Y.pt",
+              "sha256": "86dfa1e022b9d12efa6eb17f1ebc0bfe633e527a3493930edf3843314c4d79c9",
+              "logical_sha256": "4ea3b1b54948375d1f13b77f16e9a48c91b87dc41a00ce5fca85cf058368108e",
+              "metadata": {
+                "shape": [
+                  32,
+                  248320
+                ],
+                "stride": [
+                  248320,
+                  1
+                ],
+                "storage_offset": 0,
+                "dtype": "torch.bfloat16",
+                "device": "cuda:0",
+                "storage_nbytes": 15892480,
+                "data_ptr": 130795828150272,
+                "version": "unavailable_inference_tensor"
+              },
+              "saved_shape": [
+                32,
+                248320
+              ],
+              "saved_stride": [
+                248320,
+                1
+              ]
+            },
+            "public_logger": {
+              "library": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/nvidia/cu13/lib/libcublas.so.13",
+              "library_sha256": "25cde432108543626df85d887c730bf2cab96803ca16f9654e4abc8d2b45833e",
+              "scope": "Untimed baseline semantic gate only; payload availability unknown until log inspection",
+              "calls": [
+                {
+                  "on": 1,
+                  "status": 0
+                },
+                {
+                  "on": 0,
+                  "status": 0
+                }
+              ],
+              "disabled_success": true,
+              "after_disable": {
+                "exists": true,
+                "bytes": 4861,
+                "sha256": "777a6e82f3c7b988f3ee48af739e2b81cea259061079b4c173669f0d3b09b23a"
+              },
+              "off_verified_no_file_change": true
+            },
+            "public_api": {
+              "arguments": {
+                "handle": {
+                  "type": "cublasHandle_t",
+                  "raw_value": "POINTER (IN HEX:0x0x4e08afe0)",
+                  "value": "POINTER (IN HEX:0x0x4e08afe0)"
+                },
+                "transa": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_T(1)",
+                  "value": "CUBLAS_OP_T(1)"
+                },
+                "transb": {
+                  "type": "cublasOperation_t",
+                  "raw_value": "CUBLAS_OP_N(0)",
+                  "value": "CUBLAS_OP_N(0)"
+                },
+                "m": {
+                  "type": "int",
+                  "raw_value": "248320",
+                  "value": 248320
+                },
+                "n": {
+                  "type": "int",
+                  "raw_value": "32",
+                  "value": 32
+                },
+                "k": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "alpha": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7e3ea8)",
+                  "value": null
+                },
+                "A": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f79e000000)",
+                  "value": "POINTER (IN HEX:0x0x76f79e000000)"
+                },
+                "Atype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "lda": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "B": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546c00000)",
+                  "value": "POINTER (IN HEX:0x0x76f546c00000)"
+                },
+                "Btype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldb": {
+                  "type": "int",
+                  "raw_value": "2560",
+                  "value": 2560
+                },
+                "beta": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x7fff0a7e3eac)",
+                  "value": null
+                },
+                "C": {
+                  "type": "void",
+                  "raw_value": "POINTER (IN HEX:0x0x76f546e00000)",
+                  "value": "POINTER (IN HEX:0x0x76f546e00000)"
+                },
+                "Ctype": {
+                  "type": "cudaDataType_t",
+                  "raw_value": "CUDA_R_16BF(14)",
+                  "value": "CUDA_R_16BF(14)"
+                },
+                "ldc": {
+                  "type": "int",
+                  "raw_value": "248320",
+                  "value": 248320
+                },
+                "computeType": {
+                  "type": "cublasComputeType_t",
+                  "raw_value": "CUBLAS_COMPUTE_32F(68)",
+                  "value": "CUBLAS_COMPUTE_32F(68)"
+                },
+                "algo": {
+                  "type": "SOME TYPE",
+                  "raw_value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)",
+                  "value": "CUBLAS_GEMM_DEFAULT_TENSOR_OP(99)"
+                }
+              },
+              "context": {
+                "process": "539018",
+                "thread": "130817996636672",
+                "gpu": "0",
+                "handle": "POINTER (IN HEX:0x0x4e08afe0)",
+                "stream": "POINTER (IN HEX:0x(nil)) (defaultStream)",
+                "math_mode": "CUBLAS_DEFAULT_MATH"
+              },
+              "block_sha256": "94af389125ac65c4e102171b73267035d33791d68dec450544a0b459a417ddfd",
+              "source_linear_scalars": {
+                "alpha": 1,
+                "beta": 0,
+                "bias": null
+              },
+              "api_scalar_values": "Not exposed: pointer-only logger; source-derived values not observed scalar bytes",
+              "pointer_mode": "not recorded by logger",
+              "selected_algorithm": "unknown;99 is request enum",
+              "association": "exactly one logged native apply, dimensions/ld/operand/output addresses matched",
+              "log_sha256": "777a6e82f3c7b988f3ee48af739e2b81cea259061079b4c173669f0d3b09b23a"
+            },
+            "flags_after": [
+              true,
+              true
+            ],
+            "returned_native_object": true
+          },
+          "weight": {
+            "source": {
+              "key": "model.language_model.embed_tokens.weight",
+              "path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors-00001-of-00002.safetensors",
+              "resolved_path": "/home/n/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B/blobs/26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61",
+              "size": 5329398688,
+              "mtime_ns": 1786542905294252318,
+              "index_sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+              "config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+            },
+            "runtime_metadata": {
+              "shape": [
+                248320,
+                2560
+              ],
+              "stride": [
+                2560,
+                1
+              ],
+              "storage_offset": 0,
+              "dtype": "torch.bfloat16",
+              "device": "cuda:0",
+              "storage_nbytes": 1271398400,
+              "data_ptr": 130805879799808,
+              "version": 0
+            },
+            "runtime_identity": 130808635011968,
+            "logical_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7",
+            "checkpoint_named_tensor_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7",
+            "full_named_tensor_byte_equal": true,
+            "chunks": 76,
+            "chunk_bytes_upper": 16777216,
+            "weight_files_created": 0,
+            "shard_hash_scope": "Named tensor bytes verified; complete shard not rehashed",
+            "final_logical_sha256": "2a68153b498532801ab605bb03fe617c57b3e6a3ba019301fb70ada0c864a2f7"
+          }
+        }
+      ]
+    }
+  ]
+}

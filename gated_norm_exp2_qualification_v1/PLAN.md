@@ -1,0 +1,1 @@
+Same two actual saved cases, original FLA untouched. Single exp2 candidate change, full raw/strict/finite contracts and repeats unchanged; outputs and mismatch bits saved. No tolerance change, no model/timing. Source public Triton lowering reference under gated_exp2_source_v1. Division mismatch is explicitly still open; no unsupported reciprocal mode guessed.

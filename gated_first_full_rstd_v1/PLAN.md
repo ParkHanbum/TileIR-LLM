@@ -1,0 +1,1 @@
+RestoreactualX/Z/W originalstrides/offsets; publicwrapperreshape identical. Nativehelperout=savednative,cleanFULLAPIout=savedTile,instrumentedFULLAPIout=clean mandatory. Existinghelperrstd vsnewdiagnosticrstd64coords. Cacheofficialoutputs preserved,noadditionalCompiledKernelreplaylaunch. InstrumentedFP32notoriginalinternalproof. No repair/timing/fullmodel.

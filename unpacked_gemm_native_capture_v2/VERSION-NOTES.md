@@ -1,0 +1,7 @@
+# v2: sibling import packaging fix only
+
+v1 failed before model creation at the deferred public gates import. Its source, launch failure, caches, and recovery are unchanged. v2 adds the resolved project parent to sys.path in run.py, before deferred sibling imports. Launcher's environment clearing is unchanged. contract.py, observer.py, launch.py, cleanup.py, result_gate.py, expected tokens and PLAN.md are byte-identical to v1. The module observer attribute remains v1 because capture behavior is intentionally unchanged.
+
+A fresh-process CPU regression runs the actual non-dry run.py path with PYTHONPATH absent and cwd outside the project. It verifies all real source pins, mocks only the lock descriptor identity with /dev/null, and installs an import guard that never loads torch/vllm/CUDA. Original v1 must reproduce its missing-sibling error; v2 must import the actual public gates successfully before the first torch import is intercepted. The preflight lock simulation and no-op cleanup are test-only, not production changes. No actual lock, GPU query, model, compiler or numerical target executes in this regression.
+
+The unchanged native-only 65-module/1040-call/8-bank scope, public API and exact output gates remain pending independent review and parent-owned GPU execution. A successful CPU import test is not a native capture success. The parent will preseed a separate cache; no original cache is moved or modified.

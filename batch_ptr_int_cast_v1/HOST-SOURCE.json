@@ -1,0 +1,7 @@
+{
+  "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/utils/torch_utils.py",
+  "sha256": "3518e60b59b657fda45bb8df09a05f2fcd78e94ae36a46d58953cd180351c00f",
+  "function": "np_to_pinned_tensor",
+  "line": 747,
+  "semantics": "torch.from_numpy then pin_memory iff available; actual pinned flag guard required"
+}

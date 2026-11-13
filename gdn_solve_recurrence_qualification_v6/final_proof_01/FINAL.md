@@ -1,0 +1,4 @@
+# v6 two-bank actual PASS
+Verified actual RESULT/recovery hashes. Layer12 andlayer0 eachnative2/candidate2: full3,473,408BF16output rawexact(includingzero), strict0/finite/inputpreserved;live4warp3stage. All8calls exit0 and independentrecovery. No24layer/model claim yet.
+
+OwnPTX544fma.rn.f32 =512existingmerge+32recurrenceedges;32explicitmul.rn peerproducts and36add.rn, noFTZ/TF32. Each32recurrenceFMA consumes separately roundedmul result asaccumulator. Firsttree:edge137+138 and141+142, then139+140 and143+144;combine two pairs. Finala+sum optimized to sub.rn(sum,originalA). Thus requestedfusededges andRNbarriers are present; source expressions need not remain verbatim. Raw output proof covers these two inputs, not universal arithmetic equivalence. Priorv5layer12HOLD andv1fresh-autotuneHOLD remain unchanged.

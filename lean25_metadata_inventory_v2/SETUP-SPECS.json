@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "helpers": [
+    {
+      "label": "setup_UvaBuffer",
+      "module": "vllm.v1.worker.gpu.buffer_utils",
+      "owner": "UvaBuffer",
+      "attribute": "__init__",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+      "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+      "parameter_names": [
+        "self",
+        "size",
+        "dtype"
+      ],
+      "expected_calls": null,
+      "self_attrs": [
+        "cpu",
+        "_uva"
+      ]
+    },
+    {
+      "label": "setup_NonUvaBuffer",
+      "module": "vllm.v1.worker.gpu.buffer_utils",
+      "owner": "NonUvaBuffer",
+      "attribute": "__init__",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+      "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+      "parameter_names": [
+        "self",
+        "size",
+        "dtype"
+      ],
+      "expected_calls": null,
+      "self_attrs": [
+        "cpu",
+        "_uva"
+      ]
+    },
+    {
+      "label": "setup_StagedWriteTensor",
+      "module": "vllm.v1.worker.gpu.buffer_utils",
+      "owner": "StagedWriteTensor",
+      "attribute": "__init__",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+      "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+      "parameter_names": [
+        "self",
+        "size",
+        "dtype",
+        "device",
+        "max_concurrency",
+        "uva_instead_of_gpu"
+      ],
+      "expected_calls": null,
+      "self_attrs": [
+        "gpu"
+      ]
+    },
+    {
+      "label": "setup_zero_kv_owners",
+      "module": "vllm.v1.worker.gpu.model_runner",
+      "owner": "GPUModelRunner",
+      "attribute": "_init_kv_zero_meta",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/model_runner.py",
+      "source_sha256": "5240fe8d62d403e466a4aa07a28fb7af5c0f1e9b9c3bb08c4003185bde461f87",
+      "parameter_names": [
+        "self"
+      ],
+      "expected_calls": null,
+      "self_attrs": [],
+      "setup_only": true,
+      "request_denominator": false,
+      "typed_owner_projection": {
+        "container": "compilation_config.static_forward_context",
+        "iteration": "existing dict items only; do not consume attn_groups_iter",
+        "per_value_attribute": "kv_cache",
+        "allowed_output": "Tensor metadata or tuple/list of Tensor metadata only; no other module attributes/repr",
+        "phase": "before original; returned zeroer _meta tensor descriptors after original optional"
+      },
+      "limits": [
+        "No direct typed Tensor arguments at this method or KVBlockZeroer.__init__. Owners are publicly accessed mapping value.kv_cache attributes.",
+        "KVBlockZeroer may map views to manager blocks then split virtual segments/deduplicate. This projection does not observe those derived typed views.",
+        "No scalar values or raw pointer-table payload; mapping names may be identifiers only. No segment-to-owner byte binding established.",
+        "Call original once, identical return; restore setup wrapper in finally after engine init."
+      ]
+    }
+  ],
+  "source_specs": [
+    "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_state_setup_spec_v1/SETUP-OBSERVER-SPEC.json",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/residual_zero_prefill_public_v1/ZERO-SETUP-SPEC.json"
+  ]
+}

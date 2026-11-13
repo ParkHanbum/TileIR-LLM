@@ -1,0 +1,34 @@
+{
+  "source": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_expanded_composition_v3",
+  "files": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "adapter.py": "c9077f882dc6176ac65498bc11d9717854e3706f264d582c5650533903f14985",
+    "cache_gate.py": "5761b68bb303daf6c18a3a547c07dc9b7ce800f0e4397d219681fa50297e9fd7",
+    "entry_guards.py": "5b07373db110812e8c3b9e3dfd040e91239631428808e9f86759be6173e4f64d",
+    "gates.py": "321133d3712144702141bdab20644d85b7218a805bb4f87f47e05dd85fced5db",
+    "gemm_gate.py": "1705016d7eda82d5debec2cbde909e863b7676c7a0bbca4cd5ed27b4925697df",
+    "launch.py": "5471da18e7b9733b2c1bc95b6fe3632c3afe3a1e9703666077397ea4d3a100d4",
+    "parent_bridge.py": "aebcb1ed2e39461d35cc16398a4a632e02ecf0743f8ba268c1d2ae68ae5291a1",
+    "parent_contract.py": "b90ce29cfdce0ea9c7ee61f838310142c872647bafda9902a38ac5c30d74d3b3",
+    "precision.py": "1e928846dba964cd7d7845ff103ade65780413003f5b337923bb1edbdb25aa65",
+    "result_gate.py": "21c8483c615ff678fd17b825a9b6003c97ddc86ce7ffabeeab029f7fbc86a144",
+    "run.py": "fab6cf3cd2084fbfb6af2326f5ede09ff385cba8d537b714cb70a0336dfa990b",
+    "runner_padding_bridge.py": "1fb6574d578af1bed6b3e48a50354b68cbcf741a12a8192b6d4e009523c69547",
+    "sixteen_gate.py": "cefd106f46bb5e19dfc565392ec94a5057d40c38ac62090d9e1fffaad5d651af",
+    "test_cleanup.py": "bd9139ad9852f6a14b87784913a3de5a63a30fd550a304d8daef20785db41946",
+    "test_cpu.py": "a744e0a0281f202699cd027bac54c7ae2b55757b23b69698b52b7b7468d10540",
+    "test_entry_guards.py": "042648cda9753871a25f8987c7d3e5547b1ea61ad743f00cded4d5327dec20dc",
+    "test_extensions.py": "998d4684186450a10a810fd84649a6e7e67ff2fe34f0cf4a6a459b633e20908c",
+    "test_parent_bridge.py": "2b07b00e6d338a5f9747e7ad346f7a9b5517c415ca711c9435863fb7377d552d",
+    "verify_cpu.py": "af0138c3e2ae91ddde0b143e3dba4ccc79a90d467f5e842d01362d36d0624bf5",
+    "EXPECTED-TOKENS.json": "1c5b9bd9fbcbd7bb14691a3da35698877a06a2ef6da7b79c1239ed5bdf6598b9",
+    "PARENT-PREREQUISITE.json": "b694580c93ce297f50e71a267a07c7a318811f68f5cec5041817284f89b58c13",
+    "PREREQUISITE-PINS.json": "f6ef251d315fbabf999efeddc5db7df558c91770b806f8ef6f7b808262f4a6ec",
+    "QUALIFICATION-RECEIPT.json": "c2f72aa8ba6362197187c2a5e73ac6baba1c00590a1f28a4b92e879f05af2139"
+  },
+  "scope": "Explicit source/qualification input list only; no cache, run, old CPU receipt or GPU result copied",
+  "failure_seal": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_expanded_composition_v3/failure_final_01/SEAL.json",
+    "sha256": "ab7c467ede276939f4423dee7f04a125fd43bac391d405d8aae14ff4a02ad1bc"
+  }
+}

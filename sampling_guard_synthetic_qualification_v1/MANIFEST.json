@@ -1,0 +1,13 @@
+{
+  "scope": "118 private classification + 2 exact chosen gather fixtures; native2/candidate2; model pending",
+  "cases": 120,
+  "classification_cases": 118,
+  "gather_cases": 2,
+  "timeout_seconds": 585,
+  "model_calls": 0,
+  "timing": false,
+  "api": "/home/n/work/TileIR/public-tileir-blas-20261111/public_sampling_guard_v1/api.py",
+  "api_sha256": "f29466d3de8102eee1b6029a4badf67c41a30c747516d73a92daabfd076f372f",
+  "kernel": "/home/n/work/TileIR/public-tileir-blas-20261111/public_sampling_guard_v1/kernel.py",
+  "kernel_sha256": "0488506c27070c711d3ae4fda5b25f8b2b006527c2368645b1c5346e94813fa8"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "prepare_prefill_inputs",
+    "module": "vllm.v1.worker.gpu.model_runner",
+    "owner": "",
+    "attribute": "prepare_prefill_inputs",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/input_batch.py",
+    "source_sha256": "2e4c2ebdb2c1ce04026d15288f5408624d880f335735636985efa3a3209a56f2",
+    "parameter_names": [
+      "input_ids",
+      "next_prefill_tokens",
+      "idx_mapping",
+      "query_start_loc",
+      "all_token_ids",
+      "prefill_len",
+      "num_computed_tokens"
+    ],
+    "expected_calls": null,
+    "self_attrs": []
+  },
+  {
+    "label": "zero_kv_blocks",
+    "module": "vllm.v1.worker.utils",
+    "owner": "KVBlockZeroer",
+    "attribute": "zero_block_ids",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+    "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+    "parameter_names": [
+      "self",
+      "block_ids"
+    ],
+    "expected_calls": null,
+    "self_attrs": [
+      "device",
+      "_meta"
+    ]
+  }
+]

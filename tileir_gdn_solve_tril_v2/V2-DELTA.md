@@ -1,0 +1,1 @@
+Only kernels.py full-output assembly changes: each four-way cat becomes pairwise binary cat. Computed blocks and BF16 output conversion unchanged. The v1 attribution correction is retained; LICENSE is Apache2, LICENSE-FLA-MIT-01.txt contains original complete FLA MIT text. No compatibility or speed claim before actual qualification.

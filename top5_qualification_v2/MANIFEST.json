@@ -1,0 +1,1023 @@
+{
+  "schema": "top5-three-actual-banks-v2",
+  "source": {
+    "sampler": {
+      "module": "vllm.v1.worker.gpu.sample.sampler",
+      "qualname": "Sampler.__call__",
+      "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/sample/sampler.py",
+      "line": 134,
+      "source_sha256": "620b0ff1bea504ebe61794b91ab07cdc243d3d05f8dea4c4044c374add76270b"
+    },
+    "gumbel": {
+      "module": "vllm.v1.worker.gpu.sample.gumbel",
+      "qualname": "gumbel_sample",
+      "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/sample/gumbel.py",
+      "line": 336,
+      "source_sha256": "c14a5fa1899a9ff320c62f29bd161be4a4f0fa124ecf26a28681f0f3d143868e"
+    },
+    "topk": {
+      "module": "vllm.v1.worker.gpu.sample.logprob",
+      "qualname": "compute_topk_scores",
+      "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/sample/logprob.py",
+      "line": 111,
+      "source_sha256": "ac58bfedaa325ae29e7b652063455239c7354a2af4751396930d5670f890ce2d"
+    }
+  },
+  "samples": [
+    {
+      "call_index": 0,
+      "phase": "prefill",
+      "kind": "topk",
+      "inputs": {
+        "logits": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_logits.pt",
+          "sha256": "f631974342f75bff22ffb4263d77bf80d878adbb256b76e28351830e0e4ab33c",
+          "logical_sha256": "317d0f9ae70e57294a6b2310f908768fc82490020c43ad1304b3f2687f324e56",
+          "metadata": {
+            "shape": [
+              32,
+              248320
+            ],
+            "stride": [
+              248320,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.bfloat16",
+            "device": "cuda:0",
+            "storage_nbytes": 15892480,
+            "data_ptr": 138952426127360,
+            "storage_ptr": 138952426127360,
+            "object_identity": 138960184027728,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "sampled_token_ids": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_sampled_token_ids.pt",
+          "sha256": "e23eb854d8a9c87fddd8dca894224770800e37d68e54c621fce80daefe311f2e",
+          "logical_sha256": "e268dbde0567d02ce5493ec4866e657329f06aa162326d0ab53f0fc3867d9d0b",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677694976,
+            "storage_ptr": 138952677694976,
+            "object_identity": 138960184927696,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "expanded_idx_mapping": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_expanded_idx_mapping.pt",
+          "sha256": "20e45feeb63311bb6c565c24a90feddb873cae158cff909c7113c286e614b170",
+          "logical_sha256": "3e1ccc2874da8d81cfca0b1868eb3e34e292d899cfb7b76b1af9467fb2ccd1ba",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138957724275200,
+            "storage_ptr": 138957724275200,
+            "object_identity": 138960184029392,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        }
+      },
+      "outputs": {
+        "logprob_token_ids": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_out_logprob_token_ids.pt",
+          "sha256": "98ab146b96710f8c375cc14a859f937b13f2ed66af0f23f3167530c612fbd6b5",
+          "logical_sha256": "2838c234b9204c89b7216bd662be1f3f46d3c3498c53886ac30fd32e9442b92c",
+          "metadata": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 1536,
+            "data_ptr": 138952677697024,
+            "storage_ptr": 138952677697024,
+            "object_identity": 138960184932432,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "logprobs": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_out_logprobs.pt",
+          "sha256": "53ead32c0eaea82ab52fa7a9430e241728cdaf534b79f293d88b610b634170a7",
+          "logical_sha256": "de5a77485e45fc61d970fe0028285bfa62369a98904b91b522f19b204e4df3a3",
+          "metadata": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "storage_nbytes": 768,
+            "data_ptr": 138952677693952,
+            "storage_ptr": 138952677693952,
+            "object_identity": 138960184922320,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "selected_token_ranks": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_out_selected_token_ranks.pt",
+          "sha256": "e5cd7aa23b3bd7a4bda3c7c1c69a80831def5a392a33a638aadb6f9e452bfe92",
+          "logical_sha256": "6ba64591dc5d5fa6ab9e575602829ad02f0fe517616bda69e4fe87b55b9d9836",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677698560,
+            "storage_ptr": 138952677698560,
+            "object_identity": 138960184928720,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        }
+      },
+      "aliases": {
+        "logits|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "sampled_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logits": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        }
+      },
+      "observations": {
+        "kind": "topk",
+        "inputs": {
+          "logits": {
+            "shape": [
+              32,
+              248320
+            ],
+            "stride": [
+              248320,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.bfloat16",
+            "device": "cuda:0",
+            "storage_nbytes": 15892480,
+            "data_ptr": 138952426127360,
+            "storage_ptr": 138952426127360,
+            "object_identity": 138960184027728,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "sampled_token_ids": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677694976,
+            "storage_ptr": 138952677694976,
+            "object_identity": 138960184927696,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "expanded_idx_mapping": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138957724275200,
+            "storage_ptr": 138957724275200,
+            "object_identity": 138960184029392,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "scalars": {
+          "num_logprobs": 5,
+          "cu_num_logits": null,
+          "max_per_req_token_ids": 0,
+          "logits_mode": false
+        },
+        "original_calls": 1,
+        "logits_nonfinite": {
+          "nan": 0,
+          "positive_inf": 0,
+          "negative_inf": 0
+        },
+        "max_tie_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "outputs": {
+          "logprob_token_ids": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 1536,
+            "data_ptr": 138952677697024,
+            "storage_ptr": 138952677697024,
+            "object_identity": 138960184932432,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "logprobs": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "storage_nbytes": 768,
+            "data_ptr": 138952677693952,
+            "storage_ptr": 138952677693952,
+            "object_identity": 138960184922320,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "selected_token_ranks": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677698560,
+            "storage_ptr": 138952677698560,
+            "object_identity": 138960184928720,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "return_type": "vllm.v1.outputs.LogprobsTensors",
+        "input_logical_preserved": {
+          "logits": true,
+          "sampled_token_ids": true,
+          "expanded_idx_mapping": true
+        }
+      }
+    },
+    {
+      "call_index": 15,
+      "phase": "decode",
+      "kind": "topk",
+      "inputs": {
+        "logits": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_logits.pt",
+          "sha256": "175f2ff72bf0d2ee185ba98300bd8bb6d6a8a6f82dc5fe33dff43860df53b5f9",
+          "logical_sha256": "5e17112360180b3b9957e922aae24aadd446d0f650cfbd28e4d7281c66915af9",
+          "metadata": {
+            "shape": [
+              32,
+              248320
+            ],
+            "stride": [
+              248320,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.bfloat16",
+            "device": "cuda:0",
+            "storage_nbytes": 15892480,
+            "data_ptr": 138952426127360,
+            "storage_ptr": 138952426127360,
+            "object_identity": 138960185145552,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "sampled_token_ids": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_sampled_token_ids.pt",
+          "sha256": "7b0fdfe219670db9ff5da672d282e40dc3e7c58db1a28a3c2eab196a77846172",
+          "logical_sha256": "c306c9e436298f4fc2958e4e724beb57882ebec3f2a14ee178612eadd0782f2e",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677707776,
+            "storage_ptr": 138952677707776,
+            "object_identity": 138960184185808,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "expanded_idx_mapping": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_expanded_idx_mapping.pt",
+          "sha256": "81e0dac3e6b1d0cd5f5f4ff1025102817e080f1f5125b45fd92adaac4810ffaa",
+          "logical_sha256": "3e1ccc2874da8d81cfca0b1868eb3e34e292d899cfb7b76b1af9467fb2ccd1ba",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138957724275200,
+            "storage_ptr": 138957724275200,
+            "object_identity": 138964001278928,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        }
+      },
+      "outputs": {
+        "logprob_token_ids": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_out_logprob_token_ids.pt",
+          "sha256": "7cb71f221ba1097990def8e022a497498958718109fc218846039a5ea9862463",
+          "logical_sha256": "01f6616a5aa10688b66c03e778fdf3df3f05c2f5f21e74b2d6365fa4710b8cea",
+          "metadata": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 1536,
+            "data_ptr": 138951247855616,
+            "storage_ptr": 138951247855616,
+            "object_identity": 138960184188752,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "logprobs": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_out_logprobs.pt",
+          "sha256": "28fb66be6113de59c3c0e1810fe38fbc38f0cf37e68251c1a1229dba6a20921e",
+          "logical_sha256": "5712c3c7727862c6062164c0113253f590e36ad861b7c3db048b74a423af2480",
+          "metadata": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "storage_nbytes": 768,
+            "data_ptr": 138951247857152,
+            "storage_ptr": 138951247857152,
+            "object_identity": 138960184186960,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "selected_token_ranks": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_out_selected_token_ranks.pt",
+          "sha256": "ba5895af938fe57b6c329748cd21bad8e702382d51d21c1fd8c9d00adc5bc057",
+          "logical_sha256": "6ba64591dc5d5fa6ab9e575602829ad02f0fe517616bda69e4fe87b55b9d9836",
+          "metadata": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677709824,
+            "storage_ptr": 138952677709824,
+            "object_identity": 138960184185680,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        }
+      },
+      "aliases": {
+        "logits|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "sampled_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logits": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        }
+      },
+      "observations": {
+        "kind": "topk",
+        "inputs": {
+          "logits": {
+            "shape": [
+              32,
+              248320
+            ],
+            "stride": [
+              248320,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.bfloat16",
+            "device": "cuda:0",
+            "storage_nbytes": 15892480,
+            "data_ptr": 138952426127360,
+            "storage_ptr": 138952426127360,
+            "object_identity": 138960185145552,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "sampled_token_ids": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677707776,
+            "storage_ptr": 138952677707776,
+            "object_identity": 138960184185808,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "expanded_idx_mapping": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138957724275200,
+            "storage_ptr": 138957724275200,
+            "object_identity": 138964001278928,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "scalars": {
+          "num_logprobs": 5,
+          "cu_num_logits": null,
+          "max_per_req_token_ids": 0,
+          "logits_mode": false
+        },
+        "original_calls": 1,
+        "logits_nonfinite": {
+          "nan": 0,
+          "positive_inf": 0,
+          "negative_inf": 0
+        },
+        "max_tie_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "outputs": {
+          "logprob_token_ids": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 1536,
+            "data_ptr": 138951247855616,
+            "storage_ptr": 138951247855616,
+            "object_identity": 138960184188752,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "logprobs": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "storage_nbytes": 768,
+            "data_ptr": 138951247857152,
+            "storage_ptr": 138951247857152,
+            "object_identity": 138960184186960,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          },
+          "selected_token_ranks": {
+            "shape": [
+              32
+            ],
+            "stride": [
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "device": "cuda:0",
+            "storage_nbytes": 256,
+            "data_ptr": 138952677709824,
+            "storage_ptr": 138952677709824,
+            "object_identity": 138960184185680,
+            "stream": 0,
+            "requires_grad": false,
+            "is_leaf": true,
+            "python_type": "torch.Tensor",
+            "version": "unavailable_inference_tensor"
+          }
+        },
+        "return_type": "vllm.v1.outputs.LogprobsTensors",
+        "input_logical_preserved": {
+          "logits": true,
+          "sampled_token_ids": true,
+          "expanded_idx_mapping": true
+        }
+      }
+    },
+    {
+      "call_index": 6,
+      "phase": "decode_tie",
+      "kind": "topk",
+      "inputs": {
+        "logits": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/top5_qualification_v2/derived_failure_bank/logits.pt",
+          "sha256": "a0548999ccffa5d13047c444d6ef73cef655b9a0c24db847f3f1e1cf9158005e",
+          "logical_sha256": "3c2d5f22f44c09e2e1fbebe2651ed3dbf2766a1d598abf0f6496249d8ea4bee3",
+          "metadata": {
+            "shape": [
+              32,
+              248320
+            ],
+            "stride": [
+              248320,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.bfloat16",
+            "storage_nbytes": 15892480,
+            "requires_grad": false
+          }
+        }
+      },
+      "outputs": {
+        "logprob_token_ids": {
+          "path": "/home/n/work/TileIR/public-tileir-blas-20261111/top5_qualification_v2/derived_failure_bank/native_ids.pt",
+          "sha256": "aefe75e8091f7cfbc450afa40a6f3382272db06ed4617008add1e3cdbccd0b38",
+          "logical_sha256": "d1c4e002597f8ef218281ed9cb8aab60dcd4f006eb46c4011ab9bb4bff24cb3a",
+          "metadata": {
+            "shape": [
+              32,
+              6
+            ],
+            "stride": [
+              6,
+              1
+            ],
+            "storage_offset": 0,
+            "dtype": "torch.int64",
+            "storage_nbytes": 1536,
+            "requires_grad": false
+          }
+        }
+      },
+      "aliases": {
+        "logits|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logits|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "sampled_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logits": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprob_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "expanded_idx_mapping|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|logprobs": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprob_token_ids|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|sampled_token_ids": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        },
+        "logprobs|selected_token_ranks": {
+          "same_object": false,
+          "same_storage": false,
+          "storage_overlap": false
+        }
+      },
+      "observations": {
+        "scalars": {
+          "num_logprobs": 5,
+          "cu_num_logits": null,
+          "max_per_req_token_ids": 0,
+          "logits_mode": false
+        }
+      },
+      "origin": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/selected_ranks_runtime_integration_v3/samplerThreeIntegration01/shadow/first_mismatch/values.pt",
+        "sha256": "347d83ebae4e2c8d4017ffbfc63b72daa84fb2719552aea83d8000c559773d2f",
+        "kind": "full-model seventh helper tie HOLD; original native IDs"
+      }
+    }
+  ],
+  "original_manifest": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/MANIFEST.json",
+    "sha256": "8aff9ec850b5df8dcb1c08621e1328cf5d7fbfcddbaa78323616e0217d9d6b72"
+  }
+}

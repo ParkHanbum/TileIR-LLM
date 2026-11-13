@@ -1,0 +1,1 @@
+Four inter-dot accumulator seeds only, with three redundant sums removed; all other numerical source byte-identical to v3. Native carried dependency hypothesis, unverified in candidate generated code. Apache2 LICENSE plus complete original FLA MIT LICENSE-FLA-MIT-01.txt and attribution addendum preserved.

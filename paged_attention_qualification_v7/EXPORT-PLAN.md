@@ -1,0 +1,1 @@
+One parent-reviewed qualifier on actual53/54banks; native2→Tile2, unchanged raw/strict/input/alias gates. Inspect only own compiler PTX/TileIR to confirm serial15RNadds perquad vector then twoquadstages, no reassociation. No vendorbinary/privatehooks. Native source specialization correspondence remains hypothesis.

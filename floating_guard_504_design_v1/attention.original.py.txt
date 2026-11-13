@@ -1,0 +1,13 @@
+def apply(self,v,ctx):
+ import torch
+ self.scalars(v);q,k,val,out=(v[n]for n in('q','k','v','out'));cuq,lens,table=(v[n]for n in('cu_seqlens_q','seqused_k','block_table'))
+ assert out is not None and out.data_ptr()==ctx['out'].data_ptr()
+ assert cuq.cpu().tolist()==ctx['starts'] and lens.cpu().tolist()==ctx['lens']
+ assert v['max_seqlen_q']==ctx['starts'][1]and v['max_seqlen_k']==ctx['length']
+ inputs={n:t for n,t in v.items()if isinstance(t,torch.Tensor)and n!='out'}
+ for t in inputs.values():assert t.device==q.device and not t.requires_grad;disjoint(t,out)
+ for n in('q_descale','k_descale','v_descale'):
+  t=v[n];assert t.dtype==torch.float32 and t.shape==(32,4)and t.stride()==(0,0)and bool((t==1).all())
+ # Unchanged public API validates layouts, shared KV offset, block bounds and lengths.
+ result=self.call(ctx['name'],'prefill'if ctx['length']==53 else'decode',self.candidate,q,k,val,cuq,lens,table,out,scale=.0625,causal=True)
+ assert result is out and bool(torch.isfinite(out).all());return result

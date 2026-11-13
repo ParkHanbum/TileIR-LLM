@@ -1,0 +1,38 @@
+{
+  "gemm_result": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_runtime_integration_v1/allGemmIntegration01/RESULT.json",
+    "sha256": "e45f5f61b355a1e0d4c4d8b5192f314ca55e3ad0cf96b5be5e2e084dcf4293aa"
+  },
+  "gemm_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_runtime_integration_v1/allGemmIntegration01-launch.json",
+    "sha256": "62ab5051e65bf4c251c5ec366561f3f0c743ac0b1757314b8d7fb9f8259611b9"
+  },
+  "gemm_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_runtime_integration_v1/allGemmIntegration01-recovery.json",
+    "sha256": "db949768b7b0e3fb53f4572ef351ffb58102b5ce91734d0d1f6ec38df218c5ac"
+  },
+  "sixteen_result": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/public_vllm_composed_integration_v11/composedSixteen01/RESULT.json",
+    "sha256": "b62fcdbc8c20697d304ac0a4340ad0c1820a6cf4a4fd81474b03119716d80eda"
+  },
+  "sixteen_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/public_vllm_composed_integration_v11/composedSixteen01-launch.json",
+    "sha256": "ae498f0b4b273c4bd340fac05258431ec9e813d51d9db66bdf527ddee7e309eb"
+  },
+  "sixteen_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/public_vllm_composed_integration_v11/composedSixteen01-recovery.json",
+    "sha256": "2b6cc8a8a713c0bafa010603355cc974f400f7c7972f2f7a635a31fe56d4f062"
+  },
+  "sampler_result": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_three_ordered_runtime_integration_v2/samplerThreeOrdered02/RESULT.json",
+    "sha256": "78a3d6efa5723bf43753415185708ea59c1c843c9ec58b5a316f64b72bf06281"
+  },
+  "sampler_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_three_ordered_runtime_integration_v2/samplerThreeOrdered02-launch.json",
+    "sha256": "239be5a65f05e1561c95f1ad6ddf01c49f29990e75e2e0338fc527480580fe75"
+  },
+  "sampler_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_three_ordered_runtime_integration_v2/samplerThreeOrdered02-recovery.json",
+    "sha256": "33b589880b411f66648ba9b6d60185838483ec02b5f09e018ee00d8e3e2b353d"
+  }
+}

@@ -1,0 +1,3 @@
+# Norm integration v3
+Source-only copy of v2. No old execution artifacts copied. Fresh run normIntegration03.
+Only candidate changes to tileir_vllm_gemma_norm_v2: uninstrumented public ATen order from successful first-case probe, plus no-residual branch. Same F false/true, explicit compilation mode0/graphsNONE, input detach metadata, native provider observation, all 1040 raw/strict/alias/preservation gates before replacement. No performance. Prior v2 NUMERICAL_HOLD preserved. No new tolerance. All packed GEMM untouched. Full shadow is direct uninstrumented qualification; no assumption instrumented output guarantees codegen equivalence. Fresh cache; no allocator or runtime policy changes.

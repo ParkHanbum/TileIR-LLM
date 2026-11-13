@@ -1,0 +1,92 @@
+{
+  "whole_v4": {
+    "root": "/home/n/work/TileIR/public-tileir-blas-20261111/whole_lean_extensions_runtime_v4",
+    "audit_module": "whole_lean_extensions_runtime_v4.gates",
+    "evidence": {
+      "result": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/whole_lean_extensions_runtime_v4/wholeLeanExtensions04/RESULT.json",
+        "sha256": "b3b2e2cf198ce451a480b40deed929b3d6c09140c20b7658655e4dd024ae2f0c"
+      },
+      "launch": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/whole_lean_extensions_runtime_v4/wholeLeanExtensions04-launch.json",
+        "sha256": "e059d3480001cc6d0a7131e6037df5717f0da26a09b6768d24f9adf831b4d50a"
+      },
+      "recovery": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/whole_lean_extensions_runtime_v4/wholeLeanExtensions04-recovery.json",
+        "sha256": "ccb056cd8e889f371e241ff0029d218d9153ca9fe70f1d0991660e0960d5ac2a"
+      }
+    }
+  },
+  "post16": {
+    "root": "/home/n/work/TileIR/public-tileir-blas-20261111/post_update_guard_runtime_v2",
+    "audit_module": "post_update_guard_runtime_v2.gates",
+    "evidence": {
+      "result": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/post_update_guard_runtime_v2/postUpdateModel01/RESULT.json",
+        "sha256": "379003fddc53a065aa24c8c820290af29486e30dd3f19cb5372173a7d9b2387c"
+      },
+      "launch": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/post_update_guard_runtime_v2/postUpdateModel01-launch.json",
+        "sha256": "9dda1b11ed8e522d2351aa358572f12be1fd04ae153416382faced0bfa499e12"
+      },
+      "recovery": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/post_update_guard_runtime_v2/postUpdateModel01-recovery.json",
+        "sha256": "56d98724c8097e75af5834f1f4d0b908177695cf7ffc3d1f41c80466be5e239a"
+      }
+    }
+  },
+  "sampling144": {
+    "root": "/home/n/work/TileIR/public-tileir-blas-20261111/sampling_guards144_runtime_v2",
+    "audit_module": "sampling_guards144_runtime_v2.gates",
+    "evidence": {
+      "result": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampling_guards144_runtime_v2/sampling144Model02/RESULT.json",
+        "sha256": "cdacb9d5b5ab5d5677ee803b3c9252c8b3b36c711f4195673bc26efbb988d596"
+      },
+      "launch": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampling_guards144_runtime_v2/sampling144Model02-launch.json",
+        "sha256": "5aac7677952a9cb4dbba3448857820ff14e46495b23860428eef27b37f29d6ae"
+      },
+      "recovery": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampling_guards144_runtime_v2/sampling144Model02-recovery.json",
+        "sha256": "3098fd77ead528d337f2bcf21ad2bde4bc4211e0214f179ee07c4416c6bc8834"
+      }
+    }
+  },
+  "temperature16": {
+    "root": "/home/n/work/TileIR/public-tileir-blas-20261111/temperature16_combined_qualification_v1",
+    "audit_module": "temperature16_combined_qualification_v1.gates",
+    "evidence": {
+      "result": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/temperature16_combined_qualification_v1/temperature16Model01/RESULT.json",
+        "sha256": "9add7272866e29da57db7b9722e1a4ca491f5cd93115a906b5acbae00c4cee00"
+      },
+      "launch": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/temperature16_combined_qualification_v1/temperature16Model01-launch.json",
+        "sha256": "b60f088b7ea13926ed99f299fdfdfb6f911cb1a300814a3e76fda82fa9416633"
+      },
+      "recovery": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/temperature16_combined_qualification_v1/temperature16Model01-recovery.json",
+        "sha256": "7ec5c868289c36ba3431746d438a5ab8075c19da5c6286f9ab2f7ade0770f4e4"
+      }
+    }
+  },
+  "integer72": {
+    "root": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_integer_finite_runtime_qualification_v3",
+    "audit_module": "gdn_integer_finite_runtime_qualification_v3.gates",
+    "evidence": {
+      "result": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_integer_finite_runtime_qualification_v3/integerFinite72Model01/RESULT.json",
+        "sha256": "2f670384da24e4fad09287ee133880e35a81067ac8b8f58df189d3a1e883be2f"
+      },
+      "launch": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_integer_finite_runtime_qualification_v3/integerFinite72Model01-launch.json",
+        "sha256": "84470c50e35f371e2185f1011bcd69ef5589c6f8c8a840c3324ea702f6bf6619"
+      },
+      "recovery": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_integer_finite_runtime_qualification_v3/integerFinite72Model01-recovery.json",
+        "sha256": "5aa1e3b13c29c79170382b538316fcef7fbe2dca1711f94c5a3697f3538730eb"
+      }
+    }
+  }
+}

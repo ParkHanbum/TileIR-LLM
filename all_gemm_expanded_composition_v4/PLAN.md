@@ -1,0 +1,7 @@
+# v4 narrow entry-guard repair, GPU pending
+
+Preserve failed combined25 v3 and all numeric/runtime APIs. Guard actual installed bindings unchanged. Additional component-method guards must be a Python function descriptor on the actual class/MRO and the exact MethodType bound to that instance. Never replace same-named observer/counter/None/callable data. Validate before mutation. Keep cross-component first-failure latch, fixed installation and reverse restoration.
+
+Source-audit all 25 actual adapters/MROs and assignments; exercise actual norm observer, gated None, accepted integer start/reset/close lifecycle in CPU mocks. These tests validate wiring, not numeric results. Existing two dry/precondition/source-pin checks remain. Stale prose is corrected to 25 controllers. Counts unchanged: 5,888 boundaries / 6,056 original logical operations. Parent four-op bridge retains standalone proof plus separate combined pending status. Old19 exit-unobserved and failed25v3 do not count as correctness prerequisites.
+
+No GPU/query/lock/compile/cache actions by author. Parent prepares separate fresh cache only after final independent review, and controls one actual correctness process with no automatic retry/OOM fallback. Output/raw/strict/finite and frozen512/public2560 gates, T/T, eager and KV settings remain unchanged. W uses four full-byte phase-boundary scans plus per-call metadata, not per-call W bytes. 32 prompts are identical. Internal API guards remain; no whole-workload100% or performance claim.

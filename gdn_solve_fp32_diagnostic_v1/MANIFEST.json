@@ -1,0 +1,33 @@
+{
+  "banks": {
+    "layer12": {
+      "A": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/native_A_kkt.pt",
+      "native": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/native_A_inverse.pt",
+      "own": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/first_difference.pt"
+    },
+    "layer0": {
+      "A": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_stage_capture_v1/gdnStagesCapture01/A_kkt.pt",
+      "native": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_stage_capture_v1/gdnStagesCapture01/A_inverse.pt",
+      "own": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_stage_capture_v1/gdnStagesCapture01/A_inverse.pt"
+    }
+  },
+  "files": {
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/native_A_kkt.pt": "596780c6b61267e706bc9c4432641e4c619f9d9820de319160d62060e44c19c6",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/native_A_inverse.pt": "85d45047a3281bada62f8e5beb4eee6d06a8523c04279f8eba641b3db09729c9",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_layer12_diagnostic_v1/gdnLayer12Diag01/first_difference.pt": "8eefb22aada45930b9dfe880c2c296f7d7dce82301b0a35e523c8ccaeae616c2",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_stage_capture_v1/gdnStagesCapture01/A_kkt.pt": "2fb832573fa183787f077955579e5174e76de4fc4c673e355eb77f6ce72ad1c2",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_stage_capture_v1/gdnStagesCapture01/A_inverse.pt": "cb53f6342ef992e5333a38332e54ec3eef84953c84d4996cfd1e36ead0b9e5cd"
+  },
+  "labels": [
+    "d1",
+    "d2",
+    "d3",
+    "d4",
+    "x21",
+    "x32",
+    "x43",
+    "x31",
+    "x42",
+    "x41"
+  ]
+}

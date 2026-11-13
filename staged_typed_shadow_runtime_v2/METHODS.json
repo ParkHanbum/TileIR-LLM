@@ -1,0 +1,54 @@
+[
+  {
+    "module": "buffer",
+    "owner": "StagedWriteTensor",
+    "attribute": "__init__",
+    "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "lineno": 133,
+    "ast_sha256": "53fe701b96b357238b22d352c39998d4cdd2fcc74fadd7e0237fbff68c020bdf",
+    "parameters": [
+      "self",
+      "size",
+      "dtype",
+      "device",
+      "max_concurrency",
+      "uva_instead_of_gpu"
+    ]
+  },
+  {
+    "module": "buffer",
+    "owner": "StagedWriteTensor",
+    "attribute": "apply_write",
+    "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "lineno": 196,
+    "ast_sha256": "1b8355ea466d56371798a6e51db9a301bf8c8bcda3477344decda6963ec72a06",
+    "parameters": [
+      "self"
+    ]
+  },
+  {
+    "module": "buffer",
+    "owner": "FusedStagedWriter",
+    "attribute": "apply",
+    "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "lineno": 251,
+    "ast_sha256": "e485d1255f4fcf684e51d923166d29e8e2cc4418dd1a51ba731cd2b0f2173a9f",
+    "parameters": [
+      "self",
+      "tensors",
+      "output_ptrs",
+      "output_strides"
+    ]
+  },
+  {
+    "module": "block",
+    "owner": "BlockTables",
+    "attribute": "init_block_table_layout_tensors",
+    "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/block_table.py",
+    "lineno": 93,
+    "ast_sha256": "552521162b9a02f11f145bf5ab4b562e16321c43105c5c57ee02e7ba63a65e62",
+    "parameters": [
+      "self"
+    ]
+  }
+]

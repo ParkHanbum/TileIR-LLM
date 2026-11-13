@@ -1,0 +1,12 @@
+def copy_logits(self,x):
+ self.guard();assert self.pending is not None and self.current is None
+ import torch
+ from tileir_vllm_sampler_fp32_copy_v1.api import validate_metadata
+ validate_metadata(dict(shape=tuple(x.shape),stride=tuple(x.stride()),offset=x.storage_offset(),dtype=str(x.dtype)))
+ assert x.untyped_storage().nbytes()==15892480 and not x.requires_grad
+ assert bool(torch.isfinite(x).all()),'Finite workload scope only'
+ y=self.call('sampler',self.pending['phase'],self.api,x)
+ assert y.shape==x.shape and y.dtype==torch.float32 and y.device==x.device and y.stride()==(248320,1) and y.storage_offset()==0 and y.untyped_storage().nbytes()==31784960
+ assert y.untyped_storage().data_ptr()!=x.untyped_storage().data_ptr()
+ assert bool(torch.isfinite(y).all()),'Original output finite scope retained'
+ self.current=y;return y

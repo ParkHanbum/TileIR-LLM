@@ -1,0 +1,130 @@
+{
+  "canonical_adapter": "whole_lean_extensions_runtime_v7/adapter.py",
+  "canonical_entry": "whole_v7_public_blas_logger_v4/run.py",
+  "excluded_candidates": [
+    "G",
+    "H",
+    "O",
+    "M",
+    "finite-scratch"
+  ],
+  "limits": [
+    "Fixed workload only, not every vLLM model/input/API.",
+    "CPU/transport separate from compute denominator.",
+    "Own symbol/ELF/bytecode/source mapping is not direct loaded-module SHA observation.",
+    "Historical raw module proofs differ from whole endpoint proof.",
+    "No performance parity claim.",
+    "Models/runtime/data/cache/address logs remain external; not a standalone checkout."
+  ],
+  "name": "original-v7-own-kernel-fixed-workload",
+  "observed": {
+    "independent_processes": 3,
+    "internal_call_sites": 65,
+    "lean_compute_kernels_per_request": 13300,
+    "lean_gemmex": 0,
+    "lean_lt_compute": 0,
+    "native_gemmex_positive_control": 2448,
+    "public_logprob_values": 2560,
+    "token_ids": 512,
+    "unique_own_cubins": 172
+  },
+  "proofs": {
+    "three_process_own_call_audit_link_v1/LINK.json": {
+      "bytes": 231946,
+      "sha256": "00a791040f72ab420d3b657dad5873467e0fd0c3f12d06f20f4f2e6a84ce7ba9"
+    },
+    "three_process_own_call_audit_link_v1/SEAL.json": {
+      "bytes": 86,
+      "sha256": "72dc8bd7b7ecadf7f6a6a65497ac4d4a56d4771a28ff58a3fcc5b872e2029fda"
+    },
+    "whole_lean_extensions_runtime_v7/PINS.json": {
+      "bytes": 1305505,
+      "sha256": "86f60d89027d4649cee1e9d7d11eb77f10e3eaea4556ac463f89407db05c9789"
+    },
+    "whole_lean_extensions_runtime_v7/final_proof_01/FINAL.json": {
+      "bytes": 1588,
+      "sha256": "eb9fe567de2e3c26721a93036c507509ae400477a3b1a66cb4abbb71aed53201"
+    },
+    "whole_lean_extensions_runtime_v7/final_proof_01/SEAL.json": {
+      "bytes": 362,
+      "sha256": "30747b2fcc443faff1270339e497f636e484a75db4de40578f1b82387395a490"
+    },
+    "whole_v7_public_blas_logger_v4/PINS.json": {
+      "bytes": 1315952,
+      "sha256": "af2229693679c6a8ed29ca4a75fd35f2c80fc1410bd8f8d888ace4cd68de1581"
+    },
+    "whole_v7_public_blas_logger_v4/final_logger_audit_01/FINAL.json": {
+      "bytes": 5051,
+      "sha256": "a56c80f36e567a7d20018e7be1cd662f76d5d8d5d4cf3a5551e2a4f2a2ad70b1"
+    },
+    "whole_v7_public_blas_logger_v4/final_logger_audit_01/SEAL.json": {
+      "bytes": 6744,
+      "sha256": "65ef904ec196a8006bcd062747838026f48b0399263085e98c857112576a9fe5"
+    },
+    "whole_v7_public_blas_logger_v4_process0/final_analysis_01/OWN-ELF-SOURCE-MAP.json": {
+      "bytes": 442212,
+      "sha256": "56895bf5248bd2a09b4f3d18bfbd185c8a9c71100fdfa1b9e8c4f72209d66102"
+    },
+    "whole_v7_public_blas_logger_v4_process0/final_analysis_01/SEAL.json": {
+      "bytes": 1028,
+      "sha256": "01918ec5814ae71da6d9babf42af08a5ac16d7456d3911cf8ac30a3ba07f4c45"
+    },
+    "whole_v7_public_blas_logger_v4_process0/vendorAudit01-launch.json": {
+      "bytes": 1332990,
+      "sha256": "678f6915e5a80caafc3de12529511887e7bb73b42ab441e31889bfe1979202a5"
+    },
+    "whole_v7_public_blas_logger_v4_process0/vendorAudit01-outer-exit.txt": {
+      "bytes": 14,
+      "sha256": "69f50a0d1658909f5bf7b0e6a8e35d67155d37a09e42b95dfeeb98d64ba0595d"
+    },
+    "whole_v7_public_blas_logger_v4_process0/vendorAudit01-recovery.json": {
+      "bytes": 1491,
+      "sha256": "9efa2d0b42140b539694f666fb73509a355757f071161c3299446b5bc4283f2f"
+    },
+    "whole_v7_public_blas_logger_v4_process1/final_analysis_01/OWN-ELF-SOURCE-MAP.json": {
+      "bytes": 442228,
+      "sha256": "f00290b49c318e71b775c662bfe4caefd37f4f31c4c64037adee546c8c43f1fe"
+    },
+    "whole_v7_public_blas_logger_v4_process1/final_analysis_01/SEAL.json": {
+      "bytes": 938,
+      "sha256": "804af37f699008650d6368b91c5f407bfe9005c31da2ab98eab720cb8629d6d4"
+    },
+    "whole_v7_public_blas_logger_v4_process1/vendorAudit01-launch.json": {
+      "bytes": 1332989,
+      "sha256": "44902a703242d6495b02727296e5668cea0537e27293e70048e6be02a0226916"
+    },
+    "whole_v7_public_blas_logger_v4_process1/vendorAudit01-outer-exit.txt": {
+      "bytes": 14,
+      "sha256": "69f50a0d1658909f5bf7b0e6a8e35d67155d37a09e42b95dfeeb98d64ba0595d"
+    },
+    "whole_v7_public_blas_logger_v4_process1/vendorAudit01-recovery.json": {
+      "bytes": 1491,
+      "sha256": "20c693ba3d3c60bbdaf21c10df0b97dc1004b9568620657d084f706c731fcb0a"
+    },
+    "whole_v7_public_blas_logger_v4_process2/final_analysis_01/OWN-ELF-SOURCE-MAP.json": {
+      "bytes": 442217,
+      "sha256": "2024149f7fd3f128ca094acb2eaa3b10472d52f9bcd574a25ffb47d5f89774d6"
+    },
+    "whole_v7_public_blas_logger_v4_process2/final_analysis_01/SEAL.json": {
+      "bytes": 938,
+      "sha256": "d8222b6d13a2faca72409afbaa4c084a6236a98be69b395c56213f66600fccd7"
+    },
+    "whole_v7_public_blas_logger_v4_process2/vendorAudit01-launch.json": {
+      "bytes": 1332989,
+      "sha256": "0b567ebe837faa2b194e5d578bf0b684b35b00ad5e24fb14caa7ffdaff13f30e"
+    },
+    "whole_v7_public_blas_logger_v4_process2/vendorAudit01-outer-exit.txt": {
+      "bytes": 14,
+      "sha256": "69f50a0d1658909f5bf7b0e6a8e35d67155d37a09e42b95dfeeb98d64ba0595d"
+    },
+    "whole_v7_public_blas_logger_v4_process2/vendorAudit01-recovery.json": {
+      "bytes": 1491,
+      "sha256": "98a05847e6a1e1eed47b0de2075001d34aae59763ed4bf4f40597be8e1c67f71"
+    }
+  },
+  "source_archive_scope": "conservative pinned historical support source; not all files execute",
+  "source_bytes": 10036187,
+  "source_files": 2884,
+  "source_pin_manifest_sha256": "af2229693679c6a8ed29ca4a75fd35f2c80fc1410bd8f8d888ace4cd68de1581",
+  "workload": "Qwen3.5-4B BF16 B32/P53/G16 identical prompt, eager mode0 graphsNONE, T/T"
+}

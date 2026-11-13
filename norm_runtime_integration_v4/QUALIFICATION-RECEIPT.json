@@ -1,0 +1,12 @@
+{
+  "scope": "Two saved actual boundaries qualify APIv3; full1040 native shadow remains mandatory before replacement",
+  "result": "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01/RESULT.json",
+  "launch": "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01-launch.json",
+  "recovery": "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01-recovery.json",
+  "files": {
+    "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01/RESULT.json": "ce41f36be80488f1332239f08510e2a4bdfa5b52c0c3aaa84305c4bdd1067584",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01-launch.json": "c5acb55e2673c60b49f68d296c2160c6131b0bb93dbf67fbf3678c4acb6b8f34",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/threeStage01-recovery.json": "f71d4b20ca3a4584c0ba6a700bf0a9d0b93f3ebf2ed7c181231aad67639f8c33",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/norm_three_stage_qualification_v1/CPU-PINS.json": "e5159991016f8b973f02e3416dc00e68c877c7bc32be72a7b03400807a6bc014"
+  }
+}

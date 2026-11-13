@@ -1,0 +1,26 @@
+{
+  "post": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v1/recurrent.py",
+    "sha256": "7d7961467155b74d3cd013d74444a08db46967f54b773cc6268b5b63230e153b",
+    "class_name": "PostConv",
+    "method": "install",
+    "old": "bool(torch.isfinite(v[k]).all())",
+    "new": "_finite('post.'+k,v[k])"
+  },
+  "kv": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v1/metadata.py",
+    "sha256": "9ead437af8ef10f98ee4b548346623b4d60ac3e59d1a773c64980e9da7d6bd37",
+    "class_name": "KV",
+    "method": "apply",
+    "old": "bool(torch.isfinite(v[k]).all())",
+    "new": "_finite('kv.'+k,v[k])"
+  },
+  "attention": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v2/attention_runner.py",
+    "sha256": "0f852666580c5042ee789d604315e46af314735822fdbda3196353a977a24509",
+    "class_name": "AttentionCore",
+    "method": "apply",
+    "old": "bool(torch.isfinite(out).all())",
+    "new": "_finite('attention.out',out)"
+  }
+}

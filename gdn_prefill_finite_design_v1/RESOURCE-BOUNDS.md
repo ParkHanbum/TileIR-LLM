@@ -1,0 +1,6 @@
+# Separate v3 resource/offset review (source only)
+The actual implementation candidate is tileir_validation_primitives_v3; v2 is unchanged. Design-folder source copies remain draft provenance, not runtime bindings.
+
+At N=2^24: blockcount=16,384. Last bid=16,383, lane0=16,776,192 and lane1023=16,777,215=N-1. Every index is positive signed-int32; BF16 last byte offset33,554,430 and FP32 last byte offset67,108,860 are also below2^31. No invalid last lane at this exact N. Fullshape tail rejection means the last physical element; masked-tail coverage needs separate N=2^24-1 or N=1025 fixture. Count buffer16,384int32=65,536B, status4B. Stage1 block sum<=1024; final sum<=16,777,216<2^31. Final gather uses indices0..16,383 on exact length16,384, so no padding at max size. Other N have power-of-two padded gather: default0 applies only out-of-bounds count indices; finalstage size<=16,384.
+
+This bounds arithmetic/global scratch, not register/shared-memory resources. Public ct reduction of16,384 lanes may compile with excessive resources or fail; no compiler/occupancy bound has been observed. Must compile/run fullshape invalidfirst/last, +/-NaN/Inf, finite extrema, plus maskedtail and repeated status/input preservation before model integration. No performance claim.

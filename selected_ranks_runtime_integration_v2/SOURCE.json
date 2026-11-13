@@ -1,0 +1,10 @@
+{
+  "path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/sample/logprob.py",
+  "sha256": "ac58bfedaa325ae29e7b652063455239c7354a2af4751396930d5670f890ce2d",
+  "original_function_sha256": "16a0e64b66a7a120456e1bf7b9f16747a7cdc185e6154340401c4855d6874782",
+  "copy_sha256": "b9c6c3e453d960a422e7d6da87317daa5744ce0c0ead498c8af2214e81643104",
+  "source_lines": [
+    111,
+    189
+  ]
+}

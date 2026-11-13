@@ -1,0 +1,26 @@
+{
+  "ba_live": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_k128_runtime_integration_v1/k128BaIntegration01/RESULT.json",
+    "sha256": "b51a3d650dd4a4b808ea979b6a9de08df8969d5ed1a2aed16e97d737962df17b"
+  },
+  "ba_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_k128_runtime_integration_v1/k128BaIntegration01-launch.json",
+    "sha256": "6b12f54aae2ae74d07fab8f9039ea0f2bdc74603b4152cbe4c956c5aa2838e80"
+  },
+  "ba_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/packed_k128_runtime_integration_v1/k128BaIntegration01-recovery.json",
+    "sha256": "0ed8f2fa5fd7579a9744d7b26bb4e18af02860d07f8918b214fdd3ef1d4e791a"
+  },
+  "five_sample": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_qualification_v1/unpackedGemmQual01/RESULT.json",
+    "sha256": "16cd9b9f0aef83c96d3cb48283e3d83153bb75703a93a3588bf34cdd50b31271"
+  },
+  "five_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_qualification_v1/unpackedGemmQual01-launch.json",
+    "sha256": "f4fb131f400e56d9655c7357fadb2093d018612169f53e428a75fd701c273cd9"
+  },
+  "five_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/unpacked_gemm_qualification_v1/unpackedGemmQual01-recovery.json",
+    "sha256": "9eec72f83e6eabaa4c0776679859f36834c7271baec282305c63b2abbd04c57f"
+  }
+}

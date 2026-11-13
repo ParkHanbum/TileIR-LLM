@@ -1,0 +1,5 @@
+# Default deny. Only explicitly audited allowlist files are tracked.
+*
+!.gitignore
+!baseline_v7/
+!baseline_v7/**

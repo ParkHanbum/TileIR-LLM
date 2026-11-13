@@ -1,0 +1,11 @@
+{
+  "scope": "Two actual gatednorm boundaries; full384shadowmandatory",
+  "result": "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01/RESULT.json",
+  "recovery": "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01-recovery.json",
+  "launch": "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01-launch.json",
+  "files": {
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01/RESULT.json": "a97d1f2b5af0c7f0d09dd240e9c90141987e3e9a60719d0e6b0e7e8e3022a96b",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01-recovery.json": "ac3b47d333b1318ba8c018745d55c900df01c9f96aa67868b8ce80adbdfd05f6",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/gated_norm_full_div_qualification_v1/gatedFull01-launch.json": "717ae117665512f48dc59c2f9316619850dd5a88bb4916dd4f4b1391ac81a107"
+  }
+}

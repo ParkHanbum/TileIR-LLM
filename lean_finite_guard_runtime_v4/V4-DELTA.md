@@ -1,0 +1,1 @@
+Internal finite guards check active/failure latch, owned-body nesting, per-body unique site and per-site16 bound. External guard/call census remains unchanged. Hidden postcheck runs after count increment. Sampler scores/ranks each enter their own owned body. Numeric code, cap, precision and greedy contract unchanged. V3 failure and successful edge probe preserved; no speed claim.

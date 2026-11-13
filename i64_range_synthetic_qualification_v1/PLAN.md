@@ -1,0 +1,6 @@
+# CPU staged isolated qualifier
+Reuses EQ isolated launch lifecycle: actual runtime venv, manifest/hash/pins, shared lock, admission, fresh output/cache, worker585s/parent600s, stop_child/recovery, no retry. Numeric API unchanged except cases expanded12→16 to cover nonempty reversed bounds, lower INT64_MIN inclusive, near INT64_MAX upper,1023 tail. Each case on default and nondefault stream=32 comparisons.192 values use actual2D [32,6], scalar also covered; offsets0..3 retained. Whole input backing checked after native and candidate. No model48 binding.
+
+Unsupported dtype/stride/bounds/extent fail before cuda.tile import in API. Stdlib mocks are separate negative calls; no launched work. Expected predicate False is success, not an execution failure. GPU qualifier only receives supported metadata and stops on first exception, bad status, mismatch or stream/readonly error; no same-process retry. Persisted current stage distinguishes candidate_attempt from return/verified, but cannot prove enqueue absence after compiler/runtime failure.
+
+Fullfreeze/PINS/manifest hashes and dry receipts PENDING coordinator GPU-window end. Current sources not executable through launcher until CPU-PINS/MANIFEST exist. Independent review and coordinator control required before GPU.

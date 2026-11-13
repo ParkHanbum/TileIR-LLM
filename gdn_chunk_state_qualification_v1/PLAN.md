@@ -1,0 +1,1 @@
+CPU-only candidate. Actual native saved W/U inputs and original K/state; native2 binding all3 saved outputs before Tile2. All raw/strict/finite/readonly/repeat/disjoint gates. First failure stops; 585/600s unchanged lifecycle. No fullcore/performance or nonzero-state qualification claim.

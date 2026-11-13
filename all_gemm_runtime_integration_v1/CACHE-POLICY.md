@@ -1,0 +1,5 @@
+# Fresh destination-bound cache gate
+
+No old cache or CACHE-PRESEED receipt is copied into this source folder. The parent creates the fresh cache copy and new receipt after review. Before GPU admission/child launch, cache_gate.preflight requires the receipt destination to be exactly this folder/cache_v1, source different, every source/destination file hash equal to the declared snapshot, exact file sets/count/bytes and distinct inodes. Missing/wrong/stale receipts stop execution. The worker repeats the gate before importing torch/vLLM; launcher and worker receipt hashes must match. Directory creation by launcher adds no files before the worker check.
+
+The dynamic new receipt is not part of frozen source pins; its verified hash is saved with launch and model result. Original source caches and prior receipts are unchanged. Runtime may add files only after successful preflight, so a second attempt would need a new isolated/versioned cache plan, never automatic reuse of a modified destination under an old receipt.

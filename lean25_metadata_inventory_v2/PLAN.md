@@ -1,0 +1,15 @@
+# One metadata-only lean25 inventory
+
+Native reference1 → observed lean25 request1. Fixed Qwen3.5-4B BF16 TP1 B32/P53/G16, eager/default T/T, fixed512 IDs/public2560 exact and25-controller5888-boundary/6056-logical census. No performance measurement or numerical API change. Original runtime/KV ownership, input-domain guards, cleanup and source-only cache gate reused from successful endpoint proof.
+
+Public TorchDispatchMode wraps each original ATen call exactly once, returns the identical object and records only shape/stride/dtype/device/offset/type plus bounded Python source locations. Public helper wrappers additionally record storage byte extents and same-call input/output alias relations; raw pointer numbers and tensor/scalar values are not serialized. Original in-place mutations are not blocked; metadata observations do NOT establish content preservation. None returns remain None. No tensor repr, payload dumps, global Torch patch or explicit per-operation synchronize. Existing numerical guards can still synchronize.
+
+One CPU+CUDA official torch.profiler surrounds only the observed lean request. Shapes/memory/stacks/flops profiler options are disabled; metadata_site/python_helper_site record_function labels carry source IDs. Offline correlate.py associates unique official launch correlation and same-thread source-site intervals. Uncovered async threads, absent Python sites and ambiguous associations remain unknown. No physical GPU-coverage percentage or timing is derived by this diagnostic.
+
+Eight requested Python bindings cover seven named kernel families, because staged and fused apply-write share one kernel. Expected16 counts apply only where source + observed workload support them. Null expected counts do not force Python calls to equal kernel counts; a zero observation is recorded as an unobserved boundary, not fabricated support.
+
+Setup constructors are observed separately during original engine construction, without a profiler or TorchDispatch request-mode. Their typed tensor descriptors/aliases are saved in SETUP-METADATA.json and excluded from the request denominator. Constructor routing can expose buffer owner metadata but does not prove runtime pool-rotation/lifetime or hidden raw-address table values. No raw-pointer dereference/cast experiment.
+
+Limits: request200,000 observations/10,000 sites/32MiB encoded site keys; setup10,000/2,000/16MiB. Nesting8/list128/alias tensors128, stack capture24/keep12. Final metadata serialized64MiB(request)/32MiB(setup) limits are post-serialization checks; they are not process-memory reservation bounds. Official trace512MiB is checked after export, not a hard preallocation cap. Child900s/parent930s; first failure latches, original exception is retained, partial metadata saved where bounded, no automatic retry.
+
+Reuse sync → reverse close → sync → UVA/controller release → engine shutdown. Helper bindings restore in finally including partial install; original numerical source files/caches untouched. Parent supplies independent copied cache only after CPU review. CPU mocks and import barriers do not replace actual endpoint/correlation evidence.

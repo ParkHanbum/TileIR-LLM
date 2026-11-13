@@ -1,0 +1,6 @@
+# Lean post-update guard16 prepared source
+Use exact live residual_four_gdn_owned_lean_v2.four.Replacement with Checks.binding.install(). It AST-copies only that instance call, replacing only validate_values. No global patch. Install before controller activation; Checks.start before each request; finish after exactly16 successes. Do not rerun outer per-helper cap in callback. Restore binding before four.close, retain typed/UVA owners through sync/shutdown. Foreign override stays untouched on close failure, downstream cleanup still required.
+
+Original Guard and numeric kernel unchanged. Removes native oracle/full backing snapshots/output diagnostic records only. Keeps original metadata validation, masked integer/error ordering,9 staged launches and host status synchronization, current-stream guarantees, permanent failure/pending ownership. Existing original caller preflight/typed alias checks retained. No host address reconstruction or shape widening. Model endpoint on this lean variant remains untested; previous diagnostic model PASS is not lean proof. No speed/coverage claim.
+
+Prerequisite: post_update_guard_runtime_v2 actual postUpdateModel01 and final_proof_01. New GPU, query, compile, cache creation absent.

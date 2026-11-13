@@ -1,0 +1,30 @@
+{
+  "vllm_flash_attn.cmake": {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.32.0/cmake/external_projects/vllm_flash_attn.cmake",
+    "sha256": "d0c2e6d928c07f7f22a259da2a7de7f0ca708dbf33c4aca6cb398dcee3c782df"
+  },
+  "flash_fwd_kernel.h": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/csrc/flash_attn/src/flash_fwd_kernel.h",
+    "sha256": "7cd8cf9554237d0324da0a751414a2d8516d6aa0fb7f2d7028fbb2ff06cabb6a"
+  },
+  "softmax.h": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/csrc/flash_attn/src/softmax.h",
+    "sha256": "77e70b8d0dbe72f459ced29199a554a0d1e0559cad2370a2e5b5f1fa5faf73f1"
+  },
+  "flash_fwd_launch_template.h": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/csrc/flash_attn/src/flash_fwd_launch_template.h",
+    "sha256": "2b2b6da2029aceebcf5ad5c0376e708e60a6218ae48a406ab43a01e62ace296b"
+  },
+  "kernel_traits.h": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/csrc/flash_attn/src/kernel_traits.h",
+    "sha256": "14fec3ad6efa9ae421d77d6d3946bf4b613481cf40d5475ecf9e466d53c7ebdb"
+  },
+  "utils.h": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/csrc/flash_attn/src/utils.h",
+    "sha256": "f0b0e9e737fc72ea3f00130fc7aa3acb6f17b5bd672db59fcb1cb0b7385f0392"
+  },
+  "LICENSE": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/LICENSE",
+    "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+  }
+}

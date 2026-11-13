@@ -1,0 +1,197 @@
+def prepare_inputs(
+    self,
+    scheduler_output: SchedulerOutput,
+    batch_req_state: "BatchReqState",
+    batch_desc: BatchExecutionDescriptor,
+    num_active_loras: int,
+) -> InputBatch:
+    num_tokens = batch_req_state.num_tokens
+    num_tokens_after_padding = max(num_tokens, batch_desc.num_tokens)
+    assert num_tokens > 0
+    is_padding = self.input_buffers.is_padding[:num_tokens_after_padding]
+    if envs.VLLM_MOE_SKIP_PADDING:
+        is_padding[:num_tokens].fill_(False)
+        is_padding[num_tokens:].fill_(True)
+
+    req_ids = batch_req_state.req_ids
+    num_scheduled_tokens_np = batch_req_state.num_scheduled_tokens
+    idx_mapping_np = batch_req_state.idx_mapping_np
+    idx_mapping = async_tensor_h2d(
+        idx_mapping_np, device=self.device, dtype=torch.int64
+    )
+    num_reqs = len(req_ids)
+
+    # Get the number of draft tokens for each request.
+    draft_tokens = scheduler_output.scheduled_spec_decode_tokens
+    num_draft_tokens_per_req = None
+    if not draft_tokens and self.model_state.num_new_sampled_tokens_per_step == 1:
+        # No draft token scheduled (common case).
+        total_num_draft_tokens = 0
+        total_num_logits = num_reqs
+        cu_num_logits_np = np.arange(num_reqs + 1, dtype=np.int32)
+        cu_num_logits = _construct('cu_num_logits', num_reqs, self.device)
+        expanded_idx_mapping = idx_mapping
+        expanded_local_pos = _construct('expanded_local_pos', num_reqs, self.device)
+    else:
+        num_draft_tokens_per_req = batch_req_state.num_draft_tokens_np
+        if num_draft_tokens_per_req is None:
+            num_draft_tokens_per_req = np.zeros(num_reqs, dtype=np.int32)
+        num_bonus_tokens = self.model_state.num_new_sampled_tokens_per_step
+        total_num_draft_tokens = int(num_draft_tokens_per_req.sum())
+        total_num_logits = num_reqs * num_bonus_tokens + total_num_draft_tokens
+        num_logits = num_draft_tokens_per_req + num_bonus_tokens
+        # combine_sampled_and_draft_tokens places a request's logits rows
+        # at [query_end - num_logits, query_end). Fewer query rows than
+        # that would silently select the preceding request's hidden states.
+        assert (num_scheduled_tokens_np >= num_logits).all()
+        cu_num_logits_np = np.empty(num_reqs + 1, dtype=np.int32)
+        cu_num_logits_np[0] = 0
+        np.cumsum(num_logits, out=cu_num_logits_np[1:])
+        cu_num_logits = async_tensor_h2d(cu_num_logits_np, device=self.device)
+
+    # The general branch also serves a no-draft batch with k != 1, and
+    # compact_batch's budget is only primed when drafts are scheduled.
+    adaptive_verification = self.adaptive_verification if draft_tokens else None
+    num_scheduled_tokens_upper_bound = num_scheduled_tokens_np
+    if adaptive_verification is not None:
+        # num_scheduled_tokens represents the draft budget evenly distributed across
+        # all verification requests, `reallocate_drafts` will unevenly assign the
+        # draft budget to requests on the GPU side only.
+        num_scheduled_tokens_np, cu_num_logits_np = (
+            adaptive_verification.compact_batch(
+                num_draft_tokens_per_req,
+                num_scheduled_tokens_np,
+                cu_num_logits_np,
+            )
+        )
+
+    # Get query_start_loc.
+    # num_reqs_padded is None for PIECEWISE graphs (no request padding needed)
+    num_reqs_padded = batch_desc.num_reqs or num_reqs
+    query_start_loc_np = np.empty(self.max_num_reqs + 1, dtype=np.int32)
+    query_start_loc_np[0] = 0
+    np.cumsum(num_scheduled_tokens_np, out=query_start_loc_np[1 : num_reqs + 1])
+    # Pad for full CUDA graph mode.
+    # Some attention backends like FA3 require query_start_loc to be non-decreasing.
+    query_start_loc_np[num_reqs + 1 :] = num_tokens
+    query_start_loc = self.input_buffers.query_start_loc
+    async_tensor_h2d(query_start_loc_np, out=query_start_loc)
+    if adaptive_verification is not None:
+        cu_num_logits, query_start_loc, total_num_draft_tokens = (
+            adaptive_verification.reallocate_drafts(req_ids, idx_mapping)
+        )
+        total_num_logits = num_reqs * num_bonus_tokens + total_num_draft_tokens
+    if num_draft_tokens_per_req is not None:
+        expanded_idx_mapping, expanded_local_pos = expand_idx_mapping(
+            idx_mapping, total_num_logits, cu_num_logits, self.decode_query_len
+        )
+    query_start_loc_np = query_start_loc_np[: num_reqs_padded + 1]
+    query_start_loc = query_start_loc[: num_reqs_padded + 1]
+
+    # Get prefill tokens if any.
+    if batch_req_state.has_prefill:
+        prepare_prefill_inputs(
+            self.input_buffers.input_ids,
+            self.req_states.next_prefill_tokens,
+            idx_mapping,
+            query_start_loc,
+            self.req_states.all_token_ids.gpu,
+            self.req_states.prefill_len.gpu,
+            self.req_states.num_computed_tokens.gpu,
+        )
+
+    # Prepare positions and seq_lens.
+    prepare_pos_seq_lens(
+        idx_mapping,
+        query_start_loc,
+        self.req_states.num_computed_tokens.gpu,
+        self.input_buffers.positions,
+        self.input_buffers.seq_lens,
+    )
+    seq_lens = self.input_buffers.seq_lens[:num_reqs_padded]
+
+    # Some input token ids are directly read from the last sampled tokens
+    # and draft tokens. Also, get the logits indices to sample tokens from.
+    logits_indices = combine_sampled_and_draft_tokens(
+        self.input_buffers.input_ids,
+        idx_mapping,
+        self.req_states.last_sampled_tokens,
+        query_start_loc,
+        seq_lens,
+        self.req_states.prefill_len.gpu,
+        self.req_states.draft_tokens,
+        cu_num_logits,
+        total_num_logits,
+        self.model_state.num_new_sampled_tokens_per_step,
+    )
+
+    fast_prefill = None
+    if self.fast_prefill is not None:
+        fast_prefill = self.fast_prefill.prepare(
+            logits_indices,
+            num_reqs,
+            cu_num_logits_np,
+            batch_req_state.has_prefill,
+            batch_desc,
+            num_active_loras=num_active_loras,
+        )
+
+    # CPU upper bound on seq_lens; padded entries left at zero.
+    num_computed_tokens_np = self.req_states.num_computed_tokens_np[idx_mapping_np]
+    seq_lens_cpu_upper_bound_np = np.zeros(num_reqs_padded, dtype=np.int32)
+    np.add(
+        num_computed_tokens_np,
+        num_scheduled_tokens_upper_bound,
+        out=seq_lens_cpu_upper_bound_np[:num_reqs],
+    )
+    seq_lens_cpu_upper_bound = torch.from_numpy(seq_lens_cpu_upper_bound_np)
+
+    prompt_lens = None
+    if self.model_config.rswa_window is not None:
+        # prompt_lens is only used in R-SWA case.
+        prompt_lens = self.req_states.prompt_len.gpu[idx_mapping]
+
+    input_batch = InputBatch(
+        req_ids=req_ids,
+        num_reqs=num_reqs,
+        num_reqs_after_padding=num_reqs_padded,
+        idx_mapping=idx_mapping,
+        idx_mapping_np=idx_mapping_np,
+        expanded_idx_mapping=expanded_idx_mapping,
+        expanded_local_pos=expanded_local_pos,
+        num_scheduled_tokens=num_scheduled_tokens_upper_bound,
+        num_tokens=num_tokens,
+        num_tokens_after_padding=num_tokens_after_padding,
+        num_draft_tokens=total_num_draft_tokens,
+        num_draft_tokens_per_req=num_draft_tokens_per_req,
+        query_start_loc=query_start_loc,
+        query_start_loc_np=query_start_loc_np,
+        seq_lens=seq_lens,
+        seq_lens_cpu_upper_bound=seq_lens_cpu_upper_bound,
+        dcp_local_seq_lens=None,
+        num_computed_tokens_np=num_computed_tokens_np,
+        prefill_len_np=batch_req_state.prefill_len_np,
+        num_computed_prefill_tokens_np=batch_req_state.num_computed_prefill_tokens_np,
+        is_prefilling_np=batch_req_state.is_prefilling_np,
+        has_prefill=batch_req_state.has_prefill,
+        prefill_runs_as_decode_np=batch_req_state.prefill_runs_as_decode_np,
+        decode_graph_eligible=batch_req_state.decode_graph_eligible,
+        max_seq_len_np=batch_req_state.max_seq_len_np,
+        input_ids=self.input_buffers.input_ids[:num_tokens_after_padding],
+        positions=self.input_buffers.positions[:num_tokens_after_padding],
+        is_padding=is_padding,
+        logits_indices=logits_indices,
+        cu_num_logits=cu_num_logits,
+        cu_num_logits_np=cu_num_logits_np,
+        has_structured_output_reqs=scheduler_output.has_structured_output_requests,
+        prompt_lens=prompt_lens,
+        fast_prefill=fast_prefill,
+        max_query_len=(
+            int(num_scheduled_tokens_upper_bound.max())
+            if adaptive_verification is not None
+            else None
+        ),
+    )
+    if self.pcp_manager is not None:
+        input_batch = self.pcp_manager.partition_batch(input_batch, batch_desc)
+    return input_batch

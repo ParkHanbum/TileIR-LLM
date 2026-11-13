@@ -1,0 +1,143 @@
+{
+  "scope": "First/last captured chosen IDs plus top5 columns derived from captured helper output; NOT a direct cat-input snapshot",
+  "original_manifest": "/home/n/work/TileIR/public-tileir-blas-20261111/top5_qualification_v2/MANIFEST.json",
+  "original_manifest_sha256": "cffc286061e9b5fbb6727d87a2df3eaa60b39cce38cd45a6f67c361aac43ec25",
+  "samples": [
+    {
+      "call_index": 0,
+      "chosen": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_sampled_token_ids.pt",
+        "sha256": "e23eb854d8a9c87fddd8dca894224770800e37d68e54c621fce80daefe311f2e",
+        "logical_sha256": "e268dbde0567d02ce5493ec4866e657329f06aa162326d0ab53f0fc3867d9d0b",
+        "metadata": {
+          "shape": [
+            32
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int64",
+          "device": "cuda:0",
+          "storage_nbytes": 256,
+          "data_ptr": 138952677694976,
+          "storage_ptr": 138952677694976,
+          "object_identity": 138960184927696,
+          "stream": 0,
+          "requires_grad": false,
+          "is_leaf": true,
+          "python_type": "torch.Tensor",
+          "version": "unavailable_inference_tensor"
+        }
+      },
+      "ids": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_out_logprob_token_ids.pt",
+        "sha256": "98ab146b96710f8c375cc14a859f937b13f2ed66af0f23f3167530c612fbd6b5",
+        "logical_sha256": "2838c234b9204c89b7216bd662be1f3f46d3c3498c53886ac30fd32e9442b92c",
+        "metadata": {
+          "shape": [
+            32,
+            6
+          ],
+          "stride": [
+            6,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int64",
+          "device": "cuda:0",
+          "storage_nbytes": 1536,
+          "data_ptr": 138952677697024,
+          "storage_ptr": 138952677697024,
+          "object_identity": 138960184932432,
+          "stream": 0,
+          "requires_grad": false,
+          "is_leaf": true,
+          "python_type": "torch.Tensor",
+          "version": "unavailable_inference_tensor"
+        }
+      }
+    },
+    {
+      "call_index": 15,
+      "chosen": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_sampled_token_ids.pt",
+        "sha256": "7b0fdfe219670db9ff5da672d282e40dc3e7c58db1a28a3c2eab196a77846172",
+        "logical_sha256": "c306c9e436298f4fc2958e4e724beb57882ebec3f2a14ee178612eadd0782f2e",
+        "metadata": {
+          "shape": [
+            32
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int64",
+          "device": "cuda:0",
+          "storage_nbytes": 256,
+          "data_ptr": 138952677707776,
+          "storage_ptr": 138952677707776,
+          "object_identity": 138960184185808,
+          "stream": 0,
+          "requires_grad": false,
+          "is_leaf": true,
+          "python_type": "torch.Tensor",
+          "version": "unavailable_inference_tensor"
+        }
+      },
+      "ids": {
+        "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_out_logprob_token_ids.pt",
+        "sha256": "7cb71f221ba1097990def8e022a497498958718109fc218846039a5ea9862463",
+        "logical_sha256": "01f6616a5aa10688b66c03e778fdf3df3f05c2f5f21e74b2d6365fa4710b8cea",
+        "metadata": {
+          "shape": [
+            32,
+            6
+          ],
+          "stride": [
+            6,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int64",
+          "device": "cuda:0",
+          "storage_nbytes": 1536,
+          "data_ptr": 138951247855616,
+          "storage_ptr": 138951247855616,
+          "object_identity": 138960184188752,
+          "stream": 0,
+          "requires_grad": false,
+          "is_leaf": true,
+          "python_type": "torch.Tensor",
+          "version": "unavailable_inference_tensor"
+        }
+      }
+    }
+  ],
+  "actual_trace_contract": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/eager_native_census02_offline_v1/CORRELATION-SUMMARY.json",
+    "sha256": "307e473179826e06e8232c92a88ef7f62cfe9643d820a7783de4b5f72d05ec3d",
+    "boundary": "CENSUS::sampler.compute_topk_scores",
+    "input_shapes": [
+      [
+        32,
+        1
+      ],
+      [
+        32,
+        5
+      ]
+    ],
+    "input_strides": [
+      [
+        1,
+        1
+      ],
+      [
+        5,
+        1
+      ]
+    ],
+    "dim": 1
+  }
+}

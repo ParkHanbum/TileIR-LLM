@@ -1,0 +1,14 @@
+{
+  "include/cute/atom/mma_traits_sm80.hpp": {
+    "url": "https://raw.githubusercontent.com/NVIDIA/cutlass/62750a2b75c802660e4894434dc55e839f322277/include/cute/atom/mma_traits_sm80.hpp",
+    "sha256": "58b972a2ec119bb15db0605a2613cd39ca52e09f630095e35677f5a17770d084"
+  },
+  "include/cute/atom/mma_atom.hpp": {
+    "url": "https://raw.githubusercontent.com/NVIDIA/cutlass/62750a2b75c802660e4894434dc55e839f322277/include/cute/atom/mma_atom.hpp",
+    "sha256": "532a6981b2296f73ffe6326cba0203c217d69e99a89e5f041e614725fa3f9e22"
+  },
+  "LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/NVIDIA/cutlass/62750a2b75c802660e4894434dc55e839f322277/LICENSE.txt",
+    "sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e"
+  }
+}

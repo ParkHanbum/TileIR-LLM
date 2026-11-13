@@ -1,0 +1,1 @@
+Native saved stage6 inputs, native2 output binding then Tile2 raw/strict/finite/storage/read-only/repeat gates, firstfailurestop. No fullcore adoption/performance. Inherited585/600s cleanup and isolated copied cache; parent GPU only after review.

@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "name": "1696_false_offset0",
+      "length": 1696,
+      "value": false,
+      "offset": 0,
+      "owner_bytes": 1715,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    },
+    {
+      "name": "1696_false_offset13",
+      "length": 1696,
+      "value": false,
+      "offset": 13,
+      "owner_bytes": 1728,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    },
+    {
+      "name": "32_false_offset0",
+      "length": 32,
+      "value": false,
+      "offset": 0,
+      "owner_bytes": 51,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    },
+    {
+      "name": "32_false_offset13",
+      "length": 32,
+      "value": false,
+      "offset": 13,
+      "owner_bytes": 64,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    },
+    {
+      "name": "0_true_offset0",
+      "length": 0,
+      "value": true,
+      "offset": 0,
+      "owner_bytes": 19,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    },
+    {
+      "name": "0_true_offset13",
+      "length": 0,
+      "value": true,
+      "offset": 13,
+      "owner_bytes": 32,
+      "provenance": "Observed length/value; synthetic owner/offset/sentinel"
+    }
+  ],
+  "observations": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_runner_bool_fill_v1/OBSERVED-CPU-OPERATORS.json",
+  "observations_sha256": "013ba2a73c05205231719f3fefa4cb3444d47770fe5bf7028177c48977fb87db",
+  "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/model_runner.py",
+  "source_sha256": "5240fe8d62d403e466a4aa07a28fb7af5c0f1e9b9c3bb08c4003185bde461f87",
+  "scope": "Synthetic bounded owners replay observed bool fill length/value, not actual captured owner metadata;24 API calls; no timing/model claim"
+}

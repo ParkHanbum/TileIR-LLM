@@ -1,0 +1,11 @@
+# Three independent process host API + same-request profile audit
+One frozen run.py/launch.py, --process-index0/1/2; each P/whole_v7_public_blas_logger_v4_processN has own cache_v1, CACHE-PRESEED-01.json, PINS.json, run-name output and receipt. Launch sequentially only after previous exit0 and independent recovery. Cache preseed must be parent-created, no shared writable cache. No process is executed in CPU preparation.
+Existing profile_v4 runtime/analyzer/admission and exact v7 endpoint/dispatch/cleanup unchanged. Logger wraps only original request_execution body; profiler records same native/lean request. No timing comparison. Native GemmEx2448 positive control and lean observed public API0 required. Expected lean13300 compute events and own-symbol mapping must be checked independently in each trace; never infer from logger0 alone. Existing GPU symbol/source mapping is not loaded module identity proof.
+Lt logger uses installed public Experimental API mask16, no private hook or forced load; raw Lt logs are retained locally and parser/support must be assessed before interpreting absence. Native Lt0 cannot validate coverage of all Lt calls. Logger configuration has no numerical/algorithm setting changes. Official logs may contain addresses; no external transmission.
+All existing guards, tokens512/public2560, strict dispatch, cache admission, actual exit/recovery remain. This is one-shot native→lean each process, no rearm. V1 plain logger source and BN64 benchmark stay frozen and unexecuted.
+
+Source root is the common v2 folder; artifact/cache roots are three sibling folders, whose parent is the original project P. Empty process0..2 directories in the common folder are unused draft directories, preserved but never accepted by the gate.
+
+V3: configuration/hash checks occur outside request_execution; exact original execution AST remains inside. Lt explicitly SetLevel5 then SetMask16, disabled with Level0. Experimental support/positive-control limitations remain. V2 frozen source preserved, never executed.
+
+V4 adds per-window separate Lt control file before request execution: dedicated cublasLtCreate/Destroy only, no model handle settings changed. Both names must be visible after disable or HOLD. Control API calls never enter native/lean request log. Actual logger behavior remains pending.

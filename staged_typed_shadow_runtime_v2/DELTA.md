@@ -1,0 +1,5 @@
+# v2 evidence-only change
+
+Prior v1 clone-only source review PASS remains its own result. v2 adds exact label-specific census: staged123/5nonempty/118empty and fused17/1nonempty/16empty. Every typed tensor API invocation has source ct.launch attempts immediately before and returns immediately after; empty0/0, nonempty1/1 required. Compile/launch exception can leave1/0, never retried. This is source-boundary accounting, not physical GPU kernel count. Candidate current-stream equality is checked after API and required in each row. New evidence code awaits independent review; no GPU qualification yet.
+
+Kernels and value contract byte-identical to v1, numeric/API operations unchanged except optional ledger output. Existing native ownership, cleanup and actual prerequisite retained. v1 sources/seals untouched. Full raw clone comparison preserves native production writes/returns; original-address TileIR writes and UVA lifetime remain unproved. Overlap inputs fail before native, no general staged support claim.

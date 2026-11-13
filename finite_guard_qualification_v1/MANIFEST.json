@@ -1,0 +1,77 @@
+{
+  "actual_banks": [
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_logits.pt",
+      "sha256": "f631974342f75bff22ffb4263d77bf80d878adbb256b76e28351830e0e4ab33c",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "storage_nbytes": 15892480,
+        "data_ptr": 138952426127360,
+        "storage_ptr": 138952426127360,
+        "object_identity": 138960184027728,
+        "stream": 0,
+        "requires_grad": false,
+        "is_leaf": true,
+        "python_type": "torch.Tensor",
+        "version": "unavailable_inference_tensor"
+      }
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_logits.pt",
+      "sha256": "175f2ff72bf0d2ee185ba98300bd8bb6d6a8a6f82dc5fe33dff43860df53b5f9",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "storage_nbytes": 15892480,
+        "data_ptr": 138952426127360,
+        "storage_ptr": 138952426127360,
+        "object_identity": 138960185145552,
+        "stream": 0,
+        "requires_grad": false,
+        "is_leaf": true,
+        "python_type": "torch.Tensor",
+        "version": "unavailable_inference_tensor"
+      }
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/top5_qualification_v2/derived_failure_bank/logits.pt",
+      "sha256": "a0548999ccffa5d13047c444d6ef73cef655b9a0c24db847f3f1e1cf9158005e",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "storage_nbytes": 15892480,
+        "requires_grad": false
+      }
+    }
+  ],
+  "scope": "3actualBF16top5 banks; guard-only synthetic BF16/FP32; invalid fullshape candidate-path tests; no model/performance",
+  "source": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_top5_v2/api.py",
+  "source_sha256": "ebd31900c4bbf2bf11c3b25c0d1d2d1c4da4f1385d9f3abc2fe09509c8324648"
+}

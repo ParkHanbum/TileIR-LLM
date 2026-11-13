@@ -1,0 +1,58 @@
+[
+  {
+    "label": "setup_UvaBuffer",
+    "module": "vllm.v1.worker.gpu.buffer_utils",
+    "owner": "UvaBuffer",
+    "attribute": "__init__",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+    "parameter_names": [
+      "self",
+      "size",
+      "dtype"
+    ],
+    "expected_calls": null,
+    "self_attrs": [
+      "cpu",
+      "_uva"
+    ]
+  },
+  {
+    "label": "setup_NonUvaBuffer",
+    "module": "vllm.v1.worker.gpu.buffer_utils",
+    "owner": "NonUvaBuffer",
+    "attribute": "__init__",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+    "parameter_names": [
+      "self",
+      "size",
+      "dtype"
+    ],
+    "expected_calls": null,
+    "self_attrs": [
+      "cpu",
+      "_uva"
+    ]
+  },
+  {
+    "label": "setup_StagedWriteTensor",
+    "module": "vllm.v1.worker.gpu.buffer_utils",
+    "owner": "StagedWriteTensor",
+    "attribute": "__init__",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+    "parameter_names": [
+      "self",
+      "size",
+      "dtype",
+      "device",
+      "max_concurrency",
+      "uva_instead_of_gpu"
+    ],
+    "expected_calls": null,
+    "self_attrs": [
+      "gpu"
+    ]
+  }
+]

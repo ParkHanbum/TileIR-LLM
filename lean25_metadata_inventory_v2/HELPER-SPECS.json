@@ -1,0 +1,167 @@
+{
+  "complete": true,
+  "helpers": [
+    {
+      "label": "prepare_rope_positions",
+      "module": "vllm.v1.worker.gpu.mm.rope",
+      "owner": "RopeState",
+      "attribute": "prepare_positions",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/mm/rope.py",
+      "source_sha256": "0924375bcb367267e783b57dd2ad9de1189d97025ce4313baaa54f2911eaaf1e",
+      "parameter_names": [
+        "self",
+        "idx_mapping",
+        "query_start_loc",
+        "prefill_lens",
+        "num_computed_tokens"
+      ],
+      "expected_calls": 16,
+      "self_attrs": [
+        "positions",
+        "prefill_positions.gpu",
+        "prefill_delta.gpu"
+      ]
+    },
+    {
+      "label": "combine_sampled_and_draft_tokens",
+      "module": "vllm.v1.worker.gpu.model_runner",
+      "owner": "",
+      "attribute": "combine_sampled_and_draft_tokens",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/input_batch.py",
+      "source_sha256": "2e4c2ebdb2c1ce04026d15288f5408624d880f335735636985efa3a3209a56f2",
+      "parameter_names": [
+        "input_ids",
+        "idx_mapping",
+        "last_sampled_tokens",
+        "query_start_loc",
+        "seq_lens",
+        "prefill_len",
+        "draft_tokens",
+        "cu_num_logits",
+        "num_logits",
+        "num_new_sampled_tokens"
+      ],
+      "expected_calls": 16,
+      "self_attrs": []
+    },
+    {
+      "label": "bias",
+      "module": "vllm.v1.worker.gpu.sample.logit_bias",
+      "owner": "",
+      "attribute": "apply_logit_bias",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py",
+      "source_sha256": "39dc683f5dc58ee7a266702b1ddcd1e1e1f44457d5ff689a88bae3401305f5c2",
+      "parameter_names": [
+        "logits",
+        "expanded_idx_mapping",
+        "pos",
+        "num_allowed_token_ids",
+        "allowed_token_ids",
+        "num_logit_bias",
+        "logit_bias_token_ids",
+        "logit_bias",
+        "min_lens",
+        "num_stop_token_ids",
+        "restore_when_all_masked",
+        "stop_token_ids",
+        "check_all_masked_rows"
+      ],
+      "expected_calls": 16,
+      "self_attrs": []
+    },
+    {
+      "label": "prepare_prefill_inputs",
+      "module": "vllm.v1.worker.gpu.model_runner",
+      "owner": "",
+      "attribute": "prepare_prefill_inputs",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/input_batch.py",
+      "source_sha256": "2e4c2ebdb2c1ce04026d15288f5408624d880f335735636985efa3a3209a56f2",
+      "parameter_names": [
+        "input_ids",
+        "next_prefill_tokens",
+        "idx_mapping",
+        "query_start_loc",
+        "all_token_ids",
+        "prefill_len",
+        "num_computed_tokens"
+      ],
+      "expected_calls": null,
+      "self_attrs": []
+    },
+    {
+      "label": "zero_kv_blocks",
+      "module": "vllm.v1.worker.utils",
+      "owner": "KVBlockZeroer",
+      "attribute": "zero_block_ids",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/utils.py",
+      "source_sha256": "85b23497017e5db07ea8f3fa56807c44dd7dd269f1977031bd86acdadfb0b5ec",
+      "parameter_names": [
+        "self",
+        "block_ids"
+      ],
+      "expected_calls": null,
+      "self_attrs": [
+        "device",
+        "_meta"
+      ]
+    },
+    {
+      "label": "post_update",
+      "module": "vllm.v1.worker.gpu.model_runner",
+      "owner": "",
+      "attribute": "post_update",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/input_batch.py",
+      "source_sha256": "2e4c2ebdb2c1ce04026d15288f5408624d880f335735636985efa3a3209a56f2",
+      "parameter_names": [
+        "idx_mapping",
+        "num_computed_tokens",
+        "last_sampled_tokens",
+        "output_bin_counts",
+        "sampled_tokens",
+        "num_sampled",
+        "num_rejected",
+        "query_start_loc",
+        "all_token_ids",
+        "total_len"
+      ],
+      "expected_calls": 16,
+      "self_attrs": []
+    },
+    {
+      "label": "staged_apply_write",
+      "module": "vllm.v1.worker.gpu.buffer_utils",
+      "owner": "StagedWriteTensor",
+      "attribute": "apply_write",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+      "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+      "parameter_names": [
+        "self"
+      ],
+      "expected_calls": null,
+      "self_attrs": [
+        "gpu"
+      ]
+    },
+    {
+      "label": "fused_apply_write",
+      "module": "vllm.v1.worker.gpu.buffer_utils",
+      "owner": "FusedStagedWriter",
+      "attribute": "apply",
+      "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+      "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+      "parameter_names": [
+        "self",
+        "tensors",
+        "output_ptrs",
+        "output_strides"
+      ],
+      "expected_calls": null,
+      "self_attrs": []
+    }
+  ],
+  "source_specs": [
+    "/home/n/work/TileIR/public-tileir-blas-20261111/residual_rope_combine_bias_contract_v1/HELPER-SPECS.json",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/residual_zero_prefill_public_v1/COMMON-OBSERVER-SPECS.json",
+    "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_state_helpers_contract_v1/COMMON-OBSERVER-SPEC.json"
+  ]
+}

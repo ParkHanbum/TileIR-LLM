@@ -1,0 +1,6 @@
+# Lean metadata5 interface
+Same API/kernel/bindings imported from qualified runtime_metadata_five_v1; original files unchanged. Oracle calls, full backing D2H/raw comparisons, diagnostic save callbacks and per-call synchronization removed. Same five expression transforms, public API scope guards, source identity, cache/return identity, input metadata/alias and current-stream checks, first-failure outer-entry latch, pre-call caps and best-effort restore retained. No whole-input byte preservation is rechecked here.
+
+Interface Controller.install(CommonAttentionMetadata,GDNAttentionMetadataBuilder,compute_causal_conv1d_metadata), start('lean'), finish(), close(). Install after engine setup and native reference, before candidate request; start before request. Numeric count subq1/subs1/gt1/full2. Full2048/-1 required. Source method copies must be installed before other wrapper copies or reviewed explicit composition bridge. Partial install must always close. Controller methods used via guarded actual bindings. Candidate numerical API remains unchanged and native oracle calls0 only for these five helpers.
+
+New actual endpoint proof pending. This interface has no GPU launcher and does not claim full composed support, performance, ABI or whole-request native0. Other guard kernels/transfers remain. Last actual qualification retains native oracle5 and is distinct.

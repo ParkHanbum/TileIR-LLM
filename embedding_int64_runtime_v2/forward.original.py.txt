@@ -1,0 +1,43 @@
+def forward(self, input_):
+    """Look up IDs, optionally reducing contributions from vocabulary shards."""
+    if self.tp_size == 1:
+        return self.quant_method.embedding(self, input_.long())
+
+    if self.use_fused_embedding:
+        output_parallel = ops.vocab_parallel_embedding(
+            input_ if input_.ndim == 1 else input_.reshape(-1),
+            self.weight,
+            self.shard_indices.org_vocab_start_index,
+            self.shard_indices.org_vocab_end_index,
+            self.shard_indices.num_org_vocab_padding,
+            self.shard_indices.added_vocab_start_index,
+            self.shard_indices.added_vocab_end_index,
+        )
+        if input_.ndim != 1:
+            output_parallel = output_parallel.view(
+                *input_.shape, self.embedding_dim
+            )
+    else:
+        masked_input, input_mask = get_masked_input_and_mask(
+            input_,
+            self.shard_indices.org_vocab_start_index,
+            self.shard_indices.org_vocab_end_index,
+            self.shard_indices.num_org_vocab_padding,
+            self.shard_indices.added_vocab_start_index,
+            self.shard_indices.added_vocab_end_index,
+        )
+        output_parallel = self.quant_method.embedding(self, masked_input.long())
+
+    output_dtype = output_parallel.dtype
+    if is_fp8(output_dtype):
+        # Each vocab token has one owner, so FP8 bytes can use int8 SUM.
+        output_parallel = output_parallel.view(torch.int8)
+    if not self.use_fused_embedding:
+        output_parallel.masked_fill_(input_mask.unsqueeze(-1), 0)
+    if self.reduce_results:
+        output_parallel = (
+            self.parallel_group.all_reduce(output_parallel)
+            if self.parallel_group is not None
+            else tensor_model_parallel_all_reduce(output_parallel)
+        )
+    return output_parallel.view(output_dtype)

@@ -1,0 +1,118 @@
+{
+  "base18": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02/RESULT.json",
+      "sha256": "c45d43017d5596ef12aa2e58ca1d8c29374bbfc650ca0380aaac55bd74051636"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02-launch.json",
+      "sha256": "ceae0db8c271730edaff4681cf29400d9eed57a573de3dcf0768b64ce9749b52"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02-recovery.json",
+      "sha256": "3f14da626a6b40b023b9a712941047b25240f1445a71cc7d58f66a42574c0ef2"
+    }
+  },
+  "sampler_four": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_four_runtime_integration_v1/samplerFourIntegration01/RESULT.json",
+      "sha256": "36d96ad440ef7a31e52062f75534f35d07b83bd74cee2618663f63647729e3cc"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_four_runtime_integration_v1/samplerFourIntegration01-launch.json",
+      "sha256": "870f7d7b86f8a358665cb2ff60617cbb1fc95aaeb533743e4b2bf15ba4520be9"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_four_runtime_integration_v1/samplerFourIntegration01-recovery.json",
+      "sha256": "4f629cbbafaa5b582edb5fb5427f3aeaa28631113d00627369b5c972a18abc46"
+    }
+  },
+  "gdn_prefill_core": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v3/gdnPrefillCoreIntegration03/RESULT.json",
+      "sha256": "99f3f8b1d29ff6334b32286331e08514a2705c3f5a70b654c9aa7bafb978371e"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v3/gdnPrefillCoreIntegration03-launch.json",
+      "sha256": "694ebb7ed57294e07fd90f15aa095eeeeb67bf8577530533a32a1ccebce9d526"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_prefill_core_runtime_integration_v3/gdnPrefillCoreIntegration03-recovery.json",
+      "sha256": "62bba03a0906a63b38112d25edc894e579092b0c66bf6bebd8774358203205f5"
+    }
+  },
+  "attention_core": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_scoped_runtime_v5/attentionFull05/RESULT.json",
+      "sha256": "a7dd81a93bf43e32e696797137e12c41741a5542ef65bc637f0a7d6ccc14a948"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_scoped_runtime_v5/attentionFull05-launch.json",
+      "sha256": "15d03c576fdaebb9018c980aa15a20e7c104e4296c33f88b68e02d4fb9728dcc"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_scoped_runtime_v5/attentionFull05-recovery.json",
+      "sha256": "622f69836d5bf049da5c7659686fa88d8632d57228d683aa71f39bab8340b8ac"
+    },
+    "final_seal": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/attention_scoped_runtime_v5/FINAL-SEAL-05.json",
+      "sha256": "d3ceeeb1dcaac88e4e7467b77436f36f7dd41d0ea0c75b684b592ff38b7d85d4"
+    }
+  },
+  "runner_padding": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_padding_runtime_integration_v1/runnerPaddingIntegration01/RESULT.json",
+      "sha256": "d8fcf9d0bdc009b0d3558ba4379861b5ecac22e06b8fe19d4f2866463a40454a"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_padding_runtime_integration_v1/runnerPaddingIntegration01-launch.json",
+      "sha256": "24a731d0089c77dec71408e9e5742599d3cb0f33c41406a1b10d505bf2072ecf"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_padding_runtime_integration_v1/runnerPaddingIntegration01-recovery.json",
+      "sha256": "3248831b65494d8586caca4aaf60965e5083f995ccfebccb305d6806623694a3"
+    }
+  },
+  "hidden_gather": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_hidden_gather_runtime_integration_v2/hiddenGatherIntegration02/RESULT.json",
+      "sha256": "3a576e6054456b16850e1aa7ef51c23a7b828808f6f0f25c303665b86927d3f2"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_hidden_gather_runtime_integration_v2/hiddenGatherIntegration02-launch.json",
+      "sha256": "2fe20bb021f247ab685692ac1255fde7f8dbcd83978937936b081913ec195136"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_hidden_gather_runtime_integration_v2/hiddenGatherIntegration02-recovery.json",
+      "sha256": "498a1e0900be894ded468a9a3fe0c7526a3b9cbce96d446a61f847483fb7da0c"
+    }
+  },
+  "sampler_fp32": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_fp32_copy_runtime_integration_v1/samplerFP32CopyIntegration01/RESULT.json",
+      "sha256": "a338d7e5fff00f6390a2b37a964752c5be0306054b356688da5a8eca8ab06851"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_fp32_copy_runtime_integration_v1/samplerFP32CopyIntegration01-launch.json",
+      "sha256": "1d07de8ad1ebb87d88353bb47a4325b12d4ced284e864b72dbabd2eede9fcdf6"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampler_fp32_copy_runtime_integration_v1/samplerFP32CopyIntegration01-recovery.json",
+      "sha256": "bbcc465c7ba4580efd365e357652b1dc28e223c8297002c835973260252963da"
+    }
+  },
+  "accepted_scatter": {
+    "result": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_integration_v2/mambaAcceptedIntegration02/RESULT.json",
+      "sha256": "d96ee0b5707839afe387128344796c980fdb5a699312ec62a52e8214f1f5d5df"
+    },
+    "launch": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_integration_v2/mambaAcceptedIntegration02-launch.json",
+      "sha256": "efc01cf1ddbd1e5335719b641cac0c0b71cd613b1206e07e3b33db370e57c2cb"
+    },
+    "recovery": {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_integration_v2/mambaAcceptedIntegration02-recovery.json",
+      "sha256": "0b4d3fac7a596c50751579960592e0dcf14b9d6a764d6a6c169848a828c27013"
+    }
+  }
+}

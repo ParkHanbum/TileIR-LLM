@@ -1,0 +1,7 @@
+{
+  "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/third_party/flash_linear_attention/LICENSE": "1350bfbef13ce4d3d3bdaa2f1fc4b1d1117d846732a2a62f891a67f3d5356d0d",
+  "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_gdn_solve_tril_v1/LICENSE-FLA-MIT-01.txt": "1350bfbef13ce4d3d3bdaa2f1fc4b1d1117d846732a2a62f891a67f3d5356d0d",
+  "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_gdn_solve_tril_v1/PROVENANCE-ADDENDUM-01.md": "63727b7d536ed11a53c067d99010d1abae1d4ddee7fc71b377e3d6055315919e",
+  "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_solve_tril_qualification_v1/LICENSE-CORRECTION-RECEIPT-01.json": "da264b10e3cd9dc76fd154d0b3aed45d90bfe15e752320420174bac4e63fd637",
+  "/home/n/work/TileIR/public-tileir-blas-20261111/gdn_solve_tril_qualification_v1/CPU-PINS.json": "126ac0311ad80fad2cf91f3860c32ceb4fa013fd4319fcf2192195a0f5925e67"
+}

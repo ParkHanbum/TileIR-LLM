@@ -1,0 +1,99 @@
+{
+  "metadata_path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean25_metadata_inventory_v2/leanMetadata02/METADATA.json",
+  "metadata_sha256": "d23db30e3aede13a13389ed267c0f83a241cd23a4f93be12445cc0814762104a",
+  "bodies": [
+    {
+      "name": "hidden_post",
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v2/attention_runner.py",
+      "sha256": "0f852666580c5042ee789d604315e46af314735822fdbda3196353a977a24509",
+      "class_name": "HiddenGather",
+      "function": "gather",
+      "source_line": 117,
+      "sites": [
+        "hidden_post"
+      ],
+      "replacements": [
+        [
+          "hidden_post",
+          "bool(torch.isfinite(y).all())"
+        ]
+      ]
+    },
+    {
+      "name": "sampler_outer",
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v2/sampler.py",
+      "sha256": "1156bfd6bc54a544b6084d92d185032de47f84a794385bc696a0941be1024517",
+      "class_name": "SamplerFP32",
+      "function": "copy_logits",
+      "source_line": 48,
+      "sites": [
+        "sampler_pre",
+        "sampler_post"
+      ],
+      "replacements": [
+        [
+          "sampler_pre",
+          "bool(torch.isfinite(x).all())"
+        ],
+        [
+          "sampler_post",
+          "bool(torch.isfinite(y).all())"
+        ]
+      ]
+    },
+    {
+      "name": "copy_api",
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_sampler_fp32_copy_v1/api.py",
+      "sha256": "367a940ae0cbb70f95d2e04aa8fd08633adad9834b96286e5ffcc76890f3fae3",
+      "class_name": null,
+      "function": "sampler_fp32_copy",
+      "source_line": 5,
+      "sites": [
+        "copy_api"
+      ],
+      "replacements": [
+        [
+          "copy_api",
+          "bool(torch.isfinite(x).all())"
+        ]
+      ]
+    },
+    {
+      "name": "scores_api",
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_selected_logprobs_v2/api.py",
+      "sha256": "926278b285b6a28c4e7b0db493ffb7ce5b6f4edd9f6afefd32486a64aad09a4e",
+      "class_name": null,
+      "function": "compute_token_logprobs",
+      "source_line": 13,
+      "sites": [
+        "scores_api"
+      ],
+      "replacements": [
+        [
+          "scores_api",
+          "bool(torch.isfinite(logits).all())"
+        ]
+      ]
+    },
+    {
+      "name": "ranks_selected",
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_selected_ranks_v1/api.py",
+      "sha256": "ad84af64afc7142d44e17839d434853291e326bbac361a18c566fb58ac6ea35c",
+      "class_name": null,
+      "function": "selected_token_ranks",
+      "source_line": 15,
+      "sites": [
+        "ranks_selected"
+      ],
+      "replacements": [
+        [
+          "ranks_selected",
+          "bool(torch.isfinite(chosen).all())"
+        ]
+      ]
+    }
+  ],
+  "site_count": 6,
+  "expected_calls_per_site": 16,
+  "scope": "6all-finite sites only; greedy row-any excluded;128counts only observed TorchDispatch surface"
+}

@@ -1,0 +1,112 @@
+{
+  "actual_banks": [
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/0_topk_in_logits.pt",
+      "sha256": "f631974342f75bff22ffb4263d77bf80d878adbb256b76e28351830e0e4ab33c",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "storage_nbytes": 15892480,
+        "data_ptr": 138952426127360,
+        "storage_ptr": 138952426127360,
+        "object_identity": 138960184027728,
+        "stream": 0,
+        "requires_grad": false,
+        "is_leaf": true,
+        "python_type": "torch.Tensor",
+        "version": "unavailable_inference_tensor"
+      }
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/greedy_sampler_runtime_capture_v1/greedySamplerCapture01/bank/15_topk_in_logits.pt",
+      "sha256": "175f2ff72bf0d2ee185ba98300bd8bb6d6a8a6f82dc5fe33dff43860df53b5f9",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "storage_nbytes": 15892480,
+        "data_ptr": 138952426127360,
+        "storage_ptr": 138952426127360,
+        "object_identity": 138960185145552,
+        "stream": 0,
+        "requires_grad": false,
+        "is_leaf": true,
+        "python_type": "torch.Tensor",
+        "version": "unavailable_inference_tensor"
+      }
+    },
+    {
+      "path": "/home/n/work/TileIR/public-tileir-blas-20261111/top5_qualification_v2/derived_failure_bank/logits.pt",
+      "sha256": "a0548999ccffa5d13047c444d6ef73cef655b9a0c24db847f3f1e1cf9158005e",
+      "metadata": {
+        "shape": [
+          32,
+          248320
+        ],
+        "stride": [
+          248320,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "storage_nbytes": 15892480,
+        "requires_grad": false
+      }
+    }
+  ],
+  "scope": "CPU preparation, no GPU executable launcher yet",
+  "synthetic": {
+    "dtypes": [
+      "bfloat16",
+      "float32"
+    ],
+    "lengths": [
+      1,
+      1023,
+      1024,
+      1025,
+      8388608
+    ],
+    "values": [
+      "+0",
+      "-0",
+      "finite subnormal",
+      "largest finite",
+      "+Inf",
+      "-Inf",
+      "positiveNaN",
+      "negativeNaN"
+    ],
+    "views": [
+      "ordinary",
+      "real negative-bit view via public conjugate complex imag/as_strided",
+      "real conj"
+    ]
+  },
+  "gates": [
+    "native finite bool equals TileIR status",
+    "full input backing bytes unchanged",
+    "failed guard target launch/write count0",
+    "repeat",
+    "source pins",
+    "same current stream"
+  ],
+  "next": "Independent CPU review then bounded GPU qualifier; reuse prior lifecycle, no full model/performance rerun now"
+}

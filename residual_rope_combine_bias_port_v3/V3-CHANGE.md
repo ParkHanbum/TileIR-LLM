@@ -1,0 +1,1 @@
+v2 preserved and never executed. Narrow v3 correction: shared API value/scope preflight now runs immediately after live layout validation, before clones, raw snapshots or native original. Rejection records native0/candidate0; wrapper latches failure. Numerical kernels and post-update source unchanged. Same validation remains in standalone candidate API.

@@ -1,0 +1,1 @@
+Independent public TileIR integer equality; no vendor binary input. Existing public project ownership comparator logic and creation order preserved. vLLM owner hooks remain under original Apache-2.0 notice in staged_ownership_runtime_v1. No pointer dereference or pointer-to-storage conversion.

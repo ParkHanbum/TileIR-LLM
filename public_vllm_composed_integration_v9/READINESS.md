@@ -1,0 +1,1 @@
+14-adapter2808 logical calls: old12 by reference plus embedding16 and KV128 v2. Three actual full proofs bound. Fixed512-token companion now required and preflight-checked in both entrypoints. New combined shadow mandatory before replacement. Default True/True read-only,2560 public logprobs exact. No performance/100%/ABI/optimized graph claim. No cache copied by author.

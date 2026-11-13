@@ -1,0 +1,1 @@
+Public vLLM source under Apache-2.0; original source copied expression is unchanged except its explicitly guarded cast substitution. See batch_ptr_int_cast_v1 and runtime_metadata_five_v1/NOTICE.md and LICENSE.vllm. No proprietary implementation used. Numeric kernel/API v1 unchanged. This source-only standalone qualifier does not establish composition compatibility.

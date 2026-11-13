@@ -1,0 +1,117 @@
+{
+  "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/model_states/mamba_hybrid.py",
+  "source_sha256": "262de489e3c02a2b1b93acd2a0d88ddced82ecebe050ca95ea91ba3fe501e6f4",
+  "bank_manifest": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/MANIFEST.json",
+  "bank_manifest_sha256": "384ed4ff2517acc6c2de4ba6caa716097dea8121477c0434376d42db91f869bf",
+  "capture_result": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/RESULT.json",
+  "capture_result_sha256": "2144e8ad73a21d345bbe709381781c5032c37daa33ca0d545ebb666213651d91",
+  "capture_recovery": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03-recovery.json",
+  "capture_recovery_sha256": "68d35973f84fd6e526fee755897de4195567414f1123a65c111874472b9686f6",
+  "cases": [
+    {
+      "name": "actual01",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call01.pt",
+      "sha256": "179bd84edaef1f8063b716075b7f449f821a5368c4c936075b0c21608f37f4d1",
+      "synthetic": false
+    },
+    {
+      "name": "actual02",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call02.pt",
+      "sha256": "e7d71675af5fa37a36f2857e7f86a1b0aacd8795d0404edec835a563de34cba7",
+      "synthetic": false
+    },
+    {
+      "name": "actual03",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call03.pt",
+      "sha256": "456d886fcc6fcdef5e12047a79c157e94fc23de0d8b709be70400e5edc55b750",
+      "synthetic": false
+    },
+    {
+      "name": "actual04",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call04.pt",
+      "sha256": "c0e65df86e67c83c8e70c8f6134afdc0d069617381b025b5c03ec5445481c7f9",
+      "synthetic": false
+    },
+    {
+      "name": "actual05",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call05.pt",
+      "sha256": "dde0bea8cbd871ce724ccc9dcdf455eb52cce960b36343961e9ea2ea444aeb0c",
+      "synthetic": false
+    },
+    {
+      "name": "actual06",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call06.pt",
+      "sha256": "599e934867e45a8e576102b9a01d964d510b99e661d4e5b54670562c1173a8bc",
+      "synthetic": false
+    },
+    {
+      "name": "actual07",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call07.pt",
+      "sha256": "d53520b611071a8ff9c39dfa69240ac82ece5c071d86d90920c05c7080a6aa97",
+      "synthetic": false
+    },
+    {
+      "name": "actual08",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call08.pt",
+      "sha256": "d8611986c3044164b0d6c85e35d21d2c3fcf4afc46230041cf65db6b1baa98d9",
+      "synthetic": false
+    },
+    {
+      "name": "actual09",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call09.pt",
+      "sha256": "58288a29872f719449ee17960af89544fa31a146cef6dcbe22fa31fb206b0e41",
+      "synthetic": false
+    },
+    {
+      "name": "actual10",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call10.pt",
+      "sha256": "00b3f52508c9b91391bfb61a5dc24beec4a92b55ee23990491d271d7e796c160",
+      "synthetic": false
+    },
+    {
+      "name": "actual11",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call11.pt",
+      "sha256": "aeb6555ab3af5c01249b31be1be77415c46ac5258893908a5ba283eaafbe3205",
+      "synthetic": false
+    },
+    {
+      "name": "actual12",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call12.pt",
+      "sha256": "95d5b5f3efd4dacc3dc2e848c08d561d89263865899de62521774d5f1a5bd8f0",
+      "synthetic": false
+    },
+    {
+      "name": "actual13",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call13.pt",
+      "sha256": "ee8021b7db0d991574ed835ce8c541e5ef01b9ff11ff57a33ad455f685c782b7",
+      "synthetic": false
+    },
+    {
+      "name": "actual14",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call14.pt",
+      "sha256": "c6f8e846569de268f985a84de51e4c68686d45c3129cd60094ccd0c12be7e445",
+      "synthetic": false
+    },
+    {
+      "name": "actual15",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call15.pt",
+      "sha256": "74680a9a27fb4330327bb96e450594597b30205935d226a71fc1da518830ece2",
+      "synthetic": false
+    },
+    {
+      "name": "actual16",
+      "bank": "/home/n/work/TileIR/public-tileir-blas-20261111/mamba_accepted_runtime_capture_v3/mambaAcceptedCapture03/bank/call16.pt",
+      "sha256": "5767dc87694de8f569a0b6fd121e2a78d12f56393c02cba9d96db878d277cf1e",
+      "synthetic": false
+    },
+    {
+      "name": "synthetic_changed",
+      "synthetic": true
+    },
+    {
+      "name": "synthetic_negative",
+      "synthetic": true
+    }
+  ],
+  "scope": "16 actual banks plus2 clearly separate synthetic sentinel/clamp fixtures, native2\u2192Tile2 each; no model/performance claim"
+}

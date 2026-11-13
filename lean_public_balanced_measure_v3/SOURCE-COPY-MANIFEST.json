@@ -1,0 +1,18 @@
+{
+  "original": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_balanced_measure_v2",
+  "explicit_sources": {
+    "__init__.py": "c546d019fd19f842cb6ef4849af7d09eed1156bf1e85f5e00e1391b886ca1af9",
+    "design.py": "d3c6ed54475e8e75bf260c6b91639e50667eb02ea9dc5cb10262a990563d3bed",
+    "scopes.py": "96d32a6f0c2a6cbedf7d2c7772e17d0d3e41f4b494064c073901c449c032a0d0",
+    "request.py": "166fa0c5c0cd00bc68040f46a51fc08233d9e32cc6f7211deed0483aa9e94d80",
+    "profile_contract.py": "d07010c1d33a0a04714d55813170df4b8d16bcd4957a3e8714c7d2815fa3799d",
+    "gates.py": "6c500fadaae97d4f5abb3f0eaa51aab9401d80a67960d08b196cbe16f34b3db5",
+    "run.py": "f911665306f9e06f4a58c4d445c22fca1ff0e0bac143d1f7baa1e544e4820fe9",
+    "launch.py": "795bf44b95592cea971d7923c309498b3f60bac1bedc2c3a2ffb40672de1d760",
+    "test_cpu.py": "ee72df716b544a4cf17ef502657695ab4f6f40b0c60cdb4145958285cec9266c",
+    "test_contract_cpu.py": "b6c72e06bee42a723222522a4287ec6eb3446a2502bdfcbd972cd15e918b88c9"
+  },
+  "copied_results": false,
+  "copied_cache": false,
+  "copied_preseed_receipts": false
+}

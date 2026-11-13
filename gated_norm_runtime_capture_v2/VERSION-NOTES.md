@@ -1,0 +1,2 @@
+v1 sources/pins preserved, never run by author. v2 adds original requires_grad/is_leaf/python_type to every X/Z/W/Y descriptor before detached CPU serialization; no numerical dispatch change. API v1 remains non-grad inference-only. A future qualifier must explicitly detach a requires_grad weight view, preserving data/layout, and must not claim autograd support.
+Independent kernel expression: no vLLM/FLA implementation copied into candidate. Public source license identifiers and attribution are recorded for provenance, not a claim that vendor code was relicensed.

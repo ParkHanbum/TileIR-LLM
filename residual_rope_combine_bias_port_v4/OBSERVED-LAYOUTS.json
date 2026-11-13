@@ -1,0 +1,431 @@
+{
+  "combine_sampled_and_draft_tokens": {
+    "input_ids": {
+      "shape": [
+        2048
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 8192,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "idx_mapping": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 256,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "last_sampled_tokens": {
+      "shape": [
+        32,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 256,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "query_start_loc": {
+      "shape": [
+        33
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 132,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "seq_lens": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "prefill_len": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "draft_tokens": {
+      "shape": [
+        32,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 0,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "cu_num_logits": {
+      "shape": [
+        33
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 132,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    }
+  },
+  "prepare_rope_positions": {
+    "idx_mapping": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 256,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "query_start_loc": {
+      "shape": [
+        33
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 132,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "prefill_lens": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "num_computed_tokens": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "self.positions": {
+      "shape": [
+        3,
+        2049
+      ],
+      "stride": [
+        2049,
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 49176,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "self.prefill_positions.gpu": {
+      "shape": [
+        96,
+        128
+      ],
+      "stride": [
+        128,
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 49152,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "self.prefill_delta.gpu": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    }
+  },
+  "bias": {
+    "logits": {
+      "shape": [
+        32,
+        248320
+      ],
+      "stride": [
+        248320,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 31784960,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "expanded_idx_mapping": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 256,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "pos": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 256,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "num_allowed_token_ids": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "allowed_token_ids": {
+      "shape": [
+        32,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 131072,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "num_logit_bias": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "logit_bias_token_ids": {
+      "shape": [
+        32,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 131072,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "logit_bias": {
+      "shape": [
+        32,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 131072,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "min_lens": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "num_stop_token_ids": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "restore_when_all_masked": {
+      "shape": [
+        32
+      ],
+      "stride": [
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 128,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    },
+    "stop_token_ids": {
+      "shape": [
+        32,
+        128
+      ],
+      "stride": [
+        128,
+        1
+      ],
+      "dtype": "torch.int32",
+      "device": "cuda:0",
+      "offset": 0,
+      "storage_bytes": 16384,
+      "requires_grad": false,
+      "is_conj": false,
+      "is_neg": false
+    }
+  }
+}

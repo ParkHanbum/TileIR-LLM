@@ -1,0 +1,83 @@
+"""Public FA2 dependency-graph candidate, decode lengths 65..68 only.
+Native compiled rounding/instruction identity is not asserted. Single-block v9 is imported unchanged.
+"""
+import cuda.tile as ct
+@ct.kernel
+def two_block_kernel(Q,K,V,L,T,O,W:ct.Constant[int]):
+ token=ct.bid(0);head=ct.bid(1);seq=token;kvhead=head//4
+ length=ct.gather(L,seq,check_bounds=True);block=ct.gather(T,(seq,0),check_bounds=True)
+ d=ct.arange(256,dtype=ct.int32);col=ct.arange(64,dtype=ct.int32)
+ q=ct.gather(Q,(token,head,d),check_bounds=True)
+ qm=ct.broadcast_to(q[None,:],(16,256))
+ # Reverse key block 1: public flash_fwd_kernel.h paged loop.
+ pos=col+64
+ kk=ct.gather(K,(block,pos[:,None],kvhead,d[None,:]),mask=pos[:,None]<length,padding_value=0,check_bounds=True)
+ qk=ct.mma(qm,ct.transpose(kk),ct.full((16,64),0,dtype=ct.float32))
+ scores=ct.reshape(ct.extract(qk,(0,0),(1,64)),(64,))*0.0625
+ scores=ct.where(pos<length,scores,float('-inf'))
+ block_max=ct.max(scores,axis=0)
+ maximum=block_max
+ max_log2=maximum*1.4426950408889634
+ exponent=scores*1.4426950408889634-max_log2
+ e=ct.exp2(exponent)
+ eg=ct.reshape(e,(8,4,2))
+ sums=ct.reshape(ct.extract(eg,(0,0,0),(1,4,1)),(4,))
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(0,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(1,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(1,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(2,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(2,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(3,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(3,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(4,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(4,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(5,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(5,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(6,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(6,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(7,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(7,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ vv=ct.gather(V,(block,pos[:,None],kvhead,d[None,:]),mask=pos[:,None]<length,padding_value=0,check_bounds=True)
+ pm=ct.broadcast_to(e.astype(ct.bfloat16)[None,:],(16,64))
+ pv=ct.mma(pm,vv,ct.full((16,256),0,dtype=ct.float32))
+ # Reverse key block 0: public flash_fwd_kernel.h paged loop.
+ pos=col+0
+ kk=ct.gather(K,(block,pos[:,None],kvhead,d[None,:]),mask=pos[:,None]<length,padding_value=0,check_bounds=True)
+ qk=ct.mma(qm,ct.transpose(kk),ct.full((16,64),0,dtype=ct.float32))
+ scores=ct.reshape(ct.extract(qk,(0,0),(1,64)),(64,))*0.0625
+ scores=ct.where(pos<length,scores,float('-inf'))
+ block_max=ct.max(scores,axis=0)
+ old_max=maximum
+ maximum=ct.maximum(old_max,block_max)
+ alpha=ct.exp2((old_max-maximum)*1.4426950408889634)
+ sums=ct.mul(sums,alpha,rounding_mode=ct.RoundingMode.RN)
+ pv=ct.mul(pv,alpha,rounding_mode=ct.RoundingMode.RN)
+ max_log2=maximum*1.4426950408889634
+ exponent=scores*1.4426950408889634-max_log2
+ e=ct.exp2(exponent)
+ eg=ct.reshape(e,(8,4,2))
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(0,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(0,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(1,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(1,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(2,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(2,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(3,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(3,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(4,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(4,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(5,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(5,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(6,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(6,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(7,0,0),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ sums=ct.add(sums,ct.reshape(ct.extract(eg,(7,0,1),(1,4,1)),(4,)),rounding_mode=ct.RoundingMode.RN)
+ vv=ct.gather(V,(block,pos[:,None],kvhead,d[None,:]),mask=pos[:,None]<length,padding_value=0,check_bounds=True)
+ pm=ct.broadcast_to(e.astype(ct.bfloat16)[None,:],(16,64))
+ pv=ct.mma(pm,vv,pv)
+ s02=ct.add(ct.extract(sums,(0,),(1,)),ct.extract(sums,(2,),(1,)),rounding_mode=ct.RoundingMode.RN)
+ s13=ct.add(ct.extract(sums,(1,),(1,)),ct.extract(sums,(3,),(1,)),rounding_mode=ct.RoundingMode.RN)
+ den=ct.reshape(ct.add(s02,s13,rounding_mode=ct.RoundingMode.RN),())
+ inv_den=ct.truediv(1.0,den,rounding_mode=ct.RoundingMode.APPROX,flush_to_zero=True)
+ result=ct.mul(ct.reshape(ct.extract(pv,(0,0),(1,256)),(256,)),inv_den,rounding_mode=ct.RoundingMode.RN)
+ ct.scatter(O,(token,head,d),result.astype(ct.bfloat16),check_bounds=True)

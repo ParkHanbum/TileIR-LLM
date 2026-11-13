@@ -1,0 +1,22 @@
+{
+  "combined_result": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02/RESULT.json",
+    "sha256": "c45d43017d5596ef12aa2e58ca1d8c29374bbfc650ca0380aaac55bd74051636"
+  },
+  "combined_launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02-launch.json",
+    "sha256": "ceae0db8c271730edaff4681cf29400d9eed57a573de3dcf0768b64ce9749b52"
+  },
+  "combined_recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/all_gemm_sixteen_sampler_composition_v2/allGemmSixteenSampler02-recovery.json",
+    "sha256": "3f14da626a6b40b023b9a712941047b25240f1445a71cc7d58f66a42574c0ef2"
+  },
+  "lean_cpu_ready": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v1/CPU-READY.json",
+    "sha256": "fb87b564e068e3174aa65d5783439597c2bf03d837eb9347ed511bf28d731f4c"
+  },
+  "lean_cpu_tests": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v1/CPU-TESTS.json",
+    "sha256": "46d55cf04ec01b254b96dc6c392fd141de1e43b0f9a72b3cbcab22286413c558"
+  }
+}

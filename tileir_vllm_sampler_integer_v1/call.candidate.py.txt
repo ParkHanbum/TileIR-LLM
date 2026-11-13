@@ -1,0 +1,91 @@
+def __call__(
+    self,
+    logits: torch.Tensor,
+    input_batch: InputBatch,
+) -> SamplerOutput:
+    expanded_idx_mapping = input_batch.expanded_idx_mapping
+    idx_mapping = input_batch.idx_mapping
+    idx_mapping_np = input_batch.idx_mapping_np
+    cu_num_logits_np = input_batch.cu_num_logits_np
+    expanded_local_pos = input_batch.expanded_local_pos
+    pos = _integer_gather(input_batch.positions,input_batch.logits_indices)
+    input_ids = _integer_gather(input_batch.input_ids,input_batch.logits_indices)
+    seq_lens_upper_bound_np = input_batch.seq_lens_cpu_upper_bound.numpy()
+
+    # NOTE(woosuk): We intentionally compute num_nans before sampling to make clear
+    # that num_nans is computed before applying penalties and temperature.
+    num_nans = get_num_nans(logits) if self.compute_nans else None
+
+    logprobs_dims = self.get_logprobs_dims(idx_mapping_np)
+
+    sampled, processed_logits = self.sample(
+        logits,
+        expanded_idx_mapping,
+        idx_mapping,
+        idx_mapping_np,
+        pos,
+        input_ids,
+        expanded_local_pos,
+        seq_lens_upper_bound_np,
+        return_logprobs=logprobs_dims is not None,
+    )
+
+    if self.trace_replay_state is not None:
+        # Overwrite sampled tokens with the replay trace up-front so that
+        # computed logprobs reflect the real distribution of the forced token.
+        self.trace_replay_state.apply_trace(sampled, idx_mapping)
+
+    if logprobs_dims is not None:
+        num_logprobs, max_per_req_token_ids = logprobs_dims
+        if self.logprobs_mode in PROCESSED_LOGPROBS_MODES:
+            logits = processed_logits
+        expanded_logits = logits.shape[0] != idx_mapping_np.shape[0]
+        cu_num_logits = cu_num_logits_np.tolist() if expanded_logits else None
+        logprobs_tensors = compute_topk_scores(
+            logits,
+            num_logprobs,
+            sampled,
+            cu_num_logits,
+            logprob_token_ids_state=self.logprob_token_ids_state,
+            expanded_idx_mapping=input_batch.expanded_idx_mapping,
+            max_per_req_token_ids=max_per_req_token_ids,
+            logits_mode=self.logprobs_mode in ("raw_logits", "processed_logits"),
+        )
+    else:
+        logprobs_tensors = None
+
+    # 1 sampled token per request, except chunked-prefill requests
+    # (seq_len < prefill_len) which aren't done prefilling and produce no
+    # output token. num_rejected is always 0 here (one logit per request).
+    num_sampled, num_rejected = get_num_sampled_and_rejected(
+        _new_sampled_ones(input_batch.seq_lens,input_batch.num_reqs),
+        input_batch.seq_lens,
+        input_batch.cu_num_logits,
+        input_batch.idx_mapping,
+        self.req_states.prefill_len.gpu,
+    )
+
+    sampling_mask_tensors = None
+    if self.return_sampling_mask:
+        # Size by the validated top_k batch max; wider supports use the bitmask.
+        max_num_kept = int(np.max(self.sampling_states.top_k.np[idx_mapping_np]))
+        sampling_mask_tensors = SamplingMaskTensors.from_logits(
+            processed_logits,
+            input_batch.cu_num_logits,
+            num_sampled,
+            max_num_kept,
+        )
+
+    # These are GPU tensors.
+    sampler_output = SamplerOutput(
+        # The sampled tokens are expanded to 2D tensor with shape
+        # [num_requests, 1], where each row represents one generated
+        # token per request.
+        sampled_token_ids=sampled.view(-1, 1),
+        logprobs_tensors=logprobs_tensors,
+        num_nans=num_nans,
+        num_sampled=num_sampled,
+        num_rejected=num_rejected,
+        sampling_mask_tensors=sampling_mask_tensors,
+    )
+    return sampler_output

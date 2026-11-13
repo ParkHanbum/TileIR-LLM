@@ -1,0 +1,14 @@
+{
+  "scope": "26 private same-input staged post-update guard fixtures; model16 pending",
+  "api": "/home/n/work/TileIR/public-tileir-blas-20261111/public_post_update_guard_v1/api.py",
+  "api_sha256": "82a3f94824b224996f5ac709c57e0f5d2b58e66967db9cb0faa99199f6f36f10",
+  "kernel": "/home/n/work/TileIR/public-tileir-blas-20261111/public_post_update_guard_v1/kernel.py",
+  "kernel_sha256": "a855fc7b3b61ce0525ee7ed505a9becc9aa637893ae8deeb5ec25db4c5b52a43",
+  "cases": 26,
+  "stages": 9,
+  "distinct_error_messages": 8,
+  "timeout_seconds": 585,
+  "model_calls": 0,
+  "timing": false,
+  "whole_owner_readonly": true
+}

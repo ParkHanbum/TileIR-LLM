@@ -1,0 +1,55 @@
+[
+  {
+    "label": "post_update",
+    "module": "vllm.v1.worker.gpu.model_runner",
+    "owner": "",
+    "attribute": "post_update",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/input_batch.py",
+    "source_sha256": "2e4c2ebdb2c1ce04026d15288f5408624d880f335735636985efa3a3209a56f2",
+    "parameter_names": [
+      "idx_mapping",
+      "num_computed_tokens",
+      "last_sampled_tokens",
+      "output_bin_counts",
+      "sampled_tokens",
+      "num_sampled",
+      "num_rejected",
+      "query_start_loc",
+      "all_token_ids",
+      "total_len"
+    ],
+    "expected_calls": 16,
+    "self_attrs": []
+  },
+  {
+    "label": "staged_apply_write",
+    "module": "vllm.v1.worker.gpu.buffer_utils",
+    "owner": "StagedWriteTensor",
+    "attribute": "apply_write",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+    "parameter_names": [
+      "self"
+    ],
+    "expected_calls": null,
+    "self_attrs": [
+      "gpu"
+    ]
+  },
+  {
+    "label": "fused_apply_write",
+    "module": "vllm.v1.worker.gpu.buffer_utils",
+    "owner": "FusedStagedWriter",
+    "attribute": "apply",
+    "source_path": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/buffer_utils.py",
+    "source_sha256": "1f387c3557facb1cb48dc1bd52d7e488b5e9bd88eaffe64e808c42feab73a1db",
+    "parameter_names": [
+      "self",
+      "tensors",
+      "output_ptrs",
+      "output_strides"
+    ],
+    "expected_calls": null,
+    "self_attrs": []
+  }
+]

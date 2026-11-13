@@ -1,0 +1,11 @@
+# Native staged/fused ownership diagnostic (CPU draft)
+
+No TileIR write replacement. Uses public installed vLLM only. Explicit source allowlist copied observer/ownership/tests and a single native lifecycle source; no old cache, cache receipt, results or whole-directory copy. Fresh cache preseed is coordinator prerequisite.
+
+Install four verified methods before engine construction: StagedWriteTensor.__init__, BlockTables.init_block_table_layout_tensors, StagedWriteTensor.apply_write, FusedStagedWriter.apply. Exact source file SHA and exact method slice -> dedent -> AST fingerprint and runtime inspect filename/lineno/signature are required. Native model reference and observed request both retain native methods with observer active; phase separates initialization/reference warmup from one actual request. Public method identities are checked before each call. Original callable exactly once, return object unchanged; invalid precheck native0, native exception is uncertain/no retry, failure latches.
+
+Actual typed owner/table equality uses temporary integer DATA tensors and torch.equal on the current stream, no arbitrary pointer casts/dereference or raw address/table logs. Current stream equality checked across pre/native/post; retained stream objects and strong owner/tensor/storage/table references released only after restore, sync and shutdown succeed. Pointer equality does not prove pool retirement, complete UVA backing ownership or concurrent CPU-write safety. No allocator/runtime pool policy changes.
+
+Historical lean25 counts123 staged/17 fused Python calls and6 apply-write kernels are NOT expected native-runtime census. Receipt records actual phased Python call counts and nonempty/empty counts. Actual GPU write count stays null; no trace/kernel-time claim. Unsupported owner dtype/layout/groups fail closed. Native phase outputs512 IDs/public2560 compare with existing frozen reference and each other. CPU typed-table equality allocates/synchronizes, unsuitable for timing. Graph/ABI/general-workload support unproved.
+
+Restore detects foreign binding rather than overwriting it and continues restoring other owned bindings. Any cleanup failure retains strong refs. Errors persist only stage/type, not native exception payload. No numeric write candidate, no actual GPU run yet.

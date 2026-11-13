@@ -1,0 +1,20 @@
+{
+  "complete": true,
+  "qualification_package": "lean_public_runtime_qualification_v2",
+  "result": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_runtime_qualification_v2/leanCorrectness02/RESULT.json",
+    "sha256": "f572c93b57cff30801eabdc12152acf241bbea620bed5af72bbd500f81b4d154"
+  },
+  "launch": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_runtime_qualification_v2/leanCorrectness02-launch.json",
+    "sha256": "0de4dc6f7d52e83e13ce7eb6d612fd15c2ea7c9a2c6e7939265bf748229c93e3"
+  },
+  "recovery": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_runtime_qualification_v2/leanCorrectness02-recovery.json",
+    "sha256": "c2ff07d05c4e8c9de44b60949e061b7b026d99e49d26189611e715c24c89c86b"
+  },
+  "source_pins": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_runtime_qualification_v2/PINS.json",
+    "sha256": "5c13158fa7e59a14150176cda8168d2738488686571d6bfb29e8141fb2b5fb38"
+  }
+}

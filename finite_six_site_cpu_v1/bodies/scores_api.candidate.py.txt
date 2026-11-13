@@ -1,0 +1,7 @@
+def compute_token_logprobs(logits,token_ids):
+ import torch,cuda.tile as ct
+ from .kernels import kernel
+ assert isinstance(logits,torch.Tensor) and isinstance(token_ids,torch.Tensor) and logits.device.type=='cuda' and token_ids.device==logits.device
+ def meta(t):return dict(shape=list(t.shape),stride=list(t.stride()),storage_offset=t.storage_offset(),dtype=str(t.dtype),requires_grad=t.requires_grad)
+ validate_descriptors(meta(logits),meta(token_ids));assert _finite_all('scores_api',logits) and bool(((token_ids>=0)&(token_ids<248320)).all())
+ out=torch.empty((32,6),dtype=torch.float32,device=logits.device);ct.launch(torch.cuda.current_stream(logits.device),(32,),kernel,(logits,token_ids,out));return out

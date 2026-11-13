@@ -1,0 +1,39 @@
+{
+  "scope": "Scalar constructor contracts observed in native eager B32 request; no tensor input fixture required; no live constructor replacement yet",
+  "trace": "/home/n/work/TileIR/public-tileir-blas-20261111/eager_native_census_v2/eagerNativeCensus02/trace.json",
+  "trace_sha256": "113a285192dd8620f085cc59dba585eff79d2d0fb2d00adfa298cb46061a403d",
+  "source": "/home/n/Documents/Codex/2026-10-28/task-2/qwen38-vllm-ir-20261029/venv/lib/python3.14/site-packages/vllm/v1/worker/gpu/model_runner.py",
+  "source_sha256": "5240fe8d62d403e466a4aa07a28fb7af5c0f1e9b9c3bb08c4003185bde461f87",
+  "observations": "/home/n/work/TileIR/public-tileir-blas-20261111/runner_constructors_qualification_v1/OBSERVED-CPU-OPERATORS.json",
+  "observations_sha256": "d83f151322ec52d942b64ec749764c9cb3cdb86a91788005000323686173e952",
+  "cases": [
+    {
+      "name": "cu_num_logits",
+      "num_reqs": 32,
+      "shape": [
+        33
+      ],
+      "dtype": "torch.int32",
+      "stride": [
+        1
+      ],
+      "start": 0,
+      "end": 33,
+      "step": 1,
+      "observed_logical_calls": 16
+    },
+    {
+      "name": "expanded_local_pos",
+      "num_reqs": 32,
+      "shape": [
+        32
+      ],
+      "dtype": "torch.int32",
+      "stride": [
+        1
+      ],
+      "fill": 0,
+      "observed_logical_calls": 16
+    }
+  ]
+}

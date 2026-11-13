@@ -1,0 +1,11 @@
+{
+  "CMakeLists.txt": {
+    "url": "https://raw.githubusercontent.com/vllm-project/flash-attention/9cd61de38763d712bb6ce56e2a02cc2bf718c89f/CMakeLists.txt",
+    "sha256": "1f72ea1d604c2f5ca71af14966ad120d4fa7fbb06c036a812fcb73b903582af0"
+  },
+  "nvcc.html": {
+    "url": "https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#use-fast-math-use-fast-math",
+    "sha256": "6c9720e69697e86c105bfbc901c6131ddb1daf5fed21df7901735fa1676b901c",
+    "scope": "Current official online documentation, not pinned installed CUDA version"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "greedy_api": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/tileir_vllm_greedy_sample_v1/api.py",
+    "firstlineno": 13,
+    "file_sha256": "f23a48a7412dccabe84b9874cefbfef3e73d470c95d76edac6c7c519019f8723",
+    "input_sha256": "d43996cde22322ce3ed58b1c44e5daa7750c7bd2b6d8b6e36439ec1a994bdac6",
+    "output_sha256": "7da564b0866c9ec78ef7e9a0b9c77c2a6302818f9f9f39bc7b9f959f09539923",
+    "replacements": [
+      [
+        "bool(torch.isnan(logits).any())",
+        "_sampling_predicate('greedy.nan',logits,'has_nan')"
+      ],
+      [
+        "bool(torch.isposinf(logits).any())",
+        "_sampling_predicate('greedy.posinf',logits,'has_posinf')"
+      ],
+      [
+        "bool(torch.isfinite(logits).any(dim=-1).all())",
+        "_sampling_predicate('greedy.rows',logits,'rows_have_finite')"
+      ]
+    ]
+  },
+  "ranks_api": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/sampling_guards144_runtime_v2/range_ranks.candidate.py.txt",
+    "firstlineno": 1,
+    "file_sha256": "d132f1b6d26a967b0166e6e7d95c3aee7985dcaeccf68d44413addaa395d0263",
+    "input_sha256": "d132f1b6d26a967b0166e6e7d95c3aee7985dcaeccf68d44413addaa395d0263",
+    "output_sha256": "76b591e0ca0f544c1298edeaaaccdb642851d7ee41c9924f73607e9066692a92",
+    "replacements": [
+      [
+        "logits.gather(1,token_ids[:,None])",
+        "_sampling_gather(logits,token_ids)"
+      ],
+      [
+        "bool(torch.isnan(logits).any())",
+        "_sampling_predicate('ranks.nan',logits,'has_nan')"
+      ],
+      [
+        "bool(torch.isposinf(logits).any())",
+        "_sampling_predicate('ranks.posinf',logits,'has_posinf')"
+      ]
+    ]
+  }
+}

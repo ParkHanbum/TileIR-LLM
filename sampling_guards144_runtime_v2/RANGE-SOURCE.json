@@ -1,0 +1,31 @@
+{
+  "ranks": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/finite_six_site_cpu_v1/bodies/ranks_selected.candidate.py.txt",
+    "file_sha256": "a8d946b31b308df40606a9a457419dfb430750bdc4c1889627b471b2e9c2765c",
+    "firstlineno": 2,
+    "input_sha256": "a8d946b31b308df40606a9a457419dfb430750bdc4c1889627b471b2e9c2765c",
+    "output_sha256": "d132f1b6d26a967b0166e6e7d95c3aee7985dcaeccf68d44413addaa395d0263",
+    "expression": "bool(((token_ids>=0)&(token_ids<248320)).all())",
+    "replacement": "_range_guard('ranks',token_ids,0,248320)",
+    "compile_prefix": "from __future__ import annotations\n"
+  },
+  "scores": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/finite_six_site_cpu_v1/bodies/scores_api.candidate.py.txt",
+    "file_sha256": "1899cfd2b94b00728206421bacdb033b96ac5fcba0c8f4d29696907283ccd6d1",
+    "firstlineno": 2,
+    "input_sha256": "1899cfd2b94b00728206421bacdb033b96ac5fcba0c8f4d29696907283ccd6d1",
+    "output_sha256": "05b33e2ad37e8060ac91843b52138c83b8f4a393095e57f5c460b3ace7e2294f",
+    "expression": "bool(((token_ids>=0)&(token_ids<248320)).all())",
+    "replacement": "_range_guard('scores',token_ids,0,248320)",
+    "compile_prefix": "from __future__ import annotations\n"
+  },
+  "greedy": {
+    "path": "/home/n/work/TileIR/public-tileir-blas-20261111/lean_public_composition_v1/sampler.py",
+    "file_sha256": "8228ca0666d1ec17c4037a40783853ad99310ad3055eddf6297e8c72335362fc",
+    "firstlineno": 73,
+    "input_sha256": "718667a4de443efa7ebcbe8b2ee4048ff2c96ead0d36ed3021dec0d913d93d80",
+    "output_sha256": "c2a51f203ef5646f0cdfdabae70d719f168de5257f2e5de58ed5c56b8622b4c3",
+    "expression": "bool(((idx>=0)&(idx<len(temp))).all())",
+    "replacement": "_range_guard('greedy',idx,0,len(temp))"
+  }
+}

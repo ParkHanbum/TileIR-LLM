@@ -1,0 +1,1 @@
+Public vLLM Apache-2.0 source attribution and license are retained in ../runtime_metadata_five_v1/NOTICE.md and LICENSE.vllm. Lean interface imports the unchanged qualified numerical API and source-owned binding. Only diagnostic oracle/CPU raw proof removed. No proprietary binary input or external publication.

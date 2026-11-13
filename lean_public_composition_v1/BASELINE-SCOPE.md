@@ -1,0 +1,7 @@
+# Baseline fixed for qualification and any later timing
+
+The first baseline is the **current eager vLLM** workload, not a historical optimized/graph-enabled vLLM measurement. Match B32/P53/G16, logprobs5/raw_logprobs, BF16, original True/True precision defaults, TP1, `enforce_eager=true`, compilation mode0 and CUDA graphs NONE. Match max_model_len128, max_num_seqs32, max_num_batched_tokens2048, gpu_memory_utilization0.85, prefix caching false, chunked prefill false and all other pinned engine options/resolved runtime settings. The saved combined RESULT is the configuration authority; its async scheduling resolved true is not silently changed. Runtime KV sizing/selected backend is checked and logged rather than overridden.
+
+First run only native → lean whole-request 512 token IDs /2,560 public logprobs, expected dispatch and restore correctness. A later balanced native/lean timing and profiler phase must be a separately reviewed run after qualification. Historical optimized vLLM results are a separate baseline and cannot be mixed into a speedup ratio.
+
+Public API-internal guards and small support-domain device-to-host/value checks remain. Call this an **external-diagnostics-removed lean binding**, not complete validation-off. Selected TileIR, API-check native kernels, residual native model/runner work and transfers must be separated in a later profiler, with actual same-run GPU time as denominator. No performance or coverage percentage is claimed by this CPU package.

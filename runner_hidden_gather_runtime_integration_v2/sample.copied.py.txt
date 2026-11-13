@@ -1,0 +1,86 @@
+def sample(
+    self,
+    hidden_states: torch.Tensor,
+    input_batch: InputBatch,
+    grammar_output: GrammarOutput | None,
+) -> tuple[SamplerOutput, torch.Tensor, torch.Tensor]:
+    shard_metadata = None
+    global_input_batch = input_batch
+    if self.batch_sharder is not None:
+        # Shard the inputs along the batch dimension to sample in parallel
+        # across TP ranks.
+        input_batch, sorted_logits_indices, grammar_output, shard_metadata = (
+            self.batch_sharder.shard_sampler_inputs(input_batch, grammar_output)
+        )
+        # The hidden states must be gathered in rank-owner-sorted order
+        # before computing the partial-vocab logits, so that the all-to-all
+        # produces full-vocab logits for just the locally-owned requests.
+        sample_hidden_states = hidden_states[sorted_logits_indices]
+        local_logits = self.model.compute_logits_local(sample_hidden_states)
+        logits = all_to_all_logits(local_logits, shard_metadata)
+        logits = logits[:, : self.vocab_size]
+    else:
+        sample_hidden_states = _gather(hidden_states, input_batch.logits_indices)
+        logits = self.model.compute_logits(sample_hidden_states)
+
+    invalid_drafts = None
+    # A diffusion prefill has no logit rows even when a bitmask row
+    # arrived for it.
+    if grammar_output is not None and logits.shape[0] > 0:
+        # Apply grammar bitmask to the logits in-place.
+        assert self.structured_outputs_worker is not None
+        self.structured_outputs_worker.apply_grammar_bitmask(
+            logits,
+            input_batch,
+            grammar_output.structured_output_request_ids,
+            grammar_output.grammar_bitmask,
+        )
+        invalid_drafts = grammar_invalid_drafts(
+            input_batch,
+            grammar_output.structured_output_request_ids,
+            grammar_output.num_acceptable_drafts,
+        )
+
+    sampler_output: SamplerOutput | None
+    if input_batch.num_reqs == 0:
+        # This rank owns no requests this step. It contributes an
+        # all-padding block to the gather below.
+        sampler_output = None
+    elif input_batch.num_draft_tokens == 0 or self.rejection_sampler is None:
+        assert self.sampler is not None
+        sampler_output = self.sampler(logits, input_batch)
+    else:
+        # Rejection sampling for spec decoding.
+        assert self.rejection_sampler is not None
+        assert self.speculator is not None
+        sampler_output = self.rejection_sampler(
+            logits,
+            input_batch,
+            # Draft logits are needed for probabilistic rejection sampling.
+            self.speculator.draft_logits,
+            invalid_drafts,
+        )
+
+    if shard_metadata is not None:
+        # Gather the sharded sampler outputs from the TP ranks into a single
+        # sampler output.
+        assert self.sampler is not None
+        sampler_output = gather_sampler_output(
+            sampler_output,
+            shard_metadata,
+            device=self.device,
+            global_batch=global_input_batch,
+            local_batch=input_batch,
+            gather_num_nans=self.sampler.compute_nans,
+            logprobs_dims=self.sampler.get_logprobs_dims(
+                global_input_batch.idx_mapping_np,
+                # Rejection sampler does not return logprob token ids.
+                include_token_ids=(
+                    global_input_batch.num_draft_tokens == 0
+                    or self.rejection_sampler is None
+                ),
+            ),
+        )
+
+    assert sampler_output is not None
+    return sampler_output, sampler_output.num_sampled, sampler_output.num_rejected

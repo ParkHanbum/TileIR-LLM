@@ -1,0 +1,7 @@
+def apply(self,ctx,v):
+ import torch
+ from tileir_vllm_kv_scatter_v1.api import reshape_and_cache_flash
+ d=dict(v)
+ for k in('key','value','slot_mapping','k_scale','v_scale'):d[k]=v[k].detach()
+ assert all(bool(torch.isfinite(v[k]).all())for k in('key','value')) # original finite-input scope
+ return self.call(ctx['name'],ctx['phase'],reshape_and_cache_flash,**d)
