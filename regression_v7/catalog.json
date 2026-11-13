@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "baseline": {
     "commit": "0b9611661ef216c35fb9f4c5da92662e5930dcbb",
     "tag": "v7-own-kernel-fixed-workload-20261113",
@@ -16,20 +16,24 @@
     ]
   },
   "execution_policy": {
-    "catalog_only": true,
+    "catalog_only": false,
     "auto_gpu": false,
-    "fresh_all_module_pass": false,
+    "fresh_all_module_pass": "external exact-HEAD receipts required",
     "cpu_command_template": [
       "python",
       "-B",
       "-m",
-      "unittest",
-      "{module}"
+      "regression_v7.cli",
+      "--head",
+      "{full_head}",
+      "--cpu"
     ],
     "cpu_environment": {
-      "PYTHONDONTWRITEBYTECODE": "1"
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "CUDA_VISIBLE_DEVICES": ""
     },
-    "gpu_requires": "explicit coordinator-run bounded process, common lock, artifact root outside Git, exact source/data admission and independent exit/recovery receipt"
+    "gpu_requires": "explicit coordinator-run bounded process, common lock, artifact root outside Git, exact source/data admission and independent exit/recovery receipt",
+    "mandatory_order": "WORKFLOW.md"
   },
   "historical_mapping": {
     "requests": 3,
@@ -76,9 +80,8 @@
       "existing_cpu_modules": [
         "packed_k128_partial_v1.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": "regression_v7.modules_gemm.run_gpu"
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "gdn",
@@ -102,9 +105,8 @@
         "gdn_decode_core_qualification_v4.test_cpu",
         "gdn_prefill_output_copy_lean_v2.test_lifetime"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": "regression_v7.modules_gdn.run_gpu"
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "convolution_and_state_update",
@@ -121,9 +123,8 @@
       "existing_cpu_modules": [
         "tileir_indexed_prefill_conv_v1.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": null
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "attention_kv",
@@ -139,9 +140,8 @@
       "launches_per_historical_request": 512,
       "historical_status": "source-symbol mapped in three original-v7 requests; whole endpoint exact; not a fresh regression",
       "existing_cpu_modules": [],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": null
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "norm_position_activation_embedding",
@@ -162,9 +162,8 @@
         "tileir_vllm_gemma_norm_v3.test_cpu",
         "tileir_vllm_qk_rope_v1.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": null
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "sampling",
@@ -187,9 +186,8 @@
       "existing_cpu_modules": [
         "tileir_vllm_top5_v2.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": null
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "predicates_and_ownership",
@@ -209,9 +207,8 @@
         "ownership_table_pair_equal_v1.test_cpu",
         "gdn_integer_finite_typed_v1.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": "regression_v7.modules_predicates.run_gpu"
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     },
     {
       "id": "runner_metadata_transport",
@@ -236,9 +233,8 @@
       "existing_cpu_modules": [
         "runtime_metadata_five_v1.test_cpu"
       ],
-      "existing_cpu_execution": "not executed by this catalog build; inspect suite contract and use CPU-only runner",
-      "fresh_regression": "pending",
-      "fresh_gpu_entry": null
+      "existing_cpu_execution": "Use current cli catalog and exact-HEAD external CPU receipts",
+      "fresh_regression": "See fresh_modules; representative scope differs from whole family"
     }
   ],
   "fresh_modules": [
@@ -255,22 +251,8 @@
         "packed_k128_qualification_v1.test_cpu",
         "regression_v7.test_gemm"
       ],
-      "scope": "3 saved matrices: layer1 ba decode, qkvz decode, gate/up prefill; not all 13 contracts or all 2448 calls",
-      "fresh_status": "pending execution receipt",
-      "auto_gpu": false
-    },
-    {
-      "id": "gdn",
-      "module": "regression_v7.modules_gdn",
-      "gpu_entry": "run_gpu(torch, output)",
-      "cpu_test_modules": [
-        "gdn_decode_core_qualification_v4.test_cpu",
-        "gdn_prefill_output_copy_lean_v2.test_cpu",
-        "gdn_prefill_output_copy_lean_v2.test_lifetime",
-        "regression_v7.test_gdn"
-      ],
-      "scope": "2 saved actual banks, native and original decode-v4; compact 33-slot remap, not full original backing or GDN prefill",
-      "fresh_status": "pending execution receipt",
+      "scope": "3 actual saved matrices, fresh D99 references; not all 13 contracts/2448 calls",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
       "auto_gpu": false
     },
     {
@@ -283,15 +265,131 @@
         "tileir_validation_primitives_v2.test_cpu",
         "regression_v7.test_predicates"
       ],
-      "scope": "20 private finite/equality cases; not all predicate APIs or all workload inputs",
-      "fresh_status": "pending execution receipt",
+      "scope": "20 synthetic finite/equality cases; not all guard APIs",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "gdn",
+      "module": "regression_v7.modules_gdn",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "gdn_decode_core_qualification_v4.test_cpu",
+        "gdn_prefill_output_copy_lean_v2.test_cpu",
+        "gdn_prefill_output_copy_lean_v2.test_lifetime",
+        "regression_v7.test_gdn"
+      ],
+      "scope": "2 actual decode banks, compact 33-slot owner, native/v7 4 records",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "norm_conv",
+      "module": "regression_v7.modules_norm_conv",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "tileir_vllm_gemma_norm_v3.test_cpu",
+        "tileir_indexed_decode_conv_v1.test_cpu",
+        "regression_v7.test_norm_conv"
+      ],
+      "scope": "2 actual prefill norms and 1 decode conv, native/v7 6 records; minimum-span state",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "attention_kv",
+      "module": "regression_v7.modules_attention_kv",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "paged_attention_qualification_v10.test_cpu",
+        "attention_kv_qualification_v2.test_cpu",
+        "regression_v7.test_attention_kv"
+      ],
+      "scope": "6 actual attention banks x4 and 2 KV banks x4; reconstructed/sentinel KV",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "gdn_prefill",
+      "module": "regression_v7.modules_gdn_prefill",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "regression_v7.test_gdn_prefill"
+      ],
+      "scope": "actual layer0, 9 stages/output/state x4 plus 3 synthetic parent fixtures x4; not original full owner",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "sampling_runtime",
+      "module": "regression_v7.modules_sampling_runtime",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "tileir_vllm_greedy_sample_v1.test_cpu",
+        "tileir_vllm_embedding_int64_v1.test_cpu",
+        "runtime_metadata_five_v1.test_cpu",
+        "lean_public_composition_v1.test_sampler_cpu",
+        "tileir_vllm_top5_v2.test_cpu",
+        "selected_logprobs_ordered_qualification_v1.test_cpu",
+        "tileir_vllm_selected_ranks_v1.test_cpu",
+        "regression_v7.test_sampling_runtime"
+      ],
+      "scope": "actual calls0/15 greedy/top5/logprob/rank, selected-row embedding, synthetic metadata/cast; 16 records",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "pointwise_remaining",
+      "module": "regression_v7.modules_pointwise_remaining",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "regression_v7.test_pointwise_remaining"
+      ],
+      "scope": "actual prefill/decode QK/RoPE shared storage and SiLU inputs, native/v7 x2; 16 records",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "recurrent_remaining",
+      "module": "regression_v7.modules_recurrent_remaining",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "tileir_vllm_gated_norm_ordered_v1.test_cpu",
+        "tileir_indexed_prefill_conv_v1.test_cpu",
+        "tileir_vllm_post_conv_v2.test_cpu",
+        "regression_v7.test_recurrent_remaining"
+      ],
+      "scope": "6 actual gated/norm/prefill-conv/post-conv boundaries, native/v7; 12 records",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
+      "auto_gpu": false
+    },
+    {
+      "id": "runtime_remaining",
+      "module": "regression_v7.modules_runtime_remaining",
+      "gpu_entry": "run_gpu(torch, output)",
+      "cpu_test_modules": [
+        "regression_v7.test_runtime_remaining",
+        "tileir_vllm_pos_seq_v1.test_cpu",
+        "tileir_vllm_slot_mapping_v1.test_cpu",
+        "runner_constructors_qualification_v1.test_cpu",
+        "tileir_vllm_runner_bool_fill_v1.test_cpu",
+        "runner_scalar32_qualification_v3.test_cpu",
+        "bool_not_qualification_v1.test_cpu",
+        "tileir_vllm_mamba_accepted_scatter_v1.test_cpu",
+        "batch_ptr_int_cast_v1.test_cpu",
+        "pos_seq_runtime_qualification_v1.test_cpu",
+        "tileir_staged_typed_v2.test_contract",
+        "zero_kv_phase2_typed_plan_v1.test_cpu"
+      ],
+      "scope": "17 bounded synthetic constructors/fill/NOT/scatter/cast/slot/pos/staged/zero contracts; not live UVA/registry",
+      "fresh_status": "Inspect exact-HEAD external receipts; catalog does not assert PASS",
       "auto_gpu": false
     },
     {
       "id": "whole",
-      "module": null,
-      "scope": "planned original-v7 fixed-workload endpoint, dispatch, cleanup and fresh trace audit; no optimized variants",
-      "fresh_status": "pending runner and execution receipt",
+      "module": "regression_v7.whole",
+      "scope": "fixed workload endpoint + same-request 13300 compute census + public classic/Lt audit + own artifact-call provenance",
+      "fresh_status": "Inspect exact-HEAD external receipts; performance separate",
       "auto_gpu": false
     }
   ],
@@ -328,5 +426,11 @@
     "raw": "historical per-call raw proofs and whole-model public endpoint checks have distinct scopes; fresh modules test only listed fixtures",
     "external_data": "checkpoint/model revision, saved tensors, native libraries, original runtime, caches and historical receipts remain external hash-bound prerequisites",
     "performance": "no fresh performance result; historical own-kernel coverage does not imply speed parity"
+  },
+  "previous_tested_reproduction": {
+    "head": "a8ffb8baaa4dce04a98de90d522b03415e5fe2d0",
+    "report": "/home/n/work/TileIR/v7-regression-artifacts/expanded-milestone-a8ffb8b-01/REPORT.md",
+    "sha256": "2971db484be05dbb3e0d03be414bbfa9376c54a760a9858d4d0daffd23748134",
+    "scope": "7 module groups + whole PASS; NOT automatically evidence for later HEAD"
   }
 }
