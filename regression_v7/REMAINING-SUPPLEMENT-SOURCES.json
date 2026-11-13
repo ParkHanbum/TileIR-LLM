@@ -1,0 +1,77 @@
+{
+  "previous_tested_head": "a8ffb8baaa4dce04a98de90d522b03415e5fe2d0",
+  "numeric_implementation_changed": false,
+  "records": [
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-pointwise-v1/modules_pointwise_remaining.py",
+      "source_sha256": "03847fb2f25b41a953cf4d3ad3a741394576a54e30e77cd2aed2b4338e16064f",
+      "destination": "regression_v7/modules_pointwise_remaining.py",
+      "integrated_sha256": "03847fb2f25b41a953cf4d3ad3a741394576a54e30e77cd2aed2b4338e16064f",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-pointwise-v1/test_pointwise_remaining.py",
+      "source_sha256": "70b62351cf0ba14f5d7462aeb80e05bfcc95ab66cd4fed60c1c8ea437219602a",
+      "destination": "regression_v7/test_pointwise_remaining.py",
+      "integrated_sha256": "c1dbbf03275e5f32c79e24f21e2e9896d135ee76656897c289168543242b4a7b",
+      "integration_only_edits": [
+        "package relative import; retain exact helper AST source path"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-recurrent-v1/modules_recurrent_remaining.py",
+      "source_sha256": "bd969890e7b9fb436693c36665778c3f7ba2659c6c15447b9922b3c1a74d54b9",
+      "destination": "regression_v7/modules_recurrent_remaining.py",
+      "integrated_sha256": "bd969890e7b9fb436693c36665778c3f7ba2659c6c15447b9922b3c1a74d54b9",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-recurrent-v1/test_recurrent_remaining.py",
+      "source_sha256": "0fca6b0b9e13ac3135599fa3cc3f7b1e2e84d40be5bbd3af1726b882d04e614a",
+      "destination": "regression_v7/test_recurrent_remaining.py",
+      "integrated_sha256": "0fca6b0b9e13ac3135599fa3cc3f7b1e2e84d40be5bbd3af1726b882d04e614a",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-runtime-v1/modules_runtime_remaining.py",
+      "source_sha256": "383af551ac1d6d8ec5ea3c0dce29d6ce072f858faab1b4f8e50db564aa22eb53",
+      "destination": "regression_v7/modules_runtime_remaining.py",
+      "integrated_sha256": "7378e0e626c413becdb0e82fadc141bc605deb367e67ace6efdc17809ca7dda3",
+      "integration_only_edits": [
+        "include own CPU, independently reviewed pos_seq and slot_mapping suites"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/remaining-runtime-v1/test_runtime_remaining.py",
+      "source_sha256": "16c1c15de98a5fda5f5cb4eaa287ae41de041f3e111967896bc78b19a90d35c1",
+      "destination": "regression_v7/test_runtime_remaining.py",
+      "integrated_sha256": "6c992da25243dffc88c647abb62f4130c48aaedbb2e0f025475dff008b185e29",
+      "integration_only_edits": [
+        "package relative import; retain exact helper AST source path"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/performance-gate-v1/WORKFLOW.md",
+      "source_sha256": "2e2468c2ea27f254ca95669a47398b3dae3a6772e7b9aafb78eeee36635ffc29",
+      "destination": "regression_v7/WORKFLOW.md",
+      "integrated_sha256": "306ecaa7eb3c327035b5406630c76358ccd258dba1335a804d6d2939f645376d",
+      "integration_only_edits": [
+        "make qualification order normative"
+      ]
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/performance-gate-v1/performance_decision.py",
+      "source_sha256": "f596c20be5f8c5a41a3fa493068346a07644a0beab2914f4e091583baf5f6adb",
+      "destination": "regression_v7/performance_decision.py",
+      "integrated_sha256": "f596c20be5f8c5a41a3fa493068346a07644a0beab2914f4e091583baf5f6adb",
+      "integration_only_edits": []
+    },
+    {
+      "source": "/home/n/work/TileIR/v7-regression-artifacts/module-coverage-drafts/performance-gate-v1/test_performance_decision.py",
+      "source_sha256": "e6953f6abe0ac5342f4eab52cb5c5740ee39948f76ab6b442d6a6ac58bf0ee58",
+      "destination": "regression_v7/test_performance_decision.py",
+      "integrated_sha256": "e6953f6abe0ac5342f4eab52cb5c5740ee39948f76ab6b442d6a6ac58bf0ee58",
+      "integration_only_edits": []
+    }
+  ]
+}

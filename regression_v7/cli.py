@@ -2,7 +2,7 @@
 import argparse, importlib, json, os, signal, subprocess, sys, unittest
 from pathlib import Path
 from . import common
-MODULES={'gemm':'regression_v7.modules_gemm','predicates':'regression_v7.modules_predicates','gdn':'regression_v7.modules_gdn','norm_conv':'regression_v7.modules_norm_conv','attention_kv':'regression_v7.modules_attention_kv','gdn_prefill':'regression_v7.modules_gdn_prefill','sampling_runtime':'regression_v7.modules_sampling_runtime'}
+MODULES={'gemm':'regression_v7.modules_gemm','predicates':'regression_v7.modules_predicates','gdn':'regression_v7.modules_gdn','norm_conv':'regression_v7.modules_norm_conv','attention_kv':'regression_v7.modules_attention_kv','gdn_prefill':'regression_v7.modules_gdn_prefill','sampling_runtime':'regression_v7.modules_sampling_runtime','pointwise_remaining':'regression_v7.modules_pointwise_remaining','recurrent_remaining':'regression_v7.modules_recurrent_remaining','runtime_remaining':'regression_v7.modules_runtime_remaining'}
 
 HISTORICAL_SOURCE_ONLY_TEST='whole_lean_extensions_runtime_v7.test_cpu.ExplicitRootTests.test_launcher_explicit_root_and_source_only'
 HISTORICAL_SKIP_REASON='Pre-execution packaging-only cache-absence assertion is obsolete after preserved historical v7 runs; explicit-root AST checks are ported to regression_v7.test_runner. No cache is deleted or mocked.'
@@ -12,12 +12,13 @@ class HistoricalPhaseSkip(unittest.TestCase):
     def runTest(self):self.skipTest(HISTORICAL_SKIP_REASON)
 
 STANDALONE_CPU_IMPORTS={
+    'tileir_vllm_pos_seq_v1.test_cpu':('api','tileir_vllm_pos_seq_v1.api'),
     'tileir_indexed_decode_conv_v1.test_cpu':('api','tileir_indexed_decode_conv_v1.api'),
     'selected_logprobs_ordered_qualification_v1.test_cpu':('run','selected_logprobs_ordered_qualification_v1.run'),
 }
 
 def load_cpu_suite(name):
-    # Two preserved script-style tests use a top-level import. Bind only the
+    # Preserved script-style tests use a top-level import. Bind only the
     # exact tracked canonical module while loading, then restore the namespace.
     if name not in STANDALONE_CPU_IMPORTS:return unittest.defaultTestLoader.loadTestsFromName(name)
     alias,canonical=STANDALONE_CPU_IMPORTS[name]
@@ -127,7 +128,7 @@ def main(argv=None):
                 suite=cpu_suite(a.cpu_module)
                 assert unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
             else:
-                tests=['regression_v7.test_recovery','regression_v7.test_runner','regression_v7.test_lazy_imports','regression_v7.test_source_paths','whole_lean_extensions_runtime_v7.test_cpu','whole_lean_extensions_runtime_v7.test_failure_cpu','whole_v7_public_blas_logger_v4.test_cpu','whole_lean_profile_prepare_v4.test_runner']
+                tests=['regression_v7.test_performance_decision','regression_v7.test_recovery','regression_v7.test_runner','regression_v7.test_lazy_imports','regression_v7.test_source_paths','whole_lean_extensions_runtime_v7.test_cpu','whole_lean_extensions_runtime_v7.test_failure_cpu','whole_v7_public_blas_logger_v4.test_cpu','whole_lean_profile_prepare_v4.test_runner']
                 for module in MODULES.values():tests.extend(importlib.import_module(module).cpu_tests())
                 for name in dict.fromkeys(tests):
                     subprocess.run([common.PYTHON,'-B','-m','regression_v7.cli','--head',a.head,'--cpu','--cpu-module',name],cwd=common.REPO,env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES=''),check=True,timeout=180)

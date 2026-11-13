@@ -145,3 +145,17 @@ The same saved trace/cache passed full analysis in a separate create-only
 output directory; analysis source SHA is recorded separately from runtime HEAD.
 This changes postprocessing only. Unknown compute symbols, changed source, or
 a changed CUBIN set still fail rather than becoming a new implicit allowlist.
+
+## Required change workflow
+
+Follow [WORKFLOW.md](WORKFLOW.md): exact-HEAD CPU, affected independent GPU
+modules, whole exact/census/no-cuBLAS and recovery, then separate qualified
+repeat warm wall. A successful statistic cannot override a failed test. The
+5% engineering regression budget and conditional independent-process analysis
+are implemented by `performance_decision.py`; no performance PASS is implied.
+`--suite modules` now includes ten module groups. QK/RoPE and SiLU use four
+actual captured boundaries; recurrent supplement uses six actual boundaries.
+Runtime supplement uses 17 bounded synthetic contracts, not a live engine
+owner/UVA proof. See source/module receipts for independent versus E2E scope.
+The provenance tag predates unchanged lazy facade test-support additions; use
+the exact tested regression HEAD for reproduction, never move the tag.
