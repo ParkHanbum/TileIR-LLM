@@ -132,3 +132,16 @@ tag is not moved. The failed run and its independent recovery remain preserved.
 parent package initializers and their 15-file local import closure against HEAD,
 including an intentional missing-initializer negative. This is not a proof of
 arbitrary computed dynamic imports; the actual execution guard remains active.
+
+## Bytecode source-table analysis regression
+
+The first completed whole request and successful recovery are preserved even
+though its initial CPU analysis failed on an undelimited bytecode string table.
+The parser now bounds each filename candidate at the next repository-path
+anchor, requires its exact pinned path before reading, and verifies source
+bytes. Four CPU cases cover directory/symbol concatenation, `.pydefault`
+string-table suffixes, multiple paths, and rejection of unpinned source names.
+The same saved trace/cache passed full analysis in a separate create-only
+output directory; analysis source SHA is recorded separately from runtime HEAD.
+This changes postprocessing only. Unknown compute symbols, changed source, or
+a changed CUBIN set still fail rather than becoming a new implicit allowlist.

@@ -85,12 +85,35 @@ def elf_symbols(b):
             if info&15==2 and ndx and name:names.add(strings[name:strings.find(b'\0',name)].decode())
     return names
 
-def analyze(root):
+def pinned_source_paths(data,pins):
+    """Extract exact pinned file bytes without spanning concatenated root anchors.
+
+    Bytecode string tables may concatenate directory, symbol and filename without
+    a delimiter. A directory/symbol fragment with no .py is not a source file.
+    Every actual .py candidate must be pinned; unknown files never get dropped.
+    """
+    import re
+    anchor=str(REPO).encode()+b'/'
+    starts=[m.start() for m in re.finditer(re.escape(anchor),data)]
+    paths=set()
+    for i,start in enumerate(starts):
+        end=starts[i+1] if i+1<len(starts) else len(data)
+        match=re.match(rb'[A-Za-z0-9_./-]+?\.py',data[start:end])
+        if match is None:continue
+        path=match.group().decode('ascii')
+        assert path in pins,('Unpinned generated source',path)
+        assert path.encode()==data[start:start+len(path)],'Source bytes not exact'
+        paths.add(path)
+    return sorted(paths)
+
+def analyze(root,output_name='analysis'):
     """Own cache only; full ELF symbol+bytecode+HEAD source, not loaded SHA."""
     import hashlib,re,sqlite3
     from whole_lean_profile_prepare_v4.analyze import analyze as analyze_events
     from whole_v7_public_blas_logger_v4.gates import audit
-    root=external_root(root);run=root/'regression01';out=root/'analysis';out.mkdir(exist_ok=False)
+    root=external_root(root);run=root/'regression01'
+    assert output_name.startswith('analysis') and Path(output_name).name==output_name
+    out=root/output_name;out.mkdir(exist_ok=False)
     result=json.loads((run/'RESULT.json').read_text());assert audit(result,root)['passed']
     receipt=json.loads((root/'regression01-launch.json').read_text())
     assert receipt['returncode']==0 and receipt['qualification_complete'] and receipt['child_absent'] and receipt['lock_reacquired'] and receipt.get('after') and not receipt.get('remaining_process_group') and 'error' not in receipt
@@ -109,13 +132,10 @@ def analyze(root):
     for cubin in (root/'cache_v1/tiletmp').glob('*.cubin'):
         r=byhash.get(sha(cubin));bc=cubin.with_suffix('.bytecode')
         if r is None or not bc.is_file():continue
-        data=bc.read_bytes();paths=[]
-        for hit in re.finditer(re.escape(str(REPO).encode()+b'/'),data):
-            match=re.match(rb'[A-Za-z0-9_./-]+?\.py',data[hit.start():])
-            if match:paths.append(match.group().decode())
+        data=bc.read_bytes();paths=pinned_source_paths(data,pins)
         sources=[]
-        for path in sorted(set(paths)):
-            assert pins.get(path)==sha(path),('Unpinned generated source',path)
+        for path in paths:
+            assert pins[path]==sha(path),('Changed generated source',path)
             sources.append(dict(path=path,sha256=sha(path)))
         assert all(sym.encode() in data for sym in r['full_symbols'])
         r.update(own_cubin_path=str(cubin),bytecode_sha256=sha(bc),pinned_sources=sources)
@@ -143,7 +163,7 @@ def analyze(root):
     assert link['static_call_sites_per_set']==65 and link['static_call_sites_have_local_targets'] is True
     current={r['cubin_sha256'] for r in records if r.get('pinned_sources')}
     call_proof=dict(exact_prior_set=current==oldsets[0],new_cubins=sorted(current-oldsets[0]),missing_cubins=sorted(oldsets[0]-current),prior_link_sha256=sha(link_path),static_internal_call_sites=65 if current==oldsets[0] else None,loaded_module_sha_observed=False)
-    final=dict(passed=call_proof['exact_prior_set'],internal_call_audit=call_proof,head=os.environ['V7_REGRESSION_HEAD'],result_sha256=sha(run/'RESULT.json'),same_run_endpoint_and_logger=True,summaries=summaries,loaded_sha_observed=False,performance_run=False,all_gpu_work_claim=False)
+    final=dict(passed=call_proof['exact_prior_set'],internal_call_audit=call_proof,analysis_source_sha256=sha(__file__),head=os.environ['V7_REGRESSION_HEAD'],result_sha256=sha(run/'RESULT.json'),same_run_endpoint_and_logger=True,summaries=summaries,loaded_sha_observed=False,performance_run=False,all_gpu_work_claim=False)
     (out/'FINAL.json').write_text(json.dumps(final,indent=2)+'\n')
     assert final['passed'],'New own artifact set: internal-call proof pending, no automatic disassembly or PASS'
     return final
