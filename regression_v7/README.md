@@ -90,3 +90,5 @@ The legacy v2 circular-result negative fixture is separately tracked as test
 input; it is not a production adapter. The first failed exact-HEAD CPU run is
 preserved. No GPU qualification is allowed before the corrected full CPU catalog
 passes at its new committed HEAD.
+
+Supplemental test import closure: the previously empty packed_grouped_qualification_v1 package initializer and original tileir_cat_v1 pins/kernel definitions are tracked by a test-support commit. They do not change the active v7 implementation or move its baseline tag. Exact-HEAD admission first caught the missing package initializer; the failed CPU receipt is preserved.
