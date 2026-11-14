@@ -1,0 +1,211 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "E10",
+  "date": "2026-11-14",
+  "track": "native_integration",
+  "source": "98d81a97",
+  "host_build": "O3/no NDEBUG; audited source-to-link",
+  "changed_cubin": {
+    "OFF": "b360e188",
+    "ON": "00221c06"
+  },
+  "other_cubins_unchanged": 70,
+  "pool": "OFF both arms",
+  "workload": "RTX4080 BF16 Qwen3.5-4B B32/P53/G16; same weights and fixtures",
+  "warmups_per_process": 2,
+  "pooled_samples_per_arm": 12,
+  "pooled_median_ms": {
+    "OFF": 4873.0348855,
+    "ON": 4561.370957
+  },
+  "reduction_ms": 311.6639285,
+  "reduction_percent": 6.395684,
+  "speedup": 1.0683268,
+  "validation_scope": "separate untimed 6 requests, 3072 exact IDs, 2048 per-layer hashes, ON1440 calls; checked live views/extents/strides/align16 reject; no fallback/override",
+  "timing_correctness": "32x512=16384 exact IDs; ON3840 calls per process; full diagnostics excluded",
+  "limits": "single ABBA; known GUI; no vLLM rerun",
+  "exit_scope": "four children, launcher, recovery actual0; no retry",
+  "blocks": [
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "samples": 6,
+      "median_ms": 4846.443376,
+      "min_ms": 4757.3282,
+      "max_ms": 4908.707755
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "samples": 6,
+      "median_ms": 4563.450522,
+      "min_ms": 4517.818996,
+      "max_ms": 4697.089613
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "samples": 6,
+      "median_ms": 4548.686624,
+      "min_ms": 4514.17875,
+      "max_ms": 4644.912392
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "samples": 6,
+      "median_ms": 4873.034885,
+      "min_ms": 4818.589253,
+      "max_ms": 4914.583146
+    }
+  ],
+  "timed_samples_from_seal": [
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 1,
+      "elapsed_ms": 4908.707755
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 2,
+      "elapsed_ms": 4801.816053
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 3,
+      "elapsed_ms": 4875.771772
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 4,
+      "elapsed_ms": 4889.24928
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 5,
+      "elapsed_ms": 4757.3282
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "sample": 6,
+      "elapsed_ms": 4817.11498
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 1,
+      "elapsed_ms": 4517.818996
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 2,
+      "elapsed_ms": 4559.301006
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 3,
+      "elapsed_ms": 4564.567753
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 4,
+      "elapsed_ms": 4588.778175
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 5,
+      "elapsed_ms": 4562.33329
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "sample": 6,
+      "elapsed_ms": 4697.089613
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 1,
+      "elapsed_ms": 4514.17875
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 2,
+      "elapsed_ms": 4536.964624
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 3,
+      "elapsed_ms": 4536.796927
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 4,
+      "elapsed_ms": 4562.657174
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 5,
+      "elapsed_ms": 4644.912392
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "sample": 6,
+      "elapsed_ms": 4560.408624
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 1,
+      "elapsed_ms": 4818.589253
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 2,
+      "elapsed_ms": 4830.263828
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 3,
+      "elapsed_ms": 4897.235183
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 4,
+      "elapsed_ms": 4914.583146
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 5,
+      "elapsed_ms": 4873.39888
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "sample": 6,
+      "elapsed_ms": 4872.670891
+    }
+  ],
+  "sample_provenance": "chronological values transcribed from sealed report; not original full receipt",
+  "change_scope": "current manual K16 to natural full-tile S64; not same-source descriptor-only",
+  "timer": "after initial sync through reset/state/prompt H2D/alloc/zero/compute/finite/guard/feedback/retire/final sync; excludes init/warmup/shutdown/hash/token comparison/log"
+}
