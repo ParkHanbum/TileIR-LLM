@@ -1,0 +1,92 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "K04",
+  "date": "2026-11-14",
+  "track": "TileIRBLAS",
+  "status": "standalone single-bank pilot; no integration/vLLM/general cuBLAS parity claim",
+  "gpu": "RTX4080",
+  "dtype": "BF16",
+  "input_scope": "one actual historical A/W bank",
+  "candidate_scope": "C64/S64 descriptor bundle only; same source, tile, hints, RN",
+  "static_observations": {
+    "registers": [
+      255,
+      204
+    ],
+    "stack_bytes": [
+      952,
+      0
+    ],
+    "LDL_STL": "static removal; not measured dynamic traffic or causal resource attribution"
+  },
+  "correctness_scope": "8 GEMM + 8 unchanged SiLU correctness; exact/finite/repeat/tail32; 8 warm + 32 timed exact; 56 calls; exits/recovery passed",
+  "sample_scope": "n8 per arm; observed min/max not confidence intervals",
+  "timing_scope": "one prevalidated same-stream GEMM start/end event; preparation/init/upload/mode/owner before; sync/D2H/hash/guard after",
+  "ordering": "8 balanced Williams blocks x 4 arms; 2 warmups per arm; one reused bank",
+  "limits": "no SiLU timing; no empty subtraction; potential host submission gaps/readback/cache/GUI perturbation",
+  "cublas_settings": {
+    "version": 130101,
+    "dtype": 14,
+    "compute": 68,
+    "math_mode": 0,
+    "pointer_mode": 0,
+    "algorithm": 99,
+    "alpha": 1,
+    "beta": 0,
+    "opW": "T",
+    "opA": "N",
+    "leading_dimensions": "K/K/N",
+    "stream": "same explicit stream",
+    "workspace": "default pool"
+  },
+  "measurements": [
+    {
+      "operation": "prefill_gate_up",
+      "m": 1696,
+      "n": 18432,
+      "k": 2560,
+      "regime": "single_historical_bank",
+      "arm": "Current",
+      "median_ms": 14.656512,
+      "min_ms": 14.309376,
+      "max_ms": 14.898176,
+      "timed_samples": 8
+    },
+    {
+      "operation": "prefill_gate_up",
+      "m": 1696,
+      "n": 18432,
+      "k": 2560,
+      "regime": "single_historical_bank",
+      "arm": "C64",
+      "median_ms": 15.045632,
+      "min_ms": 14.948352,
+      "max_ms": 15.130624,
+      "timed_samples": 8
+    },
+    {
+      "operation": "prefill_gate_up",
+      "m": 1696,
+      "n": 18432,
+      "k": 2560,
+      "regime": "single_historical_bank",
+      "arm": "S64",
+      "median_ms": 1.865216,
+      "min_ms": 1.862656,
+      "max_ms": 1.907936,
+      "timed_samples": 8
+    },
+    {
+      "operation": "prefill_gate_up",
+      "m": 1696,
+      "n": 18432,
+      "k": 2560,
+      "regime": "single_historical_bank",
+      "arm": "GemmEx",
+      "median_ms": 1.894912,
+      "min_ms": 1.89152,
+      "max_ms": 2.10432,
+      "timed_samples": 8
+    }
+  ]
+}

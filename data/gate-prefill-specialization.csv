@@ -1,0 +1,5 @@
+operation,m,n,k,regime,arm,median_ms,min_ms,max_ms,timed_samples
+prefill_gate_up,1696,18432,2560,single_historical_bank,Current,14.656512,14.309376,14.898176,8
+prefill_gate_up,1696,18432,2560,single_historical_bank,C64,15.045632,14.948352,15.130624,8
+prefill_gate_up,1696,18432,2560,single_historical_bank,S64,1.865216,1.862656,1.907936,8
+prefill_gate_up,1696,18432,2560,single_historical_bank,GemmEx,1.894912,1.89152,2.10432,8
