@@ -1,0 +1,188 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "E09",
+  "date": "2026-11-14",
+  "track": "inference_runtime",
+  "status": "drift-confounded; no causal speed claim or promotion",
+  "sample_provenance": "chronological timed values rounded to 0.001 ms from sealed record; not original full-precision log",
+  "order": [
+    "OFF0",
+    "ON0",
+    "ON1",
+    "OFF1"
+  ],
+  "warmups_per_block": 2,
+  "timed_per_block": 6,
+  "reported_pooled_median_ms": {
+    "OFF": 4557.192,
+    "ON": 4873.648
+  },
+  "observed_percent_increase": 6.944,
+  "correctness": "16384 timing IDs exact; separate OFF/ON 3x512 IDs and two requests full 16x32 down hashes",
+  "run01": "STOP after OFF: actual executable lacked feature; not a valid comparison",
+  "run02": "same fresh a772da5 binary OFF/ON/ON/OFF; source-to-link and actual executable capability checked",
+  "per_process_counts": {
+    "OFF_alloc_free_each": 83363,
+    "ON_alloc_free_each": 75685,
+    "ON_acquire_retire_each": 7680,
+    "ON_reuse": 7678,
+    "ON_peak_reserve_bytes": 1769600,
+    "ON_close_reserve_bytes": 0
+  },
+  "validation_counts": {
+    "OFF_alloc_free_each": 30412,
+    "ON_alloc_free_each": 27534,
+    "ON_acquire_retire_each": 2880,
+    "ON_reuse": 2878
+  },
+  "unchanged": "guards, fill, retirement contracts and numerical kernels",
+  "exits": "actual children/launcher/recovery 0",
+  "rerun": false,
+  "vllm_baseline": false,
+  "samples": [
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 1,
+      "elapsed_ms": 4186.133
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 2,
+      "elapsed_ms": 4178.552
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 3,
+      "elapsed_ms": 4228.096
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 4,
+      "elapsed_ms": 4222.729
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 5,
+      "elapsed_ms": 4188.279
+    },
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "timed_sample": 6,
+      "elapsed_ms": 4149.1
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 1,
+      "elapsed_ms": 4141.996
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 2,
+      "elapsed_ms": 4157.723
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 3,
+      "elapsed_ms": 4163.48
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 4,
+      "elapsed_ms": 4184.636
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 5,
+      "elapsed_ms": 4485.994
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "timed_sample": 6,
+      "elapsed_ms": 4920.866
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 1,
+      "elapsed_ms": 4974.122
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 2,
+      "elapsed_ms": 4902.351
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 3,
+      "elapsed_ms": 4876.826
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 4,
+      "elapsed_ms": 4871.727
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 5,
+      "elapsed_ms": 4875.57
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "timed_sample": 6,
+      "elapsed_ms": 4894.001
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 1,
+      "elapsed_ms": 5004.742
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 2,
+      "elapsed_ms": 4973.455
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 3,
+      "elapsed_ms": 4886.288
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 4,
+      "elapsed_ms": 4956.079
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 5,
+      "elapsed_ms": 4929.886
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "timed_sample": 6,
+      "elapsed_ms": 4934.165
+    }
+  ]
+}
