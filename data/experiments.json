@@ -1,0 +1,38 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "experiments": [
+    {
+      "id": "E01",
+      "date": "2026-11-14",
+      "comparison": "native_vs_vllm",
+      "reference_label": "native",
+      "candidate_label": "vLLM",
+      "reference_median_ms": 13527.36,
+      "candidate_median_ms": 489.93,
+      "status": "measured",
+      "scope": "warm resident fixed B32/P53/G16 BF16 request; summaries not raw data"
+    },
+    {
+      "id": "E02",
+      "date": "2026-11-14",
+      "comparison": "native_guard_batch",
+      "reference_label": "individual_guard_copy",
+      "candidate_label": "batch_guard_copy",
+      "reference_median_ms": 15148.3,
+      "candidate_median_ms": 13847.13,
+      "status": "measured",
+      "scope": "separate native-only ABBA; vLLM not rerun"
+    },
+    {
+      "id": "E03",
+      "date": "2026-11-14",
+      "comparison": "native_zero_fill",
+      "reference_label": "host_zero_H2D",
+      "candidate_label": "device_memset",
+      "reference_median_ms": null,
+      "candidate_median_ms": null,
+      "status": "pending",
+      "scope": "no result published"
+    }
+  ]
+}
