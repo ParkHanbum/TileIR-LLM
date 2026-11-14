@@ -29,10 +29,10 @@
       "comparison": "native_zero_fill",
       "reference_label": "host_zero_H2D",
       "candidate_label": "device_memset",
-      "reference_median_ms": null,
-      "candidate_median_ms": null,
-      "status": "pending",
-      "scope": "no result published"
+      "reference_median_ms": 14012.94,
+      "candidate_median_ms": 11615.782,
+      "status": "measured",
+      "scope": "separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun"
     }
   ]
 }
