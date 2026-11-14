@@ -10,7 +10,7 @@
       "reference_median_ms": 13527.36,
       "candidate_median_ms": 489.93,
       "status": "measured",
-      "scope": "warm resident fixed B32/P53/G16 BF16 request; summaries not raw data"
+      "scope": "warm resident fixed B32/P53/G16 BF16 request; summaries not raw data; native host build unoptimized; Release result not yet available"
     },
     {
       "id": "E02",
@@ -21,7 +21,7 @@
       "reference_median_ms": 15148.3,
       "candidate_median_ms": 13847.13,
       "status": "measured",
-      "scope": "separate native-only ABBA; vLLM not rerun"
+      "scope": "separate native-only ABBA; vLLM not rerun; native host build unoptimized; Release result not yet available"
     },
     {
       "id": "E03",
@@ -32,7 +32,20 @@
       "reference_median_ms": 14012.94,
       "candidate_median_ms": 11615.782,
       "status": "measured",
-      "scope": "separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun"
+      "scope": "separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun; native host build unoptimized; Release result not yet available"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-11-14",
+      "applies_to": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "subject": "native_host_build",
+      "finding": "Recorded native host build has no -O flag; empty CMAKE_BUILD_TYPE and CMAKE_CXX_FLAGS. Prior timings retained for tested configurations; Release comparison pending.",
+      "reference": "entries/2026-11-14-host-build-audit.html"
     }
   ]
 }

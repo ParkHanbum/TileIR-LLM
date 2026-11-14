@@ -1,4 +1,4 @@
 id,date,comparison,reference_label,candidate_label,reference_median_ms,candidate_median_ms,status,scope
-E01,2026-11-14,native_vs_vllm,native,vLLM,13527.36,489.93,measured,warm resident fixed B32/P53/G16 BF16 request; summaries not raw data
-E02,2026-11-14,native_guard_batch,individual_guard_copy,batch_guard_copy,15148.3,13847.13,measured,separate native-only ABBA; vLLM not rerun
-E03,2026-11-14,native_zero_fill,host_zero_H2D,device_memset,14012.94,11615.782,measured,"separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun"
+E01,2026-11-14,native_vs_vllm,native,vLLM,13527.36,489.93,measured,warm resident fixed B32/P53/G16 BF16 request; summaries not raw data; native host build unoptimized; Release result not yet available
+E02,2026-11-14,native_guard_batch,individual_guard_copy,batch_guard_copy,15148.3,13847.13,measured,separate native-only ABBA; vLLM not rerun; native host build unoptimized; Release result not yet available
+E03,2026-11-14,native_zero_fill,host_zero_H2D,device_memset,14012.94,11615.782,measured,"separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun; native host build unoptimized; Release result not yet available"
