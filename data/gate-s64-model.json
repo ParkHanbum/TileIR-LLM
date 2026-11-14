@@ -1,0 +1,76 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "E11",
+  "date": "2026-11-14",
+  "track": "native_integration",
+  "source": "24f61c75",
+  "host_build": "O3",
+  "changed_module": "prefill gate_up only among 71 entries",
+  "down_specialization": "OFF",
+  "scratch_pool": "OFF",
+  "workload": "RTX4080 Qwen3.5-4B BF16 B32/P53/G16 greedy; same fixture and weights",
+  "timing_unit": "whole 32-item request batch; not single-prompt latency",
+  "generation": "first output token plus15 decode steps",
+  "warmups_per_process": 2,
+  "pooled_samples_per_arm": 12,
+  "pooled_median_ms": {
+    "OFF": 4854.503402,
+    "ON": 4518.986977
+  },
+  "reduction_ms": 335.516425,
+  "reduction_percent": 6.91145,
+  "paired_block_changes_percent": [
+    -6.565,
+    -6.9
+  ],
+  "same_arm_drift_percent": {
+    "OFF": 0.684,
+    "ON": 0.323
+  },
+  "positional_comparisons": "12/12 ON lower; observed reductions3.88-9.52%; one pilot not CI",
+  "timer": "request initialize through prefill+15decode+retirement+finishsync; ON safety cost inside; digest/invariance readback disabled both; comparison outside",
+  "correctness": "32 including warmups x512=16384 IDs exact against fixed vLLM golden",
+  "execution_counts": {
+    "dispatches_per_request": 9409,
+    "ON_S64_launches_per_request": 32,
+    "ON_S64_launches_per_process": 256,
+    "ON_resource_queries_per_process_including_startup": 257
+  },
+  "invariants": "fill/guards/transfers/weights pass",
+  "exit_scope": "launcher/four children/independent recovery actual0; frozen raw CPU verifier exit0",
+  "limits": "single pilot; no combined gain, standalone causal attribution or new vLLM timing",
+  "blocks": [
+    {
+      "block": "OFF0",
+      "arm": "OFF",
+      "samples": 6,
+      "median_ms": 4835.448152,
+      "min_ms": 4795.707941,
+      "max_ms": 4998.674592
+    },
+    {
+      "block": "ON0",
+      "arm": "ON",
+      "samples": 6,
+      "median_ms": 4518.001545,
+      "min_ms": 4497.683547,
+      "max_ms": 4617.519782
+    },
+    {
+      "block": "ON1",
+      "arm": "ON",
+      "samples": 6,
+      "median_ms": 4532.599325,
+      "min_ms": 4461.598863,
+      "max_ms": 4624.953447
+    },
+    {
+      "block": "OFF1",
+      "arm": "OFF",
+      "samples": 6,
+      "median_ms": 4868.519715,
+      "min_ms": 4838.08645,
+      "max_ms": 4908.298747
+    }
+  ]
+}
