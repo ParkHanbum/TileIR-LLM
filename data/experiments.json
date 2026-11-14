@@ -44,6 +44,17 @@
       "candidate_median_ms": 5680.301,
       "status": "measured",
       "scope": "native-only U,O,O,U; identical af8e9db source/CUBIN; no NDEBUG; no vLLM rerun"
+    },
+    {
+      "id": "E06",
+      "date": "2026-11-14",
+      "comparison": "native_guard_lazy_diagnostic",
+      "reference_label": "eager_guard_message_O3",
+      "candidate_label": "first_failure_guard_message_O3",
+      "reference_median_ms": 5700.068,
+      "candidate_median_ms": 4902.032,
+      "status": "measured",
+      "scope": "native-only B,C,C,B; same host -O3, CUDA/canary/order/fences/alloc/CUBIN; no vLLM rerun"
     }
   ],
   "corrections": [
