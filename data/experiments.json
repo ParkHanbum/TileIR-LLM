@@ -55,6 +55,17 @@
       "candidate_median_ms": 4902.032,
       "status": "measured",
       "scope": "native-only B,C,C,B; same host -O3, CUDA/canary/order/fences/alloc/CUBIN; no vLLM rerun"
+    },
+    {
+      "id": "E07",
+      "date": "2026-11-14",
+      "comparison": "native_prepared_launch_plan",
+      "reference_label": "repeated_launch_preparation_O3",
+      "candidate_label": "cached_prepared_launch_O3",
+      "reference_median_ms": 4946.128,
+      "candidate_median_ms": 4828.602,
+      "status": "measured",
+      "scope": "native-only B,C,C,B; same -O3/no NDEBUG and numerical CUBIN; dynamic ownership/offset/ABI checks retained; no vLLM rerun"
     }
   ],
   "corrections": [

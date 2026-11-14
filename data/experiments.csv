@@ -4,3 +4,4 @@ E02,2026-11-14,native_guard_batch,individual_guard_copy,batch_guard_copy,15148.3
 E03,2026-11-14,native_zero_fill,host_zero_H2D,device_memset,14012.94,11615.782,measured,"separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun; native host build unoptimized; see separate E05 host-only -O3 follow-up"
 E05,2026-11-14,native_host_o3,host_no_optimization_flag,host_O3_asserts_retained,11552.036,5680.301,measured,"native-only U,O,O,U; identical af8e9db source/CUBIN; no NDEBUG; no vLLM rerun"
 E06,2026-11-14,native_guard_lazy_diagnostic,eager_guard_message_O3,first_failure_guard_message_O3,5700.068,4902.032,measured,"native-only B,C,C,B; same host -O3, CUDA/canary/order/fences/alloc/CUBIN; no vLLM rerun"
+E07,2026-11-14,native_prepared_launch_plan,repeated_launch_preparation_O3,cached_prepared_launch_O3,4946.128,4828.602,measured,"native-only B,C,C,B; same -O3/no NDEBUG and numerical CUBIN; dynamic ownership/offset/ABI checks retained; no vLLM rerun"
