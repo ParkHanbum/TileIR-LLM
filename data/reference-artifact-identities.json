@@ -1,0 +1,22 @@
+{
+  "kind": "scoped_artifact_identity_audit_not_build_receipt",
+  "date": "2026-11-14",
+  "wheels": [
+    {
+      "filename": "vllm-0.32.0-cp38-abi3-manylinux_2_28_x86_64.whl",
+      "sha256": "5e2ecdc5b0baf72921c288486417ca82778456a448e4fe60b62ee43c0dfc8611",
+      "official_listing": "https://pypi.org/project/vllm/0.32.0/#files"
+    },
+    {
+      "filename": "torch-2.13.0-cp314-cp314-manylinux_2_28_x86_64.whl",
+      "sha256": "49f1ea385c754e54919408a9bb3b5a72b0b755bbe2c916c1d6f70afbec4908a2",
+      "official_listing": "https://pypi.org/project/torch/2.13.0/#files",
+      "runtime_version": "2.13.0+cu130"
+    }
+  ],
+  "current_extension_record_check": {
+    "filename": "_C_stable_libtorch.abi3.so",
+    "sha256": "ae9c8a293020e422e0b6b61d1024263dc476a772337f5d39d46d18baa7ce0ad9",
+    "scope": "current file, not complete historical binary provenance"
+  }
+}

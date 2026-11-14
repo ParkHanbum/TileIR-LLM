@@ -1,0 +1,47 @@
+{
+  "kind": "unfilled_preflight_template_not_run_evidence",
+  "package": {
+    "wheel_filename": null,
+    "official_distribution_url": null,
+    "wheel_sha256": null,
+    "runtime_version": null,
+    "cuda_version_suffix": null,
+    "extension_record_checks": [],
+    "actual_build_receipts": [],
+    "missing_historical_receipts": []
+  },
+  "workload": {
+    "model_revision": null,
+    "checkpoint_manifest_sha256": null,
+    "prompt_ids_sha256": null,
+    "dtype": null,
+    "batch_size": null,
+    "prompt_length": null,
+    "generation_length": null,
+    "sampler_eos_settings": null
+  },
+  "runtime": {
+    "enforce_eager": null,
+    "compile_mode": null,
+    "compiler_backend": null,
+    "effective_graph_mode": null,
+    "observed_dispatch_evidence": null,
+    "relevant_environment": {},
+    "prefix_cache": null,
+    "other_cache_aot_settings": null,
+    "kv_blocks": null,
+    "reserved_bytes": null,
+    "post_prepare_free_bytes": null
+  },
+  "measurement": {
+    "timer_boundary": null,
+    "prepare_seconds": null,
+    "warmup_requests": null,
+    "timed_requests": null,
+    "profiled": null,
+    "raw_samples_file": null,
+    "token_comparison_file": null,
+    "actual_exit_receipts": null,
+    "recovery_receipt": null
+  }
+}
