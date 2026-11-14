@@ -1,0 +1,9 @@
+operation,m,n,k,regime,arm,median_us,min_us,max_us,timed_samples
+decode_down,32,2560,9216,reused,v1,130.592,111.936,136.896,8
+decode_down,32,2560,9216,reused,C64,839.68,826.368,840.864,8
+decode_down,32,2560,9216,reused,S64,126.32,110.592,128.0,8
+decode_down,32,2560,9216,reused,GemmEx,134.592,83.968,137.984,8
+decode_down,32,2560,9216,rotation,v1,115.712,113.664,143.2,32
+decode_down,32,2560,9216,rotation,C64,799.744,797.696,842.752,32
+decode_down,32,2560,9216,rotation,S64,111.616,109.568,128.0,32
+decode_down,32,2560,9216,rotation,GemmEx,81.92,78.848,141.312,32
