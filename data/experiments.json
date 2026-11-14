@@ -66,6 +66,17 @@
       "candidate_median_ms": 4828.602,
       "status": "measured",
       "scope": "native-only B,C,C,B; same -O3/no NDEBUG and numerical CUBIN; dynamic ownership/offset/ABI checks retained; no vLLM rerun"
+    },
+    {
+      "id": "E08",
+      "date": "2026-11-14",
+      "comparison": "optimized_native_vs_vllm",
+      "reference_label": "native_O3_prepared_launch",
+      "candidate_label": "vLLM_0.32.0_fixed_KV_reservation",
+      "reference_median_ms": 4139.938,
+      "candidate_median_ms": 490.951,
+      "status": "measured",
+      "scope": "fresh N,V,V,N; RTX4080 BF16 B32/P53/G16; 16384 IDs exact; vLLM-only KV reservation control; warm0 dispatch observation outside timing"
     }
   ],
   "corrections": [
