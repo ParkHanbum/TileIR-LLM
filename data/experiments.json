@@ -10,7 +10,7 @@
       "reference_median_ms": 13527.36,
       "candidate_median_ms": 489.93,
       "status": "measured",
-      "scope": "warm resident fixed B32/P53/G16 BF16 request; summaries not raw data; native host build unoptimized; Release result not yet available"
+      "scope": "warm resident fixed B32/P53/G16 BF16 request; summaries not raw data; native host build unoptimized; see separate E05 host-only -O3 follow-up"
     },
     {
       "id": "E02",
@@ -21,7 +21,7 @@
       "reference_median_ms": 15148.3,
       "candidate_median_ms": 13847.13,
       "status": "measured",
-      "scope": "separate native-only ABBA; vLLM not rerun; native host build unoptimized; Release result not yet available"
+      "scope": "separate native-only ABBA; vLLM not rerun; native host build unoptimized; see separate E05 host-only -O3 follow-up"
     },
     {
       "id": "E03",
@@ -32,7 +32,18 @@
       "reference_median_ms": 14012.94,
       "candidate_median_ms": 11615.782,
       "status": "measured",
-      "scope": "separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun; native host build unoptimized; Release result not yet available"
+      "scope": "separate native-only H,D,D,H; both arms guard-batched; vLLM not rerun; native host build unoptimized; see separate E05 host-only -O3 follow-up"
+    },
+    {
+      "id": "E05",
+      "date": "2026-11-14",
+      "comparison": "native_host_o3",
+      "reference_label": "host_no_optimization_flag",
+      "candidate_label": "host_O3_asserts_retained",
+      "reference_median_ms": 11552.036,
+      "candidate_median_ms": 5680.301,
+      "status": "measured",
+      "scope": "native-only U,O,O,U; identical af8e9db source/CUBIN; no NDEBUG; no vLLM rerun"
     }
   ],
   "corrections": [
@@ -44,7 +55,7 @@
         "E03"
       ],
       "subject": "native_host_build",
-      "finding": "Recorded native host build has no -O flag; empty CMAKE_BUILD_TYPE and CMAKE_CXX_FLAGS. Prior timings retained for tested configurations; Release comparison pending.",
+      "finding": "Recorded E01\u2013E03 native host builds had no -O flag. Prior timings retained for tested configurations. E05 separately measures host-only -O3 with assertions retained.",
       "reference": "entries/2026-11-14-host-build-audit.html"
     }
   ]
