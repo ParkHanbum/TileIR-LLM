@@ -1,0 +1,126 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "K06",
+  "date": "2026-11-15",
+  "status": "standalone screening; no promotion/model/vLLM timing",
+  "shape": {
+    "M": 32,
+    "N": 18432,
+    "K": 2560
+  },
+  "views": {
+    "A": {
+      "shape": [
+        32,
+        2560
+      ],
+      "strides": [
+        2560,
+        1
+      ]
+    },
+    "W": {
+      "shape": [
+        18432,
+        2560
+      ],
+      "strides": [
+        2560,
+        1
+      ]
+    },
+    "Y": {
+      "shape": [
+        32,
+        18432
+      ],
+      "strides": [
+        18432,
+        1
+      ]
+    },
+    "Z": {
+      "shape": [
+        32,
+        9216
+      ],
+      "strides": [
+        9216,
+        1
+      ]
+    }
+  },
+  "natural_pair": "same sourcee9303397; tile32x64x64/occ2/grid1x288/int64/15param ABI/BF16+FP32+RN; descriptor bundle only",
+  "artifacts": {
+    "deployed": "5e3a0df5",
+    "c64": "4e5992cc",
+    "s64": "9ffbe065",
+    "historical_not_arm": "8b498117"
+  },
+  "input_scope": "actual W0/8/16/24 with captured A0, not four actual activations",
+  "static": {
+    "registers": [
+      254,
+      80
+    ],
+    "shared_bytes": [
+      16384,
+      49152
+    ],
+    "instructions": [
+      2152,
+      424
+    ]
+  },
+  "calls": {
+    "qualification": 64,
+    "warm": 32,
+    "timed": 128,
+    "total": 224
+  },
+  "validation": "rawY before unchangedSiLU and rawZ afterward;128 full comparisons/32raw files;exits/recovery pass",
+  "timing": "eight Williams blocks;32 descriptive samples/arm",
+  "paired_block_reduction_percent": 68.3880644,
+  "perbank_reduction_percent": [
+    67.0645042,
+    68.7955009,
+    68.6141316,
+    68.4399797
+  ],
+  "arms": [
+    {
+      "arm": "deployed",
+      "samples": 32,
+      "median_us": 705.536008,
+      "min_us": 694.271982,
+      "max_us": 713.728011
+    },
+    {
+      "arm": "c64",
+      "samples": 32,
+      "median_us": 622.7839885,
+      "min_us": 619.520009,
+      "max_us": 642.048001
+    },
+    {
+      "arm": "s64",
+      "samples": 32,
+      "median_us": 223.232001,
+      "min_us": 217.087999,
+      "max_us": 233.472005
+    },
+    {
+      "arm": "public",
+      "samples": 32,
+      "median_us": 175.104007,
+      "min_us": 173.056006,
+      "max_us": 223.232001
+    }
+  ],
+  "raw_samples": "gate-decode-specialization-samples.csv",
+  "raw_csv_sha256": "89e4f6317eaf3caf204e01db6a41819a3a2a9b267b0978955a2ae755b79094b3",
+  "paired_statistic": "median of8 block reductions; within each block each arm uses median of4 banks",
+  "timing_boundary": "start-oneGEMM enqueue-stop;4 independentY per pass without intervening sync/copies;passsync+eventwaits then fullvalidation",
+  "limits": "streamelapsed notbusy;fixedbankorder;readback/poison perturbcache;8pairedblocks not32independentreplicates",
+  "reference": "cuBLAS130101 math0 pointer0 compute68 algo99 dtype14 alpha1beta0 opWT/opAN ldaK/ldbK/ldcN same stream defaultworkspace"
+}
