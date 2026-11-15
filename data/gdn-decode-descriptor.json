@@ -1,0 +1,101 @@
+{
+  "kind": "summary_not_raw_measurements",
+  "id": "K05",
+  "date": "2026-11-15",
+  "status": "standalone synthetic pilot; no promotion or model result",
+  "state_shape": [
+    33,
+    32,
+    128,
+    128
+  ],
+  "state_leading_stride_elements": 524288,
+  "state_dtype": "FP32",
+  "X_padded_extent": 12288,
+  "ABI_parameters": 43,
+  "change": "same source/math/layout; shape/stride/align16 facts for compact live binding; already fused packed recurrence",
+  "generated": {
+    "control_registers": 255,
+    "S64_registers": 178,
+    "control_instructions": 3072,
+    "S64_instructions": 1696,
+    "control_stack_bytes": 8,
+    "S64_stack_bytes": 0,
+    "shared_bytes_both": 3328
+  },
+  "artifact_scope": "C64 full SASS including encoding matches deployed; ELF differs",
+  "qualification": "separate frozen six calls raw S/O equality; own state; slot0 preserved; <=0 branch untested",
+  "compared_bytes": {
+    "S": 69206016,
+    "O": 262144
+  },
+  "focused_calls": {
+    "qualification": 6,
+    "warm": 12,
+    "timed": 36,
+    "total": 54
+  },
+  "timing": "single66MiB bank; six balanced permutations; per step n6; stream event envelope with checked submit; step2 after full validation, not contiguous/busy/model",
+  "raw_samples": "gdn-decode-descriptor-samples.csv; public-safe chronological timed projection, not complete source artifact",
+  "medians": [
+    {
+      "step": 1,
+      "arm": "deployed",
+      "samples": 6,
+      "median_ms": 0.58624
+    },
+    {
+      "step": 1,
+      "arm": "C64",
+      "samples": 6,
+      "median_ms": 0.585088
+    },
+    {
+      "step": 1,
+      "arm": "S64",
+      "samples": 6,
+      "median_ms": 0.571216
+    },
+    {
+      "step": 2,
+      "arm": "deployed",
+      "samples": 6,
+      "median_ms": 0.58368
+    },
+    {
+      "step": 2,
+      "arm": "C64",
+      "samples": 6,
+      "median_ms": 0.581024
+    },
+    {
+      "step": 2,
+      "arm": "S64",
+      "samples": 6,
+      "median_ms": 0.564352
+    }
+  ],
+  "X_shape": [
+    32,
+    8192
+  ],
+  "X_strides_elements": [
+    12288,
+    1
+  ],
+  "X_owner_bytes": 786432,
+  "state_strides_elements": [
+    524288,
+    16384,
+    128,
+    1
+  ],
+  "O_shape": [
+    32,
+    1,
+    32,
+    128
+  ],
+  "O_dtype": "BF16",
+  "step2_caveat": "after full state/output D2H validation; residency affected; no measured DRAM"
+}
