@@ -1,0 +1,265 @@
+{
+  "schema": "tileir.logits.bf16.synthetic-fixtures.v1",
+  "generator": {
+    "file": "make_fixtures.py",
+    "sha256": "ed9802cf7f59fdcf5dba729d993794dca0ce51ec394df62c6ecd18abf367fc3c"
+  },
+  "numpy_version": "2.4.6",
+  "synthetic_not_saved_model_logits": true,
+  "shape": [
+    32,
+    248320
+  ],
+  "finite_status_words": 7760,
+  "greedy_blocks_per_row": 243,
+  "last_greedy_tile_valid": 512,
+  "last_greedy_tile_masked": 512,
+  "fixtures": [
+    {
+      "id": "adversarial",
+      "synthetic": true,
+      "expected_finite": true,
+      "input": {
+        "file": "adversarial.bf16",
+        "bytes": 15892480,
+        "sha256": "c26b34b2cfc0f44251994203fc014abb79edaa817c6b3e96bbd403e9e22ac0ff"
+      },
+      "expected_status": {
+        "file": "adversarial.status.i32",
+        "bytes": 31040,
+        "sha256": "04aabe1bd7183b78a0fa6efe1cb6aff6b97e5e8b03ebd76c68d2c83223663b3b"
+      },
+      "shape": [
+        32,
+        248320
+      ],
+      "strides": [
+        248320,
+        1
+      ],
+      "dtype": "bf16",
+      "input_bytes": 15892480,
+      "expected_V": {
+        "file": "adversarial.V.f32",
+        "bytes": 31104,
+        "sha256": "c4ff8e1a2cc6629bddde79e8e126a252528e457fe97c796582802af7a26a60df"
+      },
+      "expected_I": {
+        "file": "adversarial.I.i32",
+        "bytes": 31104,
+        "sha256": "42d996e031ce2ec90ee378dc5cc7136e33113fac77619099f59a22ef5a9fd9db"
+      },
+      "expected_ids": {
+        "file": "adversarial.ids.i64",
+        "bytes": 256,
+        "sha256": "4d1d633322c585b9e9c3f1e20469dfa186c8b1a0d14e3c382b597c9935114660"
+      },
+      "cast_sha256": "712392a1aa8183fe27cab6aec3cbf7a155484ffbee17019218a185115cad80b5",
+      "host_V_zero_sign_policy": "either zero sign for numeric oracle; cross-arm compact V raw bits must match exactly",
+      "compact_shape": [
+        32,
+        243
+      ],
+      "compact_strides": [
+        243,
+        1
+      ]
+    },
+    {
+      "id": "nominal",
+      "synthetic": true,
+      "expected_finite": true,
+      "input": {
+        "file": "nominal.bf16",
+        "bytes": 15892480,
+        "sha256": "7b5773f10b5e25a32373b17c44855e7a96d8a61602348243f3462fd48622e82b"
+      },
+      "expected_status": {
+        "file": "nominal.status.i32",
+        "bytes": 31040,
+        "sha256": "04aabe1bd7183b78a0fa6efe1cb6aff6b97e5e8b03ebd76c68d2c83223663b3b"
+      },
+      "shape": [
+        32,
+        248320
+      ],
+      "strides": [
+        248320,
+        1
+      ],
+      "dtype": "bf16",
+      "input_bytes": 15892480,
+      "expected_V": {
+        "file": "nominal.V.f32",
+        "bytes": 31104,
+        "sha256": "16e2b884628f24ac9fcf0dd302f4516d89953217f37796f9d13306e72670b39c"
+      },
+      "expected_I": {
+        "file": "nominal.I.i32",
+        "bytes": 31104,
+        "sha256": "364eec2f2fd90532b2c6825177a211b6ec6357ec67bf2d5940ed5a97bf217c15"
+      },
+      "expected_ids": {
+        "file": "nominal.ids.i64",
+        "bytes": 256,
+        "sha256": "6d0d50cfb62e8df42d6887ff76e54293c879a890bd05b890d42261c3337c59b5"
+      },
+      "cast_sha256": "794dc1ee05622a6032113980811680f77cf4fab9cdc1bc10527b43328b2c52c4",
+      "host_V_zero_sign_policy": "either zero sign for numeric oracle; cross-arm compact V raw bits must match exactly",
+      "compact_shape": [
+        32,
+        243
+      ],
+      "compact_strides": [
+        243,
+        1
+      ]
+    },
+    {
+      "id": "nan",
+      "synthetic": true,
+      "expected_finite": false,
+      "input": {
+        "file": "nan.bf16",
+        "bytes": 15892480,
+        "sha256": "12e88872ea82ef559e4292fc1647c2d613bcd6f1613f766e6a29257d3c54baf2"
+      },
+      "expected_status": {
+        "file": "nan.status.i32",
+        "bytes": 31040,
+        "sha256": "f7fb8e981723b0e2376a96cdc2e4a9c07c4687e469b30fb58981a19eef29ac53"
+      },
+      "shape": [
+        32,
+        248320
+      ],
+      "strides": [
+        248320,
+        1
+      ],
+      "dtype": "bf16",
+      "input_bytes": 15892480,
+      "nonfinite_flat_indices": [
+        0,
+        1023,
+        1024,
+        248319,
+        248320,
+        7945728,
+        7946239
+      ],
+      "nonfinite_patterns": [
+        32641,
+        65409,
+        32705,
+        65473,
+        32767,
+        65535,
+        32677
+      ],
+      "expected_rejected_before_blocks_and_finish": true
+    },
+    {
+      "id": "posinf",
+      "synthetic": true,
+      "expected_finite": false,
+      "input": {
+        "file": "posinf.bf16",
+        "bytes": 15892480,
+        "sha256": "63f5dbbd5ba44112b6e204de36eda6434c9728b332bb110800806e83f5a42bed"
+      },
+      "expected_status": {
+        "file": "posinf.status.i32",
+        "bytes": 31040,
+        "sha256": "f7fb8e981723b0e2376a96cdc2e4a9c07c4687e469b30fb58981a19eef29ac53"
+      },
+      "shape": [
+        32,
+        248320
+      ],
+      "strides": [
+        248320,
+        1
+      ],
+      "dtype": "bf16",
+      "input_bytes": 15892480,
+      "nonfinite_flat_indices": [
+        0,
+        1023,
+        1024,
+        248319,
+        248320,
+        7945728,
+        7946239
+      ],
+      "nonfinite_patterns": [
+        32640,
+        32640,
+        32640,
+        32640,
+        32640,
+        32640,
+        32640
+      ],
+      "expected_rejected_before_blocks_and_finish": true
+    },
+    {
+      "id": "neginf",
+      "synthetic": true,
+      "expected_finite": false,
+      "input": {
+        "file": "neginf.bf16",
+        "bytes": 15892480,
+        "sha256": "cf2e24a3c4115baed66503c602e565b75af1f54c1922721b5d6d8e2a886ba83b"
+      },
+      "expected_status": {
+        "file": "neginf.status.i32",
+        "bytes": 31040,
+        "sha256": "f7fb8e981723b0e2376a96cdc2e4a9c07c4687e469b30fb58981a19eef29ac53"
+      },
+      "shape": [
+        32,
+        248320
+      ],
+      "strides": [
+        248320,
+        1
+      ],
+      "dtype": "bf16",
+      "input_bytes": 15892480,
+      "nonfinite_flat_indices": [
+        0,
+        1023,
+        1024,
+        248319,
+        248320,
+        7945728,
+        7946239
+      ],
+      "nonfinite_patterns": [
+        65408,
+        65408,
+        65408,
+        65408,
+        65408,
+        65408,
+        65408
+      ],
+      "expected_rejected_before_blocks_and_finish": true
+    }
+  ],
+  "nominal_formula": "u=u32(i*1664525+1013904223);u^=u>>16;bits=(u&0x8000)|(0x3b80+((u>>16)%1408))",
+  "coverage": [
+    "all65280finiteBF16encodings in adversarial row0",
+    "alternating signed zero and lowest-index ties",
+    "all-negative rows and last-valid-half-tile winners",
+    "cross-block and final-half-tile tied maxima",
+    "signed signaling/quiet NaN,+Inf,-Inf at fixed global/row/chunk/tail boundaries"
+  ],
+  "limits": [
+    "CPU oracle/generator only; no GPU execution",
+    "Host max oracle permits either signed zero value; raw GPU V comparison across arms remains strict",
+    "One deterministic nominal finite fixture for timing; not real logits or cache-neutral evidence",
+    "Sentinels/correct values do not prove absence of out-of-bounds reads"
+  ]
+}

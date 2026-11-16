@@ -1,0 +1,522 @@
+{
+  "schema": "tileir.logits.bf16.ab.public-timing-projection.v1",
+  "source_result_sha256": "485644646c05153b84325ed61f1422e183c984277257384de44666cfc64f479a",
+  "plan_sha256": "c0cd4ff903477ce2447da74aab6cd5834bd1bef9e38fee6fc061768dbc2ee74b",
+  "synthetic": true,
+  "shape": [
+    32,
+    248320
+  ],
+  "event_scope": "Sum of separate per-kernel stream-event intervals; mandatory host finite verdict and validation excluded, not contiguous pipeline/model latency.",
+  "rows": [
+    {
+      "round": 0,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0378880017
+    },
+    {
+      "round": 0,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0320959985
+    },
+    {
+      "round": 0,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0346559994
+    },
+    {
+      "round": 0,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0247680005
+    },
+    {
+      "round": 0,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0296960007
+    },
+    {
+      "round": 0,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0356479995
+    },
+    {
+      "round": 0,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0227199998
+    },
+    {
+      "round": 1,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0305279996
+    },
+    {
+      "round": 1,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0327679999
+    },
+    {
+      "round": 1,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0225280002
+    },
+    {
+      "round": 1,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0399359986
+    },
+    {
+      "round": 1,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0452799983
+    },
+    {
+      "round": 1,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.035840001
+    },
+    {
+      "round": 1,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0238719992
+    },
+    {
+      "round": 2,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.044032
+    },
+    {
+      "round": 2,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0335999988
+    },
+    {
+      "round": 2,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0235520005
+    },
+    {
+      "round": 2,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0451840013
+    },
+    {
+      "round": 2,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0315520018
+    },
+    {
+      "round": 2,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0337920003
+    },
+    {
+      "round": 2,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0245760009
+    },
+    {
+      "round": 3,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0376319997
+    },
+    {
+      "round": 3,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0310079996
+    },
+    {
+      "round": 3,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0356159993
+    },
+    {
+      "round": 3,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0235520005
+    },
+    {
+      "round": 3,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.027648
+    },
+    {
+      "round": 3,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0337920003
+    },
+    {
+      "round": 3,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0225280002
+    },
+    {
+      "round": 4,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0286720004
+    },
+    {
+      "round": 4,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0327679999
+    },
+    {
+      "round": 4,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0232960004
+    },
+    {
+      "round": 4,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0386239998
+    },
+    {
+      "round": 4,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0317439996
+    },
+    {
+      "round": 4,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0348160006
+    },
+    {
+      "round": 4,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0245440006
+    },
+    {
+      "round": 5,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0389119983
+    },
+    {
+      "round": 5,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0315520018
+    },
+    {
+      "round": 5,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0357440002
+    },
+    {
+      "round": 5,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0238719992
+    },
+    {
+      "round": 5,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0285119992
+    },
+    {
+      "round": 5,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0334400013
+    },
+    {
+      "round": 5,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0225920007
+    },
+    {
+      "round": 6,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.0389119983
+    },
+    {
+      "round": 6,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.0481280014
+    },
+    {
+      "round": 6,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0348160006
+    },
+    {
+      "round": 6,
+      "position": 0,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0264320001
+    },
+    {
+      "round": 6,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0430079997
+    },
+    {
+      "round": 6,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0337279998
+    },
+    {
+      "round": 6,
+      "position": 1,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0235520005
+    },
+    {
+      "round": 7,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finite_bf16",
+      "event_ms": 0.0430079997
+    },
+    {
+      "round": 7,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "blocks_bf16",
+      "event_ms": 0.0340479985
+    },
+    {
+      "round": 7,
+      "position": 0,
+      "arm": "bf16",
+      "kernel": "finish",
+      "event_ms": 0.0225600004
+    },
+    {
+      "round": 7,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "cast",
+      "event_ms": 0.047104001
+    },
+    {
+      "round": 7,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finite_fp32",
+      "event_ms": 0.030816
+    },
+    {
+      "round": 7,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "blocks_fp32",
+      "event_ms": 0.0348160006
+    },
+    {
+      "round": 7,
+      "position": 1,
+      "arm": "legacy",
+      "kernel": "finish",
+      "event_ms": 0.0242560003
+    }
+  ],
+  "timing_paths": [
+    {
+      "round": 0,
+      "position": 0,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1294080001,
+      "kernel_count": 4
+    },
+    {
+      "round": 0,
+      "position": 1,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.088064,
+      "kernel_count": 3
+    },
+    {
+      "round": 1,
+      "position": 0,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.0858239997,
+      "kernel_count": 3
+    },
+    {
+      "round": 1,
+      "position": 1,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1449279971,
+      "kernel_count": 4
+    },
+    {
+      "round": 2,
+      "position": 0,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.10118399930000001,
+      "kernel_count": 3
+    },
+    {
+      "round": 2,
+      "position": 1,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1351040043,
+      "kernel_count": 4
+    },
+    {
+      "round": 3,
+      "position": 0,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1278079991,
+      "kernel_count": 4
+    },
+    {
+      "round": 3,
+      "position": 1,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.0839680005,
+      "kernel_count": 3
+    },
+    {
+      "round": 4,
+      "position": 0,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.0847360007,
+      "kernel_count": 3
+    },
+    {
+      "round": 4,
+      "position": 1,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1297280006,
+      "kernel_count": 4
+    },
+    {
+      "round": 5,
+      "position": 0,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1300799995,
+      "kernel_count": 4
+    },
+    {
+      "round": 5,
+      "position": 1,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.0845440012,
+      "kernel_count": 3
+    },
+    {
+      "round": 6,
+      "position": 0,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1482880004,
+      "kernel_count": 4
+    },
+    {
+      "round": 6,
+      "position": 1,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.100288,
+      "kernel_count": 3
+    },
+    {
+      "round": 7,
+      "position": 0,
+      "arm": "bf16",
+      "kernel_event_ms_sum": 0.0996159986,
+      "kernel_count": 3
+    },
+    {
+      "round": 7,
+      "position": 1,
+      "arm": "legacy",
+      "kernel_event_ms_sum": 0.1369920019,
+      "kernel_count": 4
+    }
+  ],
+  "paired_median_reduction": 0.3333544737621259,
+  "positive_rounds": 8,
+  "automatic_promotion": false
+}
